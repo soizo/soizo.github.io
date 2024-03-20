@@ -1,0 +1,97 @@
+body {
+	background-color: black;
+	color: white;
+	writing-mode: vertical-rl;
+	-webkit-writing-mode: vertical-rl;
+}
+
+
+p.內容::selection,
+p.內容 ruby::selection,
+p.內容 rt::selection,
+p.內容 b::selection {
+	color: black;
+	background-color: #ffffff;
+}
+
+
+p.內容 a {
+	color: aqua;
+}
+
+p.內容 a::selection {
+	color: black;
+	background-color: aqua;
+}
+
+p.日期::selection,
+p.日期 ruby::selection,
+p.日期 rt::selection,
+p.日期 b::selection {
+	color: black;
+	background-color: #80ffaa;
+}
+
+br::selection {
+	color: #00000000;
+	background-color: #00000000;
+}
+
+hr.同日 {
+	border: none;
+	border-right: 3px solid #ffffff10;
+}
+
+hr.轉日 {
+	border: none;
+	border-right: 3px solid #ffffff60;
+}
+
+.日期 {
+	font-size: 15px;
+	color: #80ffaa;
+	padding-left: 0px;
+}
+
+.內容 {
+	font-size: 20px;
+	color: #ffffff;
+	padding-left: 0px;
+}
+
+.複製今日道曆 {
+	text-decoration: none;
+	border: 0.5px dashed #00000000;
+	color: white;
+	background-color: #00000000;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 20px;
+}
+
+@media (hover: hover) {
+
+	.複製今日道曆:hover {
+		color: #000000;
+		background-color: #ffffff;
+	}
+
+	.複製今日道曆:active {
+		color: aqua;
+		background-color: #000000;
+		border-color: aqua;
+	}
+
+}
+
+@media (hover: none) {
+
+	.複製今日道曆:focus {
+		color: #000000;
+		background-color: #ffffff;
+	}
+	
+}
