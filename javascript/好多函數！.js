@@ -254,7 +254,7 @@ function convertToLunar(DATE, trans = true) {
   function Lunar字串(date) {
     let 模子 = new Lunar(date);
     let 輸出 = [];
-    輸出.push(Number(模子.month.toFixed(0)), 模子.day.toFixed(0) - 1);
+    輸出.push(+模子.month.toFixed(0), +模子.day.toFixed(0));
     return 輸出;
   }
   if (trans) {
@@ -376,7 +376,6 @@ function 轉換道曆(input, trans = true, 格式) {
     顯_月日.push(顯_月日tmp[0] + 顯_月日tmp[1], 顯_月日tmp[2] + 顯_月日tmp[3]);
     顯_年 = replaceTextWithDictionary(String(道曆年數), 年數字);
   }
-
   if (格式 === undefined) {
     輸出.push(
       顯_年,
@@ -388,7 +387,6 @@ function 轉換道曆(input, trans = true, 格式) {
     );
   } else {
     var engdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-    console.log(週);
     輸出 = 格式.replace(
       /\[干支\]|y+|Y+|m+|M+|D+|d+|W+|w+|H+|Q+/g,
       function (match) {
@@ -477,14 +475,14 @@ function 轉換道曆(input, trans = true, 格式) {
                 return 道曆年數;
             }
           case "m":
-            const m = 轉換道曆(new Date(), 0, undefined)[1];
+            const m = 轉換道曆(DATE, 0, undefined)[1];
             return (
               (m < 10 * (match.length - 1)
                 ? "0".repeat(match.length - String(m).length)
                 : "") + m
             );
           case "d":
-            const d = 轉換道曆(new Date(), 0, undefined)[2];
+            const d = 轉換道曆(DATE, 0, undefined)[2];
             return (
               (d < 10 * (match.length - 1)
                 ? "0".repeat(match.length - String(d).length)
@@ -497,6 +495,6 @@ function 轉換道曆(input, trans = true, 格式) {
   return 輸出;
 }
 
-// console.log(轉換道曆(new Date(), 1, undefined));
-// console.log(轉換道曆(new Date(), 1, "[干支]/YYYY/MMDD/WWW/ww/HHQQ"));
-console.log(轉換道曆(new Date(), 0, "www\tyyyy/mm/dd/HHQQ"));
+/// console.log(轉換道曆(new Date(), 1, undefined));
+/// console.log(轉換道曆(new Date(), 1, "[干支]/YYYY/MMDD/WWW/ww/HHQQ"));
+/// console.log(轉換道曆(new Date(), 0, "www\tyyyy/mm/dd/HHQQ"));

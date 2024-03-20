@@ -6,6 +6,18 @@ body {
 }
 
 
+p.內容 a {
+	color: aqua;
+}
+
+p.內容 a::selection,
+p.內容 a ruby::selection,
+p.內容 a rt::selection,
+p.內容 a b::selection {
+	color: black;
+	background-color: aqua;
+}
+
 p.內容::selection,
 p.內容 ruby::selection,
 p.內容 rt::selection,
@@ -14,15 +26,6 @@ p.內容 b::selection {
 	background-color: #ffffff;
 }
 
-
-p.內容 a {
-	color: aqua;
-}
-
-p.內容 a::selection {
-	color: black;
-	background-color: aqua;
-}
 
 p.日期::selection,
 p.日期 ruby::selection,
@@ -93,5 +96,5 @@ hr.轉日 {
 		color: #000000;
 		background-color: #ffffff;
 	}
-	
+
 }
