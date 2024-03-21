@@ -494,7 +494,3 @@ function 轉換道曆(input, trans = true, 格式) {
   }
   return 輸出;
 }
-
-/// console.log(轉換道曆(new Date(), 1, undefined));
-/// console.log(轉換道曆(new Date(), 1, "[干支]/YYYY/MMDD/WWW/ww/HHQQ"));
-/// console.log(轉換道曆(new Date(), 0, "www\tyyyy/mm/dd/HHQQ"));

@@ -130,10 +130,10 @@ function 內容替換(文本) {
       );
     });
   }
-  if (checkClassInHtmlString(文本, "播放器")) {
+  if (checkClassInHtmlString(文本, "塊")) {
     輸出 = 輸出.replace(/((?<=\>)\s+)|(\s+(?=\<))/g, "");
   }
-    輸出 = 輸出.replace(/([\r\n]+$)/g, "");
+  輸出 = 輸出.replace(/([\r\n]+$)/g, "");
   let 匹配結果 = 輸出.match(/\<全角\=[a-zA-Z]+\=全角\>/g);
 
   if (匹配結果 && 匹配結果.length > 0) {

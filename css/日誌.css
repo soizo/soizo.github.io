@@ -16,7 +16,7 @@ div.內容 *::selection {
 }
 
 div.內容,
-div.內容 *{
+div.內容 * {
 	white-space: pre-wrap;
 }
 
@@ -26,23 +26,21 @@ div.內容 a *::selection {
 	background-color: aqua;
 }
 
-div.引用,
-div.播放器 {
-	font-size: medium;
+div.塊 {
+	font-size: 14px;
 	padding: 10px;
 	border: 1px solid #808080;
 	margin: 30px;
 }
 
-div.播放器 {
+div.橫 {
 	writing-mode: horizontal-tb;
 	-webkit-writing-mode: horizontal-tb;
-	font-size: 14px;
-	padding: none;
 }
 
-div.引用::selection {
-	color: white;
+div.塊::selection,
+div.塊 *::selection {
+	color: rgb(0, 0, 0);
 	background-color: #808080;
 
 }
