@@ -118,8 +118,22 @@ function replaceRubyFormat(input) {
 }
 
 function 內容替換(文本) {
+  console.log(文本);
   let 輸出 = 文本;
-  輸出 = 輸出.replace(/[\r\n]+$/g, "").replace(/\r\n/g, "</br>");
+  function checkClassInHtmlString(htmlString, className) {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = htmlString;
+    return Array.from(tempDiv.childNodes).some((node) => {
+      return (
+        node.nodeType === Node.ELEMENT_NODE &&
+        node.classList.contains(className)
+      );
+    });
+  }
+  if (checkClassInHtmlString(文本, "播放器")) {
+    輸出 = 輸出.replace(/((?<=\>)\s+)|(\s+(?=\<))/g, "");
+  }
+    輸出 = 輸出.replace(/([\r\n]+$)/g, "");
   let 匹配結果 = 輸出.match(/\<全角\=[a-zA-Z]+\=全角\>/g);
 
   if (匹配結果 && 匹配結果.length > 0) {
@@ -158,9 +172,9 @@ function 処理(文本) {
       .map(function (v, i) {
         let vl = v;
         if (i == 0) {
-          return "<p class='日期'>" + 日期替換(vl) + "</p>";
+          return "<div class='日期'>" + 日期替換(vl) + "</div>";
         } else {
-          return "<p class='內容'>" + 內容替換(vl) + "</p>";
+          return "<div class='內容'>" + 內容替換(vl) + "</div>";
         }
       })
       .join("");
@@ -168,7 +182,7 @@ function 処理(文本) {
   });
 
   修改後的列表 = 修改後的列表.reverse().map((item, index, arr) => {
-    const regex = /(?<=\<p class\=\'日期\'\>.+).{4}・.{4}(?=.+)/;
+    const regex = /(?<=\<div class\=\'日期\'\>.+).{4}・.{4}(?=.+)/;
     const match = item.match(regex);
     let newItem = item;
 

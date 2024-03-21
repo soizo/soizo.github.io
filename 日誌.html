@@ -19,7 +19,7 @@
 	<script>
 		document.querySelectorAll('.複製今日道曆').forEach(link => {
 			link.addEventListener('click', async function (event) {
-				event.preventDefault();				try {
+				event.preventDefault(); try {
 					const textToCopy = 轉換道曆(new Date(), 1, `/---/\nwww\tyyyy/mm/dd/HHQQ`);
 					await navigator.clipboard.writeText(textToCopy);
 				} catch (err) {
@@ -28,7 +28,7 @@
 		});
 	</script>
 
-	<div id="日誌內容" style="white-space: pre-wrap;">
+	<div id="日誌內容">
 		<script src="./javascript/日誌/処理文本.js">
 		</script>
 	</div>
