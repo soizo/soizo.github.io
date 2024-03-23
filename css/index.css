@@ -2,5 +2,5 @@ body {
 	background-color: black;
 	color: white;
 	writing-mode: vertical-rl;
-	/* overflow: hidden; */
+	/** overflow: hidden; */
 }
