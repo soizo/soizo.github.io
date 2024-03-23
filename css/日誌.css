@@ -1,9 +1,11 @@
 @font-face {
 	font-family: '閹割unifont';
-	src: url('/fonts/閹割unifont.woff2');
+	src: url('/fonts/閹割unifont.woff2') format('woff2');
+	font-display: swap;
 }
 
-body *{
+body *,
+body {
 	font-family: '閹割unifont';
 }
 
@@ -59,6 +61,13 @@ div.日期::selection,
 div.日期 *::selection {
 	color: black;
 	background-color: #80ffaa;
+}
+
+br {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 br::selection {
