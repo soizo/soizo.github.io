@@ -1,5 +1,5 @@
 (async () => {
-  const 原始文件 = await 異步抓取文件("./assets/日誌.txt");
+  const 原始文件 = await 異步抓取文件("/assets/日誌.txt");
 
   var 最終 = 処理(原始文件);
 
