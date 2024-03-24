@@ -464,7 +464,7 @@ input[type=range]::-webkit-slider-thumb {
 	box-shadow: none;
 	height: 21px;
 	transform: translateY(-8px);
-	width: 11px
+	width: 11px;
 }
 
 input[type=range].has-box-indicator::-webkit-slider-thumb {

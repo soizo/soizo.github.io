@@ -55,9 +55,9 @@ input[type=submit] {
 	border-radius: 0;
 	box-sizing: border-box;
 	color: transparent;
-	min-height: 23px;
-	min-width: 75px;
-	padding: 0 12px;
+	min-height: 75px;
+	min-width: 23px;
+	padding: 12px 6px;
 	text-shadow: 0 0 #222
 }
 
@@ -125,21 +125,21 @@ input[type=submit]:disabled {
 
 .title-bar {
 	align-items: center;
-	background: linear-gradient(90deg, navy, #1084d0);
+	background: linear-gradient(180deg, navy, #1084d0);
 	display: flex;
 	justify-content: space-between;
 	padding: 3px 2px 3px 3px
 }
 
 .title-bar.inactive {
-	background: linear-gradient(90deg, grey, #b5b5b5)
+	background: linear-gradient(180deg, grey, #b5b5b5)
 }
 
 .title-bar-text {
 	color: #fff;
 	font-weight: 700;
 	letter-spacing: 0;
-	margin-right: 24px
+	margin-bottom: 24px
 }
 
 .title-bar-controls {
@@ -148,8 +148,8 @@ input[type=submit]:disabled {
 
 .title-bar-controls button {
 	display: block;
-	min-height: 14px;
 	min-width: 16px;
+	min-height: 14px;
 	padding: 0
 }
 
@@ -169,27 +169,27 @@ input[type=submit]:disabled {
 
 .title-bar-controls button[aria-label=Maximize] {
 	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 0H0v9h9V0zM8 2H1v6h7V2z' fill='%23000'/%3E%3C/svg%3E");
-	background-position: top 2px left 3px;
+	background-position: right 4px top 2px;
 	background-repeat: no-repeat
 }
 
 .title-bar-controls button[aria-label=Restore] {
 	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M2 0h6v2H2zM7 2h1v4H7zM2 2h1v1H2zM6 5h1v1H6zM0 3h6v2H0zM5 5h1v4H5zM0 5h1v4H0zM1 8h4v1H1z'/%3E%3C/svg%3E");
-	background-position: top 2px left 3px;
+	background-position: right 2px top 3px;
 	background-repeat: no-repeat
 }
 
 .title-bar-controls button[aria-label=Help] {
 	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M0 1h2v2H0zM1 0h4v1H1zM4 1h2v2H4zM3 3h2v1H3zM2 4h2v2H2zM2 7h2v2H2z'/%3E%3C/svg%3E");
-	background-position: top 2px left 5px;
+	background-position: right 2px top 5px;
 	background-repeat: no-repeat
 }
 
 .title-bar-controls button[aria-label=Close] {
 	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
-	background-position: top 3px left 4px;
+	background-position: right 4px top 3px;
 	background-repeat: no-repeat;
-	margin-left: 2px
+	margin-top: 2px
 }
 
 .status-bar {
@@ -226,11 +226,11 @@ legend {
 }
 
 [class^=field-row]+[class^=field-row] {
-	margin-top: 6px
+	margin-right: 6px
 }
 
 .field-row>*+* {
-	margin-left: 6px
+	margin-top: 6px
 }
 
 .field-row-stacked {
@@ -239,7 +239,7 @@ legend {
 }
 
 .field-row-stacked *+* {
-	margin-top: 6px
+	margin-bottom: 6px
 }
 
 label {
@@ -261,11 +261,11 @@ input[type=radio] {
 
 input[type=checkbox]+label,
 input[type=radio]+label {
-	line-height: 13px
+	line-height: 13px;
 }
 
 input[type=radio]+label {
-	margin-left: 18px;
+	margin-top: 18px;
 	position: relative
 }
 
@@ -274,10 +274,10 @@ input[type=radio]+label:before {
 	content: "";
 	display: inline-block;
 	height: 12px;
-	left: -18px;
-	margin-right: 6px;
+	top: -18px;
+	margin-bottom: 6px;
 	position: absolute;
-	top: 0;
+	right: 0;
 	width: 12px
 }
 
@@ -290,9 +290,9 @@ input[type=radio]:checked+label:after {
 	content: "";
 	display: block;
 	height: 4px;
-	left: -14px;
+	top: -14px;
 	position: absolute;
-	top: 4px;
+	right: 4px;
 	width: 4px
 }
 
@@ -310,8 +310,9 @@ input[type=radio][disabled]:checked+label:after {
 }
 
 input[type=checkbox]+label {
-	margin-left: 19px;
-	position: relative
+	margin-top: 19px;
+	position: relative;
+	top: 0px;
 }
 
 input[type=checkbox]+label:before {
@@ -320,11 +321,12 @@ input[type=checkbox]+label:before {
 	content: "";
 	display: inline-block;
 	height: 13px;
-	left: -19px;
-	margin-right: 6px;
+	width: 13px;
+	top: -19px;
+	margin-bottom: 6px;
 	position: absolute;
-	width: 13px
 }
+
 
 input[type=checkbox]:active+label:before {
 	background: silver
@@ -335,18 +337,21 @@ input[type=checkbox]:checked+label:after {
 	content: "";
 	display: block;
 	height: 7px;
-	left: -16px;
+	top: -16px;
 	position: absolute;
-	top: 3px;
+	right: 3px;
 	width: 7px
 }
 
 input[type=checkbox][disabled]+label:before {
-	background: silver
+	background: silver;
+	/* top: -25px; */
 }
 
 input[type=checkbox][disabled]:checked+label:after {
-	background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H6v1H5v1H4v1H3v1H2V3H1V2H0v3h1v1h1v1h1V6h1V5h1V4h1V3h1V0z' fill='gray'/%3E%3C/svg%3E")
+	background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H6v1H5v1H4v1H3v1H2V3H1V2H0v3h1v1h1v1h1V6h1V5h1V4h1V3h1V0z' fill='gray'/%3E%3C/svg%3E");
+	/* top: -22px; */
+	/* top: 0px; */
 }
 
 input[type=email],
@@ -368,7 +373,7 @@ select {
 	background-color: #fff;
 	box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
 	box-sizing: border-box;
-	padding: 3px 4px
+	padding: 4px 3px;
 }
 
 select,
@@ -377,6 +382,8 @@ textarea {
 }
 
 textarea {
+	resize: none;
+	/* 隱藏原生的resizer */
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -384,18 +391,38 @@ textarea {
 	border-radius: 0;
 	box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
 	box-sizing: border-box;
-	padding: 3px 4px
+	padding: 4px 3px;
+	position: relative;
+	/* 为伪元素定位做准备 */
 }
+
+textarea::after {
+	content: '';
+	/* 伪元素内容为空 */
+	position: absolute;
+	/* 绝对定位 */
+	left: 0;
+	/* 放在左下角 */
+	bottom: 0;
+	width: 10px;
+	/* 调整为所需的尺寸 */
+	height: 10px;
+	background: #aaa;
+	/* 这里可以设置为你想要的样式 */
+	cursor: se-resize;
+	/* 显示一个可以调整大小的光标 */
+}
+
 
 input[type=email],
 input[type=password],
 input[type=text],
 select {
-	height: 21px
+	width: 21px;
 }
 
 input[type=number] {
-	height: 22px
+	width: 22px;
 }
 
 input[type=email],
@@ -455,7 +482,7 @@ input[type=range]::-webkit-slider-thumb {
 	box-shadow: none;
 	height: 21px;
 	transform: translateY(-8px);
-	width: 11px
+	width: 11px;
 }
 
 input[type=range].has-box-indicator::-webkit-slider-thumb {
