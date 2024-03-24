@@ -4,3 +4,7 @@ body {
 	writing-mode: vertical-rl;
 	/** overflow: hidden; */
 }
+
+.聊天 {
+	writing-mode: horizontal-tb;
+}
