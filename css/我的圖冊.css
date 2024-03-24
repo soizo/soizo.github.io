@@ -1,3 +1,14 @@
+@font-face {
+	font-family: '閹割unifont';
+	src: url('/fonts/閹割unifont.woff2') format('woff2');
+	font-display: swap;
+}
+
+body *,
+body {
+	font-family: '閹割unifont';
+}
+
 body {
 	background-color: black;
 	color: white;

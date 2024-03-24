@@ -1,3 +1,13 @@
+@font-face {
+	font-family: "HanaMinA";
+	src: url(https://cdn.jsdelivr.net/gh/max32002/max-hana@1.1/webfont/HanaMinA.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/max32002/max-hana@1.1/webfont/HanaMinA.woff) format("woff");
+}
+
+body *,
+body {
+	font-family: 'HanaMinA';
+}
+
 body {
 	writing-mode: vertical-rl;
 	overflow: hidden;
@@ -5,16 +15,31 @@ body {
 	background-color: blue;
 }
 
-h1 {
+.大 {
+	font-weight: bold;
 	font-size: 300px;
 	line-height: 300px;
 	padding: 5px 0 0 0;
 	margin: 0px;
 }
 
-p {
+.中 {
 	font-size: 50px;
 	line-height: 50px;
 	padding: 15px 0 0 0;
 	margin: 0px;
+}
+
+a {
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	font-weight: bold;
+	color: #00ffff;
+	opacity: 30%;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	opacity: 100%;
 }

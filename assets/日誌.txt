@@ -161,3 +161,6 @@ SAT	4720/02/15/未初二刻
 /---/
 SAT	4720/02/15/未正三刻
 大家好啊，我找到了<a href="https://jdan.github.io/98.css/#tabs" target="_blank">98.css</a>，好帅
+/---/
+SUN	4720/02/16/酉初四刻
+98-2.css（<a>98.css</a>的竖版）太难搞了，我要气死了
