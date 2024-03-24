@@ -37,5 +37,6 @@ a {
 
 a:hover {
 	color: white;
+	background-color: black;
 	opacity: 100%;
 }
