@@ -124,12 +124,7 @@ function formatToChineseDate(dateString) {
   }
 
   const monthName = monthNames[month - 1];
-  const dayName =
-    day <= 10
-      ? dayNames[day - 1]
-      : day <= 20
-      ? "十" + dayNames[day - 11]
-      : dayNames[day - 1];
+  const dayName = dayNames[day];
 
   return monthName + dayName;
 }
@@ -180,7 +175,34 @@ function 內容替換(文本) {
     });
   }
   輸出 = replaceRubyFormat(輸出);
-  輸出 = replaceTextWithDictionary(輸出, 豎排符號);
+  function 豎排符號一下(inputString) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(inputString, "text/html");
+    const body = doc.body;
+
+    function processNode(node) {
+      if (
+        node.nodeType === Node.ELEMENT_NODE &&
+        node.classList.contains("橫")
+      ) {
+        return;
+      }
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent = replaceTextWithDictionary(
+          node.textContent,
+          豎排符號
+        );
+      }
+
+      node.childNodes.forEach(processNode);
+    }
+
+    processNode(body);
+
+    return body.innerHTML;
+  }
+  輸出 = 豎排符號一下(輸出);
   return 輸出;
 }
 
