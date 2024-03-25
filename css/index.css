@@ -2,9 +2,18 @@ body {
 	background-color: black;
 	color: white;
 	writing-mode: vertical-rl;
-	/** overflow: hidden; */
+	overflow-y: hidden;
 }
 
 .聊天 {
 	writing-mode: horizontal-tb;
+}
+
+#文者燒殺人 {
+	/* position: absolute;
+	top: 50%;
+	transform: translate(0, -50%); */
+	width: 200px;
+	image-rendering: pixelated;
+	margin-right: -20px;
 }
