@@ -1,5 +1,5 @@
 (async () => {
-  const 原始文件 = await 抓取文件("./assets/我的圖冊.json");
+  const 原始文件 = await 抓取文件("./json/公共/圖象索引.json");
   var 最終 = 処理(原始文件);
   var 全部圖片 = document.getElementById("全部圖片");
   全部圖片.innerHTML = 最終;

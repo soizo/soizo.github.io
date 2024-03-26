@@ -23,7 +23,7 @@ function createPopText(text, color, backgroundColor) {
   var textElement = document.createElement("div");
   textElement.classList.add("pop-text");
   textElement.classList.add("unselectable");
-  textElement.textContent = text || "默认文本";
+  textElement.textContent = text || "";
   document.body.appendChild(textElement);
 
   textElement.style.position = "fixed";
