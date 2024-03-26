@@ -55,16 +55,22 @@ body {
 }
 
 
-/* #个人紹介 h2,
-#个人紹介 h2 *,
-#个人紹介 p {
-	white-space: pre;
-} */
 
-#个人紹介 h2,
-#个人紹介 h2 * {
+#个人紹介>h1,
+#个人紹介>h2,
+#个人紹介>h3 {
 	font-family: "只需HanaMinA";
+
+}
+
+#个人紹介>h2,
+#个人紹介>h2 * {
 	font-size: 50px;
+}
+
+#个人紹介>h3,
+#个人紹介>h3 * {
+	font-size: 35px;
 }
 
 #个人紹介 *::selection {
@@ -74,21 +80,32 @@ body {
 
 #頁貼 {
 	float: left;
-	/* border: 1px solid rgb(41, 124, 92); */
-	/* margin: 10px 10px 5px 5px; */
 	width: 270px;
 }
 
+/* 默认的遮挡颜色 */
 .遮擋下 {
-	-webkit-transition-duration: 0.3s;
-	transition-duration: 0.3s;
-	background-color: white;
-	color: rgba(0, 0, 0, 0);
-	/* 黑色文字，50% 透明度 */
+	background-color: #00000080;
 }
 
-.遮擋下:hover {
-	color: rgba(0, 0, 0, 100%);
+.遮擋下 {
+	color: transparent;
+	transition: 0.3s;
+}
+
+.遮擋下.hide-children * {
+	opacity: 0;
+	transition: 0.3s;
+}
+
+
+.遮擋下.hide-overlay {
+	color: initial;
+	background-color: transparent;
+}
+
+.遮擋下 *:not(a) {
+	color: black;
 }
 
 div.塊 {
