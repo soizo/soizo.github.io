@@ -1,12 +1,12 @@
 @font-face {
-	font-family: '所求䈎尋无HanaMin';
-	src: url('/fonts/所求䈎尋无HanaMin.woff2') format('woff2');
+	font-family: '只需HanaMinA';
+	src: url('/fonts/只需HanaMinA.ttf') format('TrueType');
 	font-display: swap;
 }
 
 body *,
 body {
-	font-family: '所求䈎尋无HanaMin';
+	font-family: '只需HanaMinA';
 }
 
 body {

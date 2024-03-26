@@ -1,3 +1,20 @@
+@font-face {
+	font-family: '閹割unifont';
+	src: url('/fonts/閹割unifont.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: '只需HanaMinA';
+	src: url('/fonts/只需HanaMinA.ttf') format('TrueType');
+	font-display: swap;
+}
+
+body *,
+body {
+	font-family: '閹割unifont';
+}
+
 body {
 	background-color: black;
 	color: white;
@@ -10,10 +27,80 @@ body {
 }
 
 #文者燒殺人 {
-	/* position: absolute;
-	top: 50%;
-	transform: translate(0, -50%); */
 	width: 200px;
 	image-rendering: pixelated;
 	margin-right: -20px;
+}
+
+#上列 {
+	height: 675px;
+	vertical-align: baseline;
+}
+
+#下列 {
+	height: 225px;
+	width: auto;
+	vertical-align: baseline;
+}
+
+#个人紹介 {
+	border: none;
+	background-color: red;
+	color: black;
+}
+
+#个人紹介 * {
+	margin: 0;
+	font-size: 23px;
+}
+
+
+/* #个人紹介 h2,
+#个人紹介 h2 *,
+#个人紹介 p {
+	white-space: pre;
+} */
+
+#个人紹介 h2,
+#个人紹介 h2 * {
+	font-family: "只需HanaMinA";
+	font-size: 50px;
+}
+
+#个人紹介 *::selection {
+	background-color: black;
+	color: red;
+}
+
+#頁貼 {
+	float: left;
+	/* border: 1px solid rgb(41, 124, 92); */
+	/* margin: 10px 10px 5px 5px; */
+	width: 270px;
+}
+
+.遮擋下 {
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	background-color: white;
+	color: rgba(0, 0, 0, 0);
+	/* 黑色文字，50% 透明度 */
+}
+
+.遮擋下:hover {
+	color: rgba(0, 0, 0, 100%);
+}
+
+div.塊 {
+	border: 2px solid #383838;
+	border-radius: 4px;
+	color: white;
+	padding: 15px 10px;
+	margin: 5px;
+}
+
+@-moz-document url-prefix() {
+	div.塊 {
+		background-color: #000000d3;
+	}
 }
