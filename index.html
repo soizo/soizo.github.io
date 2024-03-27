@@ -3,12 +3,13 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="height=device-height, initial-scale=0.9">
 	<title>SOIZO</title>
 	<script src="/javascript/公共/好多函數！.js"></script>
 	<script src="/javascript/公共/橫向捲動.js"></script>
 	<script src="/javascript/index/index.js"></script>
 	<script src="/javascript/公共/私用字.js"></script>
+	<link rel="preload" href="/json/公共/私用字辭典.json" as="fetch" type="application/json">
 	<link rel="preload" href="/fonts/閹割unifont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 	<link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all">
@@ -24,10 +25,12 @@
 			<tr>
 				<td id="上列">
 					<div class="塊" id="个人紹介">
-						<img s-src="赤景靑面怒視目" id="頁貼">
-						<h2>石顯法東</h2>
-						</br>
-						</br>
+						<img s-src="赤景靑面怒視目" id="頁貼" class="unselectable">
+						<inline>
+							<h2 style="margin-left: 60px;">
+								<span>石顯法東</span>
+							</h2>
+						</inline>
 						<p>是我的网絡昵稱。</p>
 						<p>這裏是我的个人网站</p>
 						</br>
@@ -38,17 +41,22 @@
 						</br>
 						</br>
 						<h3 style="text-decoration: underline;">相關我</h3>
-						<p></p>
-					</div>
+						<div id="相關我列表">
+							<li>我</li>
+							<li></li>
+						</div>
 				</td>
 				<td id="下列">
 					<div class="塊" id="Q1">
 						日<span class="遮擋下">但非index</span>
-						米尸土木尸灶
-						木小場地灶杘灶小木屋杘灶
-						杘灶小木屋杘
-						杰尸土杘灶尸杰
-						杘小地方灶
+						我是
+						<p>蘿莉:=控$1=:
+						<p>
+							米尸土木尸灶
+							木小場地灶杘灶小木屋杘灶
+							杘灶小木屋杘
+							杰尸土杘灶尸杰
+							杘小地方灶
 					</div>
 				</td>
 			</tr>

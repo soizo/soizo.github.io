@@ -1,5 +1,38 @@
 鏈結定位("/json/公共/圖象索引.json");
 
+document.addEventListener("DOMContentLoaded", function () {
+  const 遮擋元素們 = document.querySelectorAll(".遮擋下");
+
+  遮擋元素們.forEach((遮擋元素) => {
+    遮擋元素.classList.add("遮擋有");
+
+    遮擋元素.addEventListener("mouseenter", function () {
+      this.classList.add("遮擋空");
+      this.classList.remove("遮擋有");
+    });
+
+    遮擋元素.addEventListener("mouseleave", function () {
+      if (!window.getSelection().toString()) {
+        this.classList.remove("遮擋空");
+        this.classList.add("遮擋有");
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      const 在遮擋元素內 = e.target.closest(".遮擋下");
+      遮擋元素們.forEach((elem) => {
+        if (elem === 在遮擋元素內) {
+          elem.classList.add("遮擋空");
+          elem.classList.remove("遮擋有");
+        } else if (!window.getSelection().toString()) {
+          elem.classList.remove("遮擋空");
+          elem.classList.add("遮擋有");
+        }
+      });
+    });
+  });
+});
+
 /**                 執   行   區                 **/
 
 function 鏈結定位(path) {
@@ -36,9 +69,7 @@ function 鏈結定位(path) {
         }
       });
 
-      const allCatboxElements = document.querySelectorAll(
-        "[s-href], [s-src]"
-      );
+      const allCatboxElements = document.querySelectorAll("[s-href], [s-src]");
       allCatboxElements.forEach((element) => {
         const hrefKey = element.getAttribute("s-href");
         const srcKey = element.getAttribute("s-src");
