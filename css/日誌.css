@@ -17,6 +17,13 @@ body {
 	-webkit-writing-mode: vertical-rl;
 }
 
+.絵文字圖象 {
+	height: 1em;
+	width: 1em;
+	image-rendering: pixelated;
+	border-radius: 2.5px;
+}
+
 div.內容 a {
 	color: aqua;
 }
