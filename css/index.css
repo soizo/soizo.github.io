@@ -32,6 +32,18 @@ body {
 	margin-right: -20px;
 }
 
+#頁貼 {
+	float: left;
+	width: 270px;
+}
+
+.符號圖象 {
+	height: 1em;
+	width: 1em;
+	image-rendering: pixelated;
+	border-radius: 2.5px;
+}
+
 #上列 {
 	height: 675px;
 	vertical-align: top;
@@ -42,6 +54,7 @@ body {
 	height: 225px;
 	vertical-align: top;
 }
+
 
 #Q1 {
 	margin-right: 0;
@@ -58,23 +71,39 @@ body {
 	font-size: 23px;
 }
 
+#个人紹介 a {
+	color: #ffffff;
+}
 
+#个人紹介 a:hover {
+	color: #ff0000;
+	background-color: #ffffff;
+}
 
-#个人紹介 h1,
-#个人紹介 h2,
-#个人紹介 h2 *,
-#个人紹介 h3 {
+#个人紹介 .「中國」 {
+	color: yellow;
+}
+
+#个人紹介 .「中國」::selection,
+#个人紹介 .「中國」:hover {
+	color: #000000;
+	background-color: yellow;
+}
+
+#个人紹介>h1,
+#个人紹介>h2,
+#个人紹介>h3 {
 	font-family: "只需HanaMinA";
 
 }
 
-#个人紹介 h2,
-#个人紹介 h2 * {
+#个人紹介>h2,
+#个人紹介>h2 * {
 	font-size: 45px;
 }
 
-#个人紹介 h3,
-#个人紹介 h3 * {
+#个人紹介>h3,
+#个人紹介>h3 * {
 	font-size: 35px;
 }
 
@@ -83,9 +112,20 @@ body {
 	color: red;
 }
 
-#頁貼 {
-	float: left;
-	width: 270px;
+
+div.塊 {
+	border: 2px solid #383838;
+	border-radius: 4px;
+	color: white;
+	padding: 15px 10px;
+	margin: 5px;
+	margin-right: 0;
+}
+
+@-moz-document url-prefix() {
+	div.塊 {
+		background-color: #000000d3;
+	}
 }
 
 /* 默认的遮挡颜色 */
@@ -123,19 +163,4 @@ body {
 
 #Q1 .遮擋下.遮擋有 {
 	background-color: #ff0000;
-}
-
-div.塊 {
-	border: 2px solid #383838;
-	border-radius: 4px;
-	color: white;
-	padding: 15px 10px;
-	margin: 5px;
-	margin-right: 0;
-}
-
-@-moz-document url-prefix() {
-	div.塊 {
-		background-color: #000000d3;
-	}
 }
