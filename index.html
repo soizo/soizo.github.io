@@ -9,7 +9,8 @@
 	<script src="/javascript/公共/橫向捲動.js"></script>
 	<script src="/javascript/index/index.js"></script>
 	<script src="/javascript/公共/私用字.js"></script>
-	<script src="/javascript/公共/符號.js"></script>
+	<script src="/javascript/公共/豎排符號.js"></script>
+	<script src="/javascript/公共/絵文字.js"></script>
 	<link rel="preload" href="/json/公共/私用字辭典.json" as="fetch" type="application/json">
 	<link rel="preload" href="/fonts/閹割unifont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 	<link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/ttf" crossorigin="anonymous">
@@ -18,8 +19,10 @@
 	<link href="/css/index.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
+:=&CODE=:
 <body class="prompt-list-group-content">
-	<center><a href="" draggable="false"><img id="文者燒殺人" class="unselectable" s-src="文者燒殺人" draggable="false"></a>
+	<center><a href="" draggable="false"><img id="文者燒殺人" class="unselectable" s-src="文者燒殺人" draggable="false"
+				style="margin-left: 40px;"></a>
 	</center>
 	<table>
 		<tbody>
@@ -27,24 +30,25 @@
 				<td id="上列">
 					<div class="塊" id="个人紹介">
 						<img s-src="赤景靑面怒視目" id="頁貼" class="unselectable">
-						<h2 style="margin-left: 60px;">
+						<h2>
 							石顯法東
 						</h2>
+						<hr style="margin-left: 50px; margin-right: 10px;">
 						<p>是我的网絡昵稱。</p>
 						<p>這裏是我的个人网站</p>
 						<span class="遮擋下" style="background-color: #000;">事實我早些時就啓始了</br>（但非index）</span>
 						<p>我仍決定卽日卽:=今$0=:乍爲啓始日：</p>
-						<b>四七二〇年二月十七戌正一刻</b>
+						<b class="時間">四七二〇年二月十七戌正一刻</b>
 						<h3 style="text-decoration: underline; padding-right: 30px;">相關我</h3>
 						<ul id="相關我列表">
-							<li>:=&CHINA-FLAG=: 我是<a href="/wiki/中國.html/" target="_blank" class="「中國」">中國</a>人</li>
-							<li>:=&CODE=: 編程語言
-								<ul>
-									<li>我最早接觸的是<a href="https://scratch.mit.edu/" target="_blank">SCRATCH</a> DESKTOP
-									</li>
-									<li>s </li>
-								</ul>
+							<li>我是<b><a href="/wiki/中國.html/" target="_blank" class="「中國」">中國</a></b> :=&CHINA-FLAG=: 人
 							</li>
+							<li><b>編程語言 :=&CODE=:</b> 學得很雜，譬如<a href="https://scratch.mit.edu/download"
+									target="_blank">SCRATCH</a>, <a>C++</a>, <a>GDscript</a> 都學過（或學校或自學） 其餘主流語言都有了解或可讀
+							</li>
+							<li>生辰 :=&BIRTH=: <i class="時間">四七〇五八月初九</i></li>
+							<li>性別 :=&GENDER=: 男，性取向不明確</li>
+
 						</ul>
 					</div>
 				</td>

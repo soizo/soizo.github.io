@@ -201,7 +201,7 @@ function 內容替換(文本) {
 
     return body.innerHTML;
   }
-  輸出 = 豎排符號一下(輸出);
+//   輸出 = 豎排符號一下(輸出);
   return 輸出;
 }
 
