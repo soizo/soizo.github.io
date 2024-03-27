@@ -1,6 +1,6 @@
 @font-face {
 	font-family: '閹割unifont';
-	src: url('/fonts/閹割unifont.woff2') format('woff2');
+	src: url('/fonts/閹割unifont-Medium.woff2') format('woff2');
 	font-display: swap;
 }
 
@@ -18,8 +18,8 @@ body {
 }
 
 .絵文字圖象 {
-	height: 1em;
-	width: 1em;
+	height: 2em;
+	width: 2em;
 	image-rendering: pixelated;
 	border-radius: 2.5px;
 }

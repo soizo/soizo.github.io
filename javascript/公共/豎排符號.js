@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
           node.nodeValue = text;
         } else if (
           node.nodeType === Node.ELEMENT_NODE &&
-          node.style.writingMode !== "horizontal-tb"
+          node.style.writingMode !== "horizontal-tb" &&
+          !node.classList.contains("橫")
         ) {
           node.childNodes.forEach(replaceTextInNode);
         }

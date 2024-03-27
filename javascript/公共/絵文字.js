@@ -30,7 +30,7 @@ function replaceTextWithImages(node) {
 function replaceTextInTextNode(textNode) {
   const regex = /\:\=\&(.+?)\=\:/g; // 匹配絵文字代碼的正則表達式
   let modifiedText = textNode.data.replace(regex, (match, imageName) => {
-    const imgSrc = `/assets/絵文字/${imageName}.gif`; // 組裝圖片的源地址
+    const imgSrc = `/assets/絵文字/${imageName}.png`; // 組裝圖片的源地址
     return `<img src="${imgSrc}" class="絵文字圖象" draggable="false">`; // 返回替換文本的HTML
   });
 
