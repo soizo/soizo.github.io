@@ -20,6 +20,11 @@ body {
 	color: white;
 	writing-mode: vertical-rl;
 	/* overflow-y: hidden; */
+	text-orientation: upright;
+}
+
+:lang(en) {
+	text-orientation: initial;
 }
 
 .聊天 {
