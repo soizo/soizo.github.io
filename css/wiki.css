@@ -1,0 +1,121 @@
+@font-face {
+	font-family: '閹割unifont';
+	src: url('/fonts/閹割unifont-Medium.woff2') format('woff2');
+	font-display: swap;
+}
+
+
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#content {
+	width: 100vw;
+	height: 100vh;
+}
+
+/**                                                                     **/
+/**                               MarkDown                              **/
+/**                                                                     **/
+
+
+#MD外部 {
+	width: 100vw;
+	height: 100vh;
+	writing-mode: vertical-rl;
+	background-color: #1c1f24;
+	color: white;
+	font-family: 閹割unifont;
+}
+
+#MD外部 *::selection {
+	background-color: #00000080;
+	color: #ffffff80;
+}
+
+#MD內部 {
+	margin: 50px;
+	font-size: 20px;
+}
+
+#MD內部 h1 {
+	font-size: 50px;
+}
+
+#MD內部 h3 {
+	font-size: 30px;
+	margin: 0px;
+}
+
+/* #MD內部 {
+	
+} */
+
+
+/**                                                                     **/
+/**                                介面列表                              **/
+/**                                                                     **/
+
+#page-list ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#page-list li {
+	padding: 5px;
+	margin: 5px 0;
+}
+
+#page-list a {
+	text-decoration: none;
+	color: blue;
+}
+
+/**                                                                     **/
+/**                                錯誤介面                              **/
+/**                                                                     **/
+
+
+#錯誤介面 {
+	list-style-type: none;
+	overflow: hidden;
+}
+
+#錯誤介面 *,
+#錯誤介面 {
+	font-family: '閹割unifont';
+}
+
+#錯誤介面 {
+	writing-mode: vertical-rl;
+	width: 100vw;
+	height: 100vh;
+	background-color: #0000ff;
+	color: white;
+}
+
+#錯誤介面 * {
+	margin: 0;
+	margin-top: 30px;
+}
+
+#錯誤介面 *::selection {
+	color: #0000ff;
+	background-color: white;
+}
+
+#錯誤介面 h1 {
+	font-size: 150px;
+	padding-left: 30px;
+	margin-right: 30px;
+}
+
+#錯誤介面 p,
+#錯誤介面 p * {
+	padding: none;
+	font-size: 50px;
+}

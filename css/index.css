@@ -96,12 +96,20 @@ body {
 	background-color: #ffffff;
 }
 
+#个人紹介 .wiki {
+	color: #000000;
+}
+
+#个人紹介 .wiki:hover {
+	color: #000000;
+	background-color: #ffffff;
+}
+
 #个人紹介 .「中國」 {
 	color: yellow;
 }
 
 #个人紹介 .「中國」:hover {
-	/* color: #000000; */
 	background-color: yellow;
 }
 

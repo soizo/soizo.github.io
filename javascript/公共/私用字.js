@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+  全HTML私用字替換();
+});
+
+function 全HTML私用字替換() {
   fetch("/json/公共/私用字辭典.json")
     .then((response) => response.json())
     .then((私用字辭典) => {
@@ -51,4 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
-});
+}

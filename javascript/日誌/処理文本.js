@@ -99,12 +99,9 @@ function formatToChineseDate(dateString) {
 
 function replaceRubyFormat(input) {
   const reg括號 = /(.+?)（([^：（）]+)：([^：（）]+)）/g;
-
   return input.replace(reg括號, (match, prefix, BB, CCC) => {
     const startPos = prefix.length - BB.length;
-
     const AA = prefix.substring(startPos);
-
     if (AA === BB) {
       return `${prefix.substring(
         0,
@@ -114,6 +111,19 @@ function replaceRubyFormat(input) {
       return match;
     }
   });
+}
+
+function 全角替換(input) {
+  var output = input;
+  let 匹配結果 = output.match(/\<全角\=[0-9a-zA-Z ]*?\=全角\>/g);
+  if (匹配結果 && 匹配結果.length > 0) {
+    匹配結果.forEach((匹配項) => {
+      let 需要轉換的文本 = 匹配項.slice(4, -4);
+      let 全角文本 = toFullWidth(需要轉換的文本);
+      output = output.replace(匹配項, 全角文本);
+    });
+  }
+  return output;
 }
 
 function 內容替換(文本) {
@@ -133,15 +143,7 @@ function 內容替換(文本) {
     輸出 = 輸出.replace(/((?<=\>)\s+)|(\s+(?=\<))/g, "");
   }
   輸出 = 輸出.replace(/([\r\n]+$)/g, "");
-  let 匹配結果 = 輸出.match(/\<全角\=[a-zA-Z]+\=全角\>/g);
-
-  if (匹配結果 && 匹配結果.length > 0) {
-    匹配結果.forEach((匹配項) => {
-      let 需要轉換的文本 = 匹配項.slice(4, -4);
-      let 全角文本 = toFullWidth(需要轉換的文本);
-      輸出 = 輸出.replace(匹配項, 全角文本);
-    });
-  }
+  輸出 = 全角替換(輸出);
   輸出 = replaceRubyFormat(輸出);
   function 豎排符號一下(inputString) {
     const parser = new DOMParser();
