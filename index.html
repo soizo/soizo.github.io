@@ -1,73 +1,66 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="height=device-height, initial-scale=0.9">
-	<title>SOIZO</title>
-	<script src="/javascript/公共/好多函數！.js"></script>
-	<script src="/javascript/公共/橫向捲動.js"></script>
-	<script src="/javascript/index/index.js"></script>
-	<script src="/javascript/公共/私用字.js"></script>
-	<script src="/javascript/公共/豎排符號.js"></script>
-	<script src="/javascript/公共/絵文字.js"></script>
-	<link rel="preload" href="/json/公共/私用字辭典.json" as="fetch" type="application/json">
-	<link rel="preload" href="/fonts/閹割unifont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-	<link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/css/滾動條/黑灰白滾動條.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/css/index.css" rel="stylesheet" type="text/css" media="all">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="height=device-height, initial-scale=0.9" />
+    <title>SOIZO</title>
+    <script src="/javascript/公共/好多函數！.js"></script>
+    <script src="/javascript/公共/橫向捲動.js"></script>
+    <script src="/javascript/index/index.js"></script>
+    <script src="/javascript/公共/私用字.js"></script>
+    <script src="/javascript/公共/豎排符號.js"></script>
+    <script src="/javascript/公共/絵文字.js"></script>
+    <link rel="preload" href="/json/公共/私用字辭典.json" as="fetch" type="application/json" />
+    <link rel="preload" href="/fonts/閹割unifont.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link href="/css/功能.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/滾動條/黑灰白滾動條.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-
 <body class="prompt-list-group-content">
-	<center><a href="" draggable="false"><img id="文者燒殺人" class="unselectable" s-src="文者燒殺人" draggable="false"
-				style="margin-left: 40px;"></a>
-	</center>
-	<table>
-		<tbody>
-			<tr>
-				<td id="上列">
-					<div class="塊" id="个人紹介">
-						<img s-src="赤景靑面怒視目" id="頁貼" class="unselectable">
-						<h2>
-							石顯法東
-						</h2>
-						<hr style="margin-left: 50px; margin-right: 10px;">
-						<p>是我的网絡昵稱。</p>
-						<p>這裏是我的个人网站</p>
-						<span class="遮擋下" style="background-color: #000;">事實我早些時就啓始了</br>（但非index）</span>
-						<p>我仍決定卽日卽:=今$0=:乍爲啓始日：</p>
-						<b class="時間">四七二〇年二月十七戌正一刻</b>
-						<h3 style="text-decoration: underline; padding-right: 30px;">
-							關於我
-						</h3>
-						<ul id="相關我列表" style="padding-right: 20px;">
-							<li>我是<b><a href="/wiki/中國.html/" target="_blank" class="「中國」">中國</a></b>:=&CHINA-FLAG=: 人
+    <center>
+        <a href="" draggable="false">
+            <img id="文者燒殺人" class="unselectable" s-src="文者燒殺人" draggable="false" style="margin-left: 40px" />
+        </a>
+    </center>
+    <table>
+        <tbody>
+            <tr>
+                <td id="上列">
+                    <div class="塊" id="个人紹介">
+                        <img s-src="赤景靑面怒視目" id="頁貼" class="unselectable" />
+                        <h2>石顯法東</h2>
+                        <hr style="margin-left: 50px; margin-right: 10px" />
+                        <p>是我的网絡昵稱。</p>
+                        <p>這裏是我的个人网站</p>
+                        <span class="遮擋下" style="background-color: #000">事實我早些時就啓始了<br />（但非index）</span>
+                        <p>我仍決定卽日卽:=今$0=:乍爲啓始日：</p>
+                        <b class="時間">四七二〇年二月十七戌正一刻</b>
+                        <h3 style="text-decoration: underline; padding-right: 30px">關於我</h3>
+                        <ul id="相關我列表" style="padding-right: 20px">
+                            <li>我是<b><a href="/wiki/中國.html/" target="_blank" class="「中國」">中國</a></b>:=&CHINA-FLAG=: 人</li>
+                            <li><b>生辰</b>：<i class="時間">四七〇五八月初九</i></li>
+                            <li>男　性取向不明確</li>
+							<!-- prettier-ignore-attribute -->
+                            <li>
+                                <b>編程語言 :=&CODE=:</b><br />學得很雜　譬如<a href="https://scratch.mit.edu/download" target="_blank">SCRATCH</a><span>, </span><a>C++</a>, <a>GDscript</a>都學過（或學校或自學）其餘主流語言都有了解或可讀
 							</li>
-							<li><b>生辰</b>：<i class="時間">四七〇五八月初九</i></li>
-							<li>男　性取向不明確</li>
-							<li><b>編程語言 :=&CODE=:</br>
-								</b>
-								學得很雜　譬如<a href="https://scratch.mit.edu/download" target="_blank">SCRATCH</a><span>,
-								</span><a>C++</a>, <a>GDscript</a>都學過（或學校或自學） 其餘主流語言都有了解或可讀
-							</li>
-							<li>
-								<b>愛好 :=&心=:</b><br>
-								<ul>
-									<li><b>漢字</b> 來自世界的漢字：中國日本韓國漢字　㗂越𡨸喃　<span lang="han-char">𗼇𘝞</span>　以及<span
-											lang="han-char">&#xf0700;&#xf0701;&#xf0702;</span></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</td>
-				<td id="下列">
-					<div class="塊" id="Q1">
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+                            <li>
+                                <b>愛好 :=&心=:</b><br />
+                                <ul>
+                                    <li>
+                                        <b>漢字</b>來自世界的漢字：中國日本韓國漢字　㗂越𡨸喃　<span lang="han-char">𗼇𘝞</span>　以及<span lang="han-char">&#xf0700;&#xf0701;&#xf0702;</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+                <td id="下列">
+                    <div class="塊" id="Q1"></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
-
 </html>
