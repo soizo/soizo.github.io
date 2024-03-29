@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Markdown Preview with Showdown - Table Support</title>
+        <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+    </head>
+    <body>
+        <textarea id="markdown" style="width: 100%; height: 200px">
+# Hello, Markdown!
+
+This is a simple markdown example using Showdown.
+
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Row 1 Col 1 | Row 1 Col 2 |
+| Row 2 Col 1 | Row 2 Col 2 |
+</textarea
+        >
+
+        <div
+            id="htmlPreview"
+            style="border: 1px solid #ccc; padding: 10px"
+        ></div>
+
+        <script>
+            async function 配置Showdown() {
+                const configPath = "/json/showdown/showdownConfig.json";
+                try {
+                    const response = await fetch(configPath);
+                    if (!response.ok) {
+                        throw new Error(
+                            `HTTP 錯誤！status: ${response.status}`
+                        );
+                    }
+                    const config = await response.json();
+                    var text = document.getElementById("markdown").value;
+                    var converter = new showdown.Converter(config);
+                    var html = converter.makeHtml(text);
+                    document.getElementById("htmlPreview").innerHTML = html;
+                } catch (error) {
+                    console.error("配置抓取失敗:", error);
+                }
+            }
+
+            document
+                .getElementById("markdown")
+                .addEventListener("input", 配置Showdown);
+            配置Showdown();
+        </script>
+    </body>
+</html>

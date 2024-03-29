@@ -44,6 +44,8 @@ html {
 
 #MD內部 h1 {
 	font-size: 50px;
+	border-left: 3px solid;
+	padding-left: 20px;
 }
 
 #MD內部 h3 {
@@ -51,10 +53,17 @@ html {
 	margin: 0px;
 }
 
-/* #MD內部 {
-	
-} */
+#MD內部 blockquote {
+	color: #a1ffe0ee;
+	font-style: italic;
+	border-top: 7px solid;
+	padding-top: 20px;
+}
 
+#MD內部 blockquote *::selection {
+	color: #00000080;
+	background-color: #a1ffe0ee;
+}
 
 /**                                                                     **/
 /**                                介面列表                              **/
