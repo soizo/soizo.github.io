@@ -39,9 +39,7 @@ function 鏈結定位(path) {
     fetch(path)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             const 平面data = 展開嵌套結構(data);
-            console.log(平面data);
             function isValidHttpUrl(string) {
                 let url;
                 try {

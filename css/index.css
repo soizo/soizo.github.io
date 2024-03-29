@@ -10,6 +10,15 @@
 	font-display: swap;
 }
 
+:lang(han-char) {
+	text-orientation: upright;
+}
+
+/**                                                                     **/
+/**                                  配置                                 **/
+/**                                                                     **/
+
+
 body *,
 body {
 	font-family: '閹割unifont';
@@ -21,23 +30,9 @@ body {
 	writing-mode: vertical-rl;
 }
 
-:lang(han-char) {
-	text-orientation: upright;
-}
 
 .聊天 {
 	writing-mode: horizontal-tb;
-}
-
-#文者燒殺人 {
-	width: 200px;
-	image-rendering: pixelated;
-	margin-right: -20px;
-}
-
-#頁貼 {
-	float: left;
-	width: 270px;
 }
 
 .絵文字圖象 {
@@ -54,6 +49,18 @@ body {
 	text-decoration-thickness: 1px;
 }
 
+
+#文者燒殺人 {
+	width: 200px;
+	image-rendering: pixelated;
+	margin-right: -20px;
+}
+
+#頁貼 {
+	float: left;
+	width: 270px;
+}
+
 #上列 {
 	height: 675px;
 	vertical-align: top;
@@ -68,6 +75,10 @@ body {
 #Q1 {
 	margin-right: 0;
 }
+
+/**                                                                     **/
+/**                                 个人紹介                                **/
+/**                                                                     **/
 
 #个人紹介 {
 	border-color: red;
@@ -133,6 +144,10 @@ body {
 	border: 2px solid black;
 }
 
+/**                                                                     **/
+/**                                  塊                                  **/
+/**                                                                     **/
+
 div.塊 {
 	border: 2px solid #383838;
 	border-radius: 4px;
@@ -147,6 +162,10 @@ div.塊 {
 		background-color: #000000d3;
 	}
 }
+
+/**                                                                     **/
+/**                                 遮擋下                                 **/
+/**                                                                     **/
 
 .遮擋下 {
 	background-color: black;
@@ -165,21 +184,39 @@ div.塊 {
 
 .遮擋下.遮擋空 {
 	color: #fff;
-	background-color: transparent;
+	/* background-color: transparent; */
 }
 
-#个人紹介 .遮擋下.遮擋空 {
+#个人紹介 .遮擋下.遮擋空,
+#相關我列表 .遮擋下.遮擋空 {
 	color: #ff0000;
 }
 
-#个人紹介 .遮擋下.遮擋有 {
-	background-color: #000000;
+
+#愛好 .遮擋下.遮擋有 {
+	background-color: #ffffff;
 }
 
-#Q1 .遮擋下.遮擋空 {
-	color: #ff0000;
+/**                                                                     **/
+/**                                  愛好                                 **/
+/**                                                                     **/
+
+#愛好 * {
+	font-size: 23px;
+
 }
 
-#Q1 .遮擋下.遮擋有 {
-	background-color: #ff0000;
+#愛好 *::selection {
+	color: #000000;
+	background-color: #ffffff;
+}
+
+
+#愛好 .wiki {
+	color: #62909b;
+}
+
+#愛好 .wiki:hover {
+	color: #000000;
+	background-color: #62909b;
 }
