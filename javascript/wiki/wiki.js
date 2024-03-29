@@ -1,5 +1,3 @@
-const pages = ["某一個", "某二個", "某三個"];
-
 const params = new URLSearchParams(window.location.search);
 const title = params.get("title");
 
@@ -71,6 +69,26 @@ function 网䈎圖標代替(markdownURL) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    function 加載Showdown配置(filePath) {
+        return fetch(filePath)
+            .then((response) => response.json())
+            .catch((error) => console.error("加載配置文件失敗:", error));
+    }
+
+    function markdownToHTML(markdown, 配置) {
+        var converter = new showdown.Converter(配置);
+        var html = converter.makeHtml(markdown);
+        return html;
+    }
+
+    function MD替換(html) {
+        document.getElementById("content").innerHTML =
+            `<div id="MD外部"><div id="MD內部">` + html + `</div></div>`;
+        window.全HTML私用字替換();
+        window.全HTML絵文字替換();
+        window.全HTML豎排符號替換();
+    }
+
     if (title) {
         fetch(`/wiki/${title}.md`)
             .then((response) => {
@@ -80,16 +98,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.text();
             })
             .then((markdown) => {
-                // 網站圖標處理
                 网䈎圖標代替(`/wiki/${title}.md`);
 
-                // 加載Showdown配置
-                const configPath = "/json/showdown/showdownConfig.json"; // 替換為實際配置文件路徑
+                const configPath = "/json/showdown/showdownConfig.json";
                 加載Showdown配置(configPath).then((配置) => {
-                    // 將配置應用到Showdown轉換器並轉換Markdown
-                    const html = markdownToHTML(markdown, 配置);
-                    // 將轉換後的HTML設置到指定的div中
-                    MD替換(html); // 使用轉換後的HTML更新頁面
+                    var 修改markdown = markdown;
+                    修改markdown = 修改markdown.replace(
+                        /『-(.*?)-』/g,
+                        (match, p1) => `<u>${p1}</u>`
+                    );
+                    修改markdown = replaceRubyFormat(修改markdown);
+                    修改markdown = 修改markdown.replace(/(?<!\\)\\spc/g, "　");
+                    修改markdown = 全角替換(修改markdown);
+                    const html = markdownToHTML(修改markdown, 配置);
+
+                    MD替換(html);
                 });
 
                 document.title = `${title} - ${document.title}`;
@@ -98,36 +121,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 showError(title);
             });
     } else {
-        const list = document.createElement("div");
-        list.id = "page-list";
-        list.innerHTML =
-            "<h2>所有䈎面</h2><ul>" +
-            pages
-                .map((page) => `<li><a href="?title=${page}">${page}</a></li>`)
-                .join("") +
-            "</ul>";
-        document.getElementById("content").appendChild(list);
     }
 });
-
-// 定義用於讀取配置文件的函數
-function 加載Showdown配置(filePath) {
-    return fetch(filePath)
-        .then((response) => response.json())
-        .catch((error) => console.error("加載配置文件失敗:", error));
-}
-
-// 定義用於將Markdown轉換為HTML的函數，接受Markdown字符串和配置對象作為參數
-function markdownToHTML(markdown, 配置) {
-    var converter = new showdown.Converter(配置);
-    var html = converter.makeHtml(markdown);
-    return html;
-}
-
-// 更新MD替換函數，以接受轉換後的HTML作為參數
-function MD替換(html) {
-    document.getElementById("content").innerHTML =
-        `<div id="MD外部"><div id="MD內部">` + html + `</div></div>`;
-    window.全HTML私用字替換();
-    window.全HTML絵文字替換();
-}

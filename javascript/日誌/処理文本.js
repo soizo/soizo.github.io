@@ -1,13 +1,13 @@
-// 処理文本.js中
+
 (async () => {
   const 原始文件 = await 異步抓取文件("/assets/日誌.txt");
   var 最終 = 処理(原始文件);
   var 日誌內容 = document.getElementById("日誌內容");
   日誌內容.innerHTML = 最終;
 
-  // 確保絵文字.js已經加載
+  
   if (window.絵文字替換) {
-    window.絵文字替換(日誌內容); // 僅對日誌內容進行處理
+    window.絵文字替換(日誌內容); 
   }
 })();
 
@@ -172,7 +172,7 @@ function 內容替換(文本) {
 
     return body.innerHTML;
   }
-  //   輸出 = 豎排符號一下(輸出);
+  
   return 輸出;
 }
 

@@ -10,6 +10,12 @@ body {
 }
 
 body {
+	background-image: url("/assets/GIFs/我的圖冊/我的圖冊BG.gif");
+	background-size: cover;
+	background-position: right;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
 	background-color: black;
 	color: white;
 	writing-mode: vertical-rl;

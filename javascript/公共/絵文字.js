@@ -26,7 +26,7 @@ function 全HTML絵文字替換() {
     const regex = /\:\=\&(.+?)\=\:/g;
     let modifiedText = textNode.data.replace(regex, (match, imageName) => {
       const imgSrc = `/assets/絵文字/${imageName}.png`;
-      return `<img src="${imgSrc}" class="絵文字圖象" draggable="false" style="height: 1em;width: 1em;image-rendering: pixelated;border-radius: 2.5px;">`; // 返回替換文本的HTML
+      return `<img src="${imgSrc}" class="絵文字圖象" draggable="false" style="height: 1em;width: 1em;image-rendering: pixelated;border-radius: 2.5px;">`; 
     });
 
     if (modifiedText !== textNode.data) {
