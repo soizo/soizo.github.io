@@ -30,9 +30,9 @@
 		},
 		"<span lang='han-char'>&#xf0700;&#xf0701;&#xf0702;</span>": {
 			"單詞/&#xf0700;&#xf0701;&#xf0702;": "<span lang='han-char'>&#xf0700;&#xf0701;&#xf0702;</span>",
-			"單字/&#xf0700;": "<span lang='han-char'>&#xf0700;</span>",
-			"單字/&#xf0701;": "<span lang='han-char'>&#xf0701;</span>",
-			"單字/&#xf0702;": "<span lang='han-char'>&#xf0702;</span>"
+			"單字/&#xf0700;": "&#xf0700;",
+			"單字/&#xf0701;": "&#xf0701;",
+			"單字/&#xf0702;": "&#xf0702;"
 		}
 	}
 }

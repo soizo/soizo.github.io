@@ -36,10 +36,9 @@ function showError(message) {
     const errorMessage = document.createElement("div");
     errorMessage.id = "錯誤介面";
     errorMessage.innerHTML = `
-  <link rel="preload" href="/fonts/閹割unifont-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <h1 class="unselectable">抱歉︕</h1>
-  <p class="unselectable">出錯了︐可能是䈎面不存在︰</p>
-  <p>${message}</p>
+    <h1 class="unselectable">抱歉︕</h1>
+    <p class="unselectable">出錯了︐可能是䈎面不存在︰</p>
+    <p>${message}</p>
   `;
     document.getElementById("content").innerHTML = "";
     document.getElementById("content").appendChild(errorMessage);

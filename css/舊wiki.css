@@ -4,33 +4,118 @@
 	font-display: swap;
 }
 
-#content {
-	position: absolute;
-	top: 0;
-	left: 0;
+html{
+	/* margin-top: -30px;  */
+}
+
+body{
 	margin: 0;
-	padding: 0;
-	min-height: 100%;
-	min-width: 100%;
+}
+
+
+#content {
+	height: 100%;
+	width: 100%;
 }
 
 :lang(han-char) {
 	text-orientation: upright;
 }
 
+
+
+/**                                                                     **/
+/**                               MarkDown                              **/
+/**                                                                     **/
+
+
+#MD外部 {
+	width: 100vw;
+	height: 100vh;
+	writing-mode: vertical-rl;
+	background-color: #1c1f24;
+	color: white;
+	font-family: 閹割unifont;
+}
+
+#MD外部 *::selection {
+	color: #1c1f24;
+	background-color: white;
+}
+
+#MD內部 {
+	/* margin: 50px; */
+	font-size: 20px;
+}
+
+#MD內部 h1 {
+	font-size: 50px;
+	border-left: 3px solid;
+	/* padding-left: 20px; */
+}
+
+#MD內部 h3 {
+	font-size: 30px;
+	/* margin: 0px; */
+}
+
+#MD內部 blockquote {
+	color: #a1ffe0ee;
+	font-style: italic;
+	border-top: 7px solid;
+	/* padding-top: 20px; */
+}
+
+#MD內部 a {
+	color: #a1ecff;
+}
+
+#MD內部 blockquote *::selection {
+	color: #1c1f24;
+	background-color: #a1ffe0ee;
+}
+
+#MD內部 table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#MD內部 th,
+#MD內部 td {
+	border: 1px solid #ffffff08;
+	/* padding: 8px; */
+	text-align: left;
+}
+
+#MD內部 th {
+	border-left: 1px solid #19332a;
+}
+
+#MD內部 thead {
+	outline: 1px solid #19332a;
+}
+
+#MD內部 tr:nth-child(even) {
+	background-color: #ffffff09;
+}
+
+#MD內部 th {
+	background-color: #22473a;
+	color: white;
+}
+
+#MD內部 th::selection,
+#MD內部 th *::selection {
+	background-color: #448d73;
+	color: #1c1f24;
+}
+
+
 /**                                                                     **/
 /**                                介面列表                              **/
 /**                                                                     **/
 
 #䈎彙外 {
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin: 0;
-	padding: 0;
-	min-height: 100%;
-	min-width: 100%;
-	writing-mode: vertical-rl;
 	background-color: #1c1f24;
 	font-family: 閹割unifont;
 	color: white;
@@ -42,12 +127,12 @@
 }
 
 #䈎彙 {
-	margin: 50px;
+	/* margin: 50px; */
 	font-size: 20px;
 }
 
 #䈎彙 li {
-	padding: 10px;
+	/* padding: 10px; */
 }
 
 
@@ -59,7 +144,7 @@
 #䈎彙 th,
 #䈎彙 td {
 	border: 1px solid #ffffff08;
-	padding: 8px;
+	/* padding: 8px; */
 	text-align: left;
 }
 
@@ -117,101 +202,13 @@
 
 #众Table>* {
 	display: inline-block;
-	margin: 20px;
+	/* margin: 20px; */
 }
 
 #众Table th {
 	max-height: 200px;
 	min-height: 120px;
 }
-
-
-/**                                                                     **/
-/**                               MarkDown                              **/
-/**                                                                     **/
-
-
-#MD外部 {
-	width: 100vw;
-	height: 100vh;
-	writing-mode: vertical-rl;
-	background-color: #1c1f24;
-	color: white;
-	font-family: 閹割unifont;
-}
-
-#MD外部 *::selection {
-	color: #1c1f24;
-	background-color: white;
-}
-
-#MD內部 {
-	margin: 50px;
-	font-size: 20px;
-}
-
-#MD內部 h1 {
-	font-size: 50px;
-	border-left: 3px solid;
-	padding-left: 20px;
-}
-
-#MD內部 h3 {
-	font-size: 30px;
-	margin: 0px;
-}
-
-#MD內部 blockquote {
-	color: #a1ffe0ee;
-	font-style: italic;
-	border-top: 7px solid;
-	padding-top: 20px;
-}
-
-#MD內部 a {
-	color: #a1ecff;
-}
-
-#MD內部 blockquote *::selection {
-	color: #1c1f24;
-	background-color: #a1ffe0ee;
-}
-
-#MD內部 table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-#MD內部 th,
-#MD內部 td {
-	border: 1px solid #ffffff08;
-	padding: 8px;
-	text-align: left;
-}
-
-#MD內部 th {
-	border-left: 1px solid #19332a;
-}
-
-#MD內部 thead {
-	outline: 1px solid #19332a;
-}
-
-#MD內部 tr:nth-child(even) {
-	background-color: #ffffff09;
-}
-
-#MD內部 th {
-	background-color: #22473a;
-	color: white;
-}
-
-#MD內部 th::selection,
-#MD內部 th *::selection {
-	background-color: #448d73;
-	color: #1c1f24;
-}
-
 
 /**                                                                     **/
 /**                                錯誤介面                              **/
@@ -237,8 +234,8 @@
 }
 
 #錯誤介面 * {
-	margin: 0;
-	margin-top: 30px;
+	/* margin: 0;
+	margin-top: 30px; */
 }
 
 #錯誤介面 *::selection {
@@ -248,12 +245,12 @@
 
 #錯誤介面 h1 {
 	font-size: 150px;
-	padding-left: 30px;
-	margin-right: 30px;
+	/* padding-left: 30px; */
+	/* margin-right: 30px; */
 }
 
 #錯誤介面 p,
 #錯誤介面 p * {
-	padding: none;
+	/* padding: none; */
 	font-size: 50px;
 }

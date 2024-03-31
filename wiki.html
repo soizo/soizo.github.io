@@ -37,9 +37,23 @@
             type="text/css"
             media="all"
         />
+        <script>
+            function changeCSSVariables(variables) {
+                Object.keys(variables).forEach(function (key) {
+                    document.documentElement.style.setProperty(
+                        key,
+                        variables[key]
+                    );
+                });
+            }
+            changeCSSVariables({
+                "--滾動條：背景色": "#1c1f24",
+                "--滾動條：三角背景色": "#1c1f24",
+            });
+        </script>
         <link rel="icon" href="/assets/絵文字/WIKI.png" type="image/x-icon" />
     </head>
-    <body>
+    <body class="prompt-list-group-content">
         <div id="content"></div>
         <script src="/javascript/wiki/wiki.js"></script>
     </body>
