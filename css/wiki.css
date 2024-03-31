@@ -4,8 +4,6 @@
 	font-display: swap;
 }
 
-
-
 body,
 html {
 	margin: 0;
@@ -19,6 +17,10 @@ html {
 #content {
 	width: 100vw;
 	height: 100vh;
+}
+
+:lang(han-char) {
+	text-orientation: upright;
 }
 
 /**                                                                     **/
@@ -203,9 +205,6 @@ html {
 #众Table>* {
 	display: inline-block;
 	margin: 20px;
-}
-
-#众Table>* {
 }
 
 #众Table th {
