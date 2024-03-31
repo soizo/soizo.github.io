@@ -67,25 +67,8 @@ function 网䈎圖標代替(markdownURL) {
         });
 }
 
-// 添加警告div的函数
-function addMobileWarning(test) {
-    // 使用正则表达式检测是否为手机端
-    if (/iPhone|iPod|Android/i.test(navigator.userAgent) || test) {
-        document.body.insertAdjacentHTML(
-            "afterbegin",
-            `
-				<div id="手机端警告">
-					<div id="手机端警告文字">
-						悪意提示：手機端效果非常差
-					</div>
-				</div>
-			`
-        );
-    }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-    addMobileWarning();
+    window.addMobileWarning(true);
     function 加載Showdown配置(filePath) {
         return fetch(filePath)
             .then((response) => response.json())

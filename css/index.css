@@ -22,6 +22,7 @@
 body *,
 body {
 	font-family: '閹割unifont';
+	overflow-y: hidden;
 }
 
 body {

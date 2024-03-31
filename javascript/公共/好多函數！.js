@@ -555,3 +555,55 @@ function 轉換道曆(input, trans = true, 格式) {
     }
     return 輸出;
 }
+
+function addMobileWarning(test) {
+    if (/iPhone|iPod|Android/i.test(navigator.userAgent) || test) {
+        // 創建style元素
+        const style = document.createElement("style");
+        // 設置CSS內容
+        style.textContent = `
+		#手机端警告 {
+			display:flex;
+			background-color: #0000ff;
+			overflow: hidden;
+			position: relative;
+			height: 100vh;
+			width: 40px;
+			align-content: center;
+			margin-left :20px;
+		}
+		
+		#手机端警告文字 {
+			color: white;
+			font-family: 閹割unifont;
+			text-align: center;
+			font-size: 30px;
+			animation: 手机端警告 7s linear infinite;
+		}
+		
+		@keyframes 手机端警告 {
+			0% {
+				transform: translateY(100vh);
+			}
+		
+			100% {
+				transform: translateY(-100vh);
+			}
+		}
+		`;
+        // 將style元素添加到head中
+        document.head.appendChild(style);
+
+        // 將HTML內容添加到body的最前面
+        document.body.insertAdjacentHTML(
+            "afterbegin",
+            `
+				<div id="手机端警告" class="unselectable">
+					<div id="手机端警告文字" class="unselectable">
+						悪意提示：手機端效果非常差
+					</div>
+				</div>
+		`
+        );
+    }
+}

@@ -21,33 +21,6 @@ body {
 	text-orientation: upright;
 }
 
-#手机端警告 {
-	background-color: #0000ff;
-	overflow: hidden;
-	position: relative;
-	height: 100vh;
-	width: 40px;
-	align-content: center;
-}
-
-#手机端警告文字 {
-	color: white;
-	font-family: 閹割unifont;
-	text-align: center;
-	font-size: 30px;
-	animation: slideLeft 7s linear infinite;
-}
-
-@keyframes slideLeft {
-	0% {
-		transform: translateY(100vh);
-	}
-
-	100% {
-		transform: translateY(-100vh);
-	}
-}
-
 
 /**                                                                     **/
 /**                                介面列表                              **/
