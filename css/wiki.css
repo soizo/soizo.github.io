@@ -11,6 +11,9 @@ html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	/* overflow: initial;
+	overflow-y: hidden;
+	overflow-x: visible; */
 }
 
 #content {
@@ -167,15 +170,19 @@ html {
 
 
 #䈎彙 a {
-	color: #a1ecff;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 #䈎彙 a::selection,
-#䈎彙 a *::selection,
-#䈎彙 a:hover,
-#䈎彙 a *:hover {
+#䈎彙 a *::selection {
 	color: white;
 	background-color: #62909b;
+}
+
+#䈎彙 a:hover,
+#䈎彙 a *:hover {
+	text-decoration: underline;
 }
 
 #䈎彙 a.「中國」 {
@@ -191,6 +198,19 @@ html {
 #䈎彙 a.「中國」 *::selection {
 	background-color: yellow;
 	color: #1c1f24;
+}
+
+#众Table>* {
+	display: inline-block;
+	margin: 20px;
+}
+
+#众Table>* {
+}
+
+#众Table th {
+	max-height: 200px;
+	min-height: 120px;
 }
 
 /**                                                                     **/

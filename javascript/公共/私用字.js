@@ -6,7 +6,6 @@ function 全HTML私用字替換() {
     fetch("/json/公共/私用字辭典.json")
         .then((response) => response.json())
         .then((私用字辭典) => {
-            console.log(私用字辭典);
             const 是十六進制碼點 = (value) => {
                 if (typeof value === "number" && !isNaN(value)) {
                     return true;

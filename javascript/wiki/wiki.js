@@ -49,7 +49,7 @@ function 网䈎圖標代替(markdownURL) {
     fetch(markdownURL)
         .then((response) => response.text())
         .then((markdownContent) => {
-            const regex = /^\<\!\-{2,} ICON:\"([^"]+)\" \-{2,}\>$/g;
+            const regex = /^\<\!\-{2,} ICON:\"(.+)\" \-{2,}\>$/m;
             let match = regex.exec(markdownContent);
 
             if (match) {
@@ -121,5 +121,78 @@ document.addEventListener("DOMContentLoaded", function () {
                 showError(title);
             });
     } else {
+        fetch(`/json/wiki/wiki目錄.json`)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            })
+            .then((wiki目錄) => {
+                function generateTable(data) {
+                    let htmlContent = "";
+
+                    // 遍歷第一層：大分類
+                    Object.keys(data).forEach((category) => {
+                        // 每個分類與其表格用一個 <div> 包圍
+                        htmlContent += `<div class="單Table">`;
+                        // 為每個大分類添加 <h2> 標題
+                        htmlContent += `<h2>${category}</h2>`;
+
+                        // 提取當前分類下的表格數據
+                        let tableData = data[category];
+                        let headerRow = `<tr>${Object.keys(tableData)
+                            .map((subCategory) => `<th>${subCategory}</th>`)
+                            .join("")}</tr>`;
+                        let rows = [];
+
+                        // 獲取最大項目數來確保行的一致性
+                        let maxItems = Math.max(
+                            ...Object.values(tableData).map(
+                                (subCategoryData) =>
+                                    Object.keys(subCategoryData).length
+                            )
+                        );
+
+                        for (let i = 0; i < maxItems; i++) {
+                            let row = `<tr>${Object.keys(tableData)
+                                .map((subCategory) => {
+                                    let itemKeys = Object.keys(
+                                        tableData[subCategory]
+                                    );
+                                    let itemKey = itemKeys[i];
+                                    let itemValue =
+                                        tableData[subCategory][itemKey];
+                                    return `<td>${
+                                        itemKey
+                                            ? `<a href='?title=${itemKey}'>${itemValue}</a>`
+                                            : ""
+                                    }</td>`;
+                                })
+                                .join("")}</tr>`;
+                            rows.push(row);
+                        }
+
+                        // 將生成的表格加入到 htmlContent 中
+                        htmlContent += `<table>${headerRow}${rows.join(
+                            ""
+                        )}</table>`;
+                        // 每個分類的 <div> 結束
+                        htmlContent += `</div>`;
+                    });
+                    return htmlContent;
+                }
+
+                document.getElementById("content").innerHTML = `
+					<div id="䈎彙外">
+						<div id="䈎彙">
+							<h2>全部　ＷＩＫＩ</h2>
+							<div id="众Table">
+								${generateTable(wiki目錄)}
+							</div>
+						</div>
+					</div>`;
+                window.全HTML絵文字替換();
+                window.全HTML豎排符號替換();
+            });
     }
 });

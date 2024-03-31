@@ -84,6 +84,7 @@ body {
 	border-color: red;
 	background-color: red;
 	color: black;
+	margin-left: 30px;
 }
 
 #个人紹介 * {
@@ -137,6 +138,9 @@ body {
 #个人紹介>h3,
 #个人紹介>h3 * {
 	font-size: 35px;
+	text-decoration: underline;
+	padding-right: 30px;
+
 }
 
 #个人紹介 hr {
@@ -203,6 +207,24 @@ div.塊 {
 
 #愛好 * {
 	font-size: 23px;
+	background-color: #000000;
+}
+
+#愛好>h1,
+#愛好>h2,
+#愛好>h3 {
+	font-family: "只需HanaMinA";
+
+}
+
+#愛好>h2,
+#愛好>h2 * {
+	font-size: 45px;
+}
+
+#愛好 h3,
+#愛好 h3 * {
+	font-size: 35px;
 
 }
 
