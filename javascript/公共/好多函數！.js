@@ -578,7 +578,8 @@ function addMobileWarning(test) {
 			font-family: 閹割unifont;
 			text-align: center;
 			font-size: 30px;
-			animation: 手机端警告 7s linear infinite;
+			animation: 手机端警告 20s linear infinite;
+			overflow: hidden;
 		}
 		
 		@keyframes 手机端警告 {
@@ -600,7 +601,7 @@ function addMobileWarning(test) {
             `
 				<div id="手机端警告" class="unselectable">
 					<div id="手机端警告文字" class="unselectable">
-						悪意提示：手機端效果非常差
+						吿：ＷＩＮＤＯＷＳ端ＣＨＲＯＭＥ內核瀏覽最佳
 					</div>
 				</div>
 		`
