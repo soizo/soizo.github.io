@@ -68,7 +68,7 @@ function 网䈎圖標代替(markdownURL) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    window.addMobileWarning(true);
+    window.addMobileWarning();
     function 加載Showdown配置(filePath) {
         return fetch(filePath)
             .then((response) => response.json())

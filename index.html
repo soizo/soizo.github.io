@@ -6,13 +6,14 @@
             name="viewport"
             content="height=device-height, initial-scale=0.9"
         />
-        <title>SOIZO</title>
+        <title>石顯法東的个人主䈎</title>
         <script src="/javascript/公共/好多函數！.js"></script>
         <script src="/javascript/公共/橫向捲動.js"></script>
         <script src="/javascript/index/index.js"></script>
         <script src="/javascript/公共/私用字.js"></script>
         <script src="/javascript/公共/豎排符號.js"></script>
         <script src="/javascript/公共/絵文字.js"></script>
+        <link rel="icon" s-href="䈎面圖標：erase_file" type="image/x-icon" />
         <link
             rel="preload"
             href="/json/公共/私用字辭典.json"
@@ -53,16 +54,19 @@
         />
     </head>
     <body class="prompt-list-group-content">
-        <center>
-            <a href="" draggable="false">
-                <img
-                    id="文者燒殺人"
-                    class="unselectable"
-                    s-src="文者燒殺人"
-                    draggable="false"
-                    style="margin-left: 40px"
-                />
-            </a>
+        <center draggable="false">
+            <img
+                id="文者燒殺人"
+                class="unselectable"
+                s-src="文者燒殺人"
+                draggable="false"
+                style="
+                    margin-left: 20px;
+                    width: 200px;
+                    image-rendering: pixelated;
+                    margin-right: -10px;
+                "
+            />
         </center>
         <table>
             <tbody>
@@ -71,8 +75,8 @@
                         <div class="塊" id="个人紹介">
                             <img
                                 s-src="赤景靑面怒視目"
-                                id="頁貼"
                                 class="unselectable"
+                                style="float: left; width: 270px"
                             />
                             <h2>石顯法東</h2>
                             <hr style="margin-left: 50px; margin-right: 10px" />
@@ -82,7 +86,9 @@
                                 >事實我早些時就啓始了<br />（但非index）</span
                             >
                             <p>我仍決定卽日卽:=今$0=:乍爲啓始日：</p>
-                            <b class="時間">四七二〇年二月十七戌正一刻</b>
+                            <b class="時間"
+                                >:=四七二〇·二月十七·戌正一刻$扁=:</b
+                            >
                             <h3>關於我</h3>
                             <ul id="相關我列表" style="padding-right: 20px">
                                 <li>
@@ -96,13 +102,13 @@
                                     >:=&CHINA-FLAG=: 人
                                 </li>
                                 <li>
-                                    <b>生辰</b>：<i class="時間"
-                                        >四七〇五八月初九</i
+                                    <b>生辰</b>：<span class="時間"
+                                        >:=四七〇五·八月初九$扁=:</span
                                     >
                                 </li>
-                                <li><b>男</b>　性取向不明確</li>
+                                <li><b>男性</b>　性取向不明確</li>
                                 <li>
-                                    尊重多元性傾向　只<a
+                                    尊重多元性傾向　認同只<a
                                         class="wiki"
                                         target="_blank"
                                         href="/wiki.html?title=性別四元論"
@@ -127,12 +133,7 @@
                                 <li>
                                     <b>吸</b>
                                     <b>漢字</b
-                                    >　來自世界的漢字：中國日本韓國漢字　<br />㗂越𡨸喃　<span
-                                        lang="han-char"
-                                        >𗼇𘝞</span
-                                    >　以及<span lang="han-char"
-                                        >&#xf0700;&#xf0701;&#xf0702;</span
-                                    >
+                                    >　來自世界的漢字：中國日本韓國漢字　<br />㗂越𡨸喃　𗼇𘝞　以及&#xf0700;&#xf0701;&#xf0702;
                                     <p>恩其實主要是前面純漢字吧（笑）</p>
                                 </li>
                                 <li>
@@ -144,23 +145,27 @@
                                             target="_blank"
                                             >匣污系</a
                                         >
-                                        <span class="遮擋下"
-                                            >自己創建的詞彙……</span
-                                        >
+                                        <span class="遮擋下">原創詞彙……</span>
                                     </p>
-                                    <p>不會繪畫，會修圖。會剪貼呵呵。</p>
+                                    <p>不會繪畫，會修圖剪貼畫呵呵。</p>
                                     <p>很希望可以自己作一款遊戲</p>
                                 </li>
                                 <li>
                                     <b>編程</b
                                     >。大槪也很喜愛！陪伴我很長時間的愛好
                                 </li>
-                                <li><b>宗教</b></li>
+                                <li><b>宗教</b>也感興趣！</li>
                             </ul>
                         </div>
                     </td>
                     <td id="下列">
-                        <div class="塊" id="Q1"></div>
+                        <div class="塊" id="Q1">
+                            最近更新日期：<br />
+                            <span
+                                class="時間"
+                                id="GIT：今倉庫最近更新時間"
+                            ></span>
+                        </div>
                     </td>
                 </tr>
             </tbody>
