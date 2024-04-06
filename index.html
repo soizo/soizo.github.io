@@ -161,10 +161,39 @@
                     <td id="下列">
                         <div class="塊" id="Q1">
                             最近更新日期：<br />
-                            <span
-                                class="時間"
-                                id="GIT：今倉庫最近更新時間"
-                            ></span>
+                            <span class="時間" id="GIT：今倉庫最近更新時間"
+                                ><script>
+                                    function updateLatestGitUpdateTime() {
+                                        const apiUrl =
+                                            "https://api.github.com/repos/soizo/soizo.github.io";
+
+                                        fetch(apiUrl)
+                                            .then((response) => response.json())
+                                            .then((data) => {
+                                                const lastUpdateTime = new Date(
+                                                    data.pushed_at
+                                                );
+                                                const formattedTime =
+                                                    window.轉換道曆(
+                                                        lastUpdateTime,
+                                                        undefined,
+                                                        "YYYY·MM·DD·HHQQ"
+                                                    );
+                                                document.getElementById(
+                                                    "GIT：今倉庫最近更新時間"
+                                                ).innerHTML = `:=${formattedTime}$扁=:`;
+                                            })
+                                            .catch((error) => {
+                                                console.error(
+                                                    "更新失敗:",
+                                                    error
+                                                );
+                                            });
+                                    }
+
+                                    updateLatestGitUpdateTime();
+                                </script></span
+                            >
                         </div>
                     </td>
                 </tr>
