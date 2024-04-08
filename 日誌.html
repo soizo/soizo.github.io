@@ -1,43 +1,205 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>日誌</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="height=device-height, initial-scale=1.0"
+        />
+        <script src="/javascript/公共/好多函數！.js"></script>
+        <script src="/javascript/公共/橫向捲動.js"></script>
+        <script src="/javascript/日誌/日誌.js"></script>
+        <script src="/javascript/公共/豎排符號.js"></script>
+        <script src="/javascript/公共/絵文字.js"></script>
+        <link rel="icon" s-href="䈎面圖標：event_log" type="image/x-icon" />
+        <link
+            rel="preload"
+            href="/fonts/閹割unifont-Medium.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            href="/css/功能.css"
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+        />
+        <link
+            href="/css/滾動條/方滾動條.css"
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+        />
+        <style>
+            @font-face {
+                font-family: "閹割unifont";
+                src: url("/fonts/閹割unifont-Medium.woff2") format("woff2");
+                font-display: swap;
+            }
 
-<head>
-	<title>日誌</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="height=device-height, initial-scale=1.0">
-	<script src="/javascript/公共/好多函數！.js"></script>
-	<script src="/javascript/公共/橫向捲動.js"></script>
-	<script src="/javascript/日誌/日誌.js"></script>
-	<script src="/javascript/公共/豎排符號.js"></script>
-	<script src="/javascript/公共/絵文字.js"></script>
-	<link rel="icon" s-href="䈎面圖標：event_log" type="image/x-icon">
-	<link rel="preload" href="/fonts/閹割unifont-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/css/滾動條/黑灰白滾動條.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/css/日誌.css" rel="stylesheet" type="text/css" media="all">
-</head>
+            body *,
+            body {
+                font-family: "閹割unifont";
+            }
 
-<body class="prompt-list-group-content">
-	<a href="#" class="複製今日道曆 unselectable" tabindex="0" draggable="false">複製今日道曆</a>
-	<script>
-		document.querySelectorAll('.複製今日道曆').forEach(link => {
-			link.addEventListener('click', async function (event) {
-				event.preventDefault(); try {
-					const textToCopy = 轉換道曆(new Date(), 1, `/---/\nwww\tyyyy/mm/dd/HHQQ`);
-					await navigator.clipboard.writeText(textToCopy);
-				} catch (err) {
-				}
-			});
-		});
+            body {
+                background-color: black;
+                color: white;
+                writing-mode: vertical-rl;
+                -webkit-writing-mode: vertical-rl;
+            }
 
-	</script>
+            .絵文字圖象 {
+                height: 2em;
+                width: 2em;
+                image-rendering: pixelated;
+                border-radius: 2.5px;
+            }
 
-	<div id="日誌內容">
-		<script src="/javascript/日誌/処理文本.js">
-		</script>
-	</div>
-</body>
+            div.內容 a {
+                color: aqua;
+            }
 
+            div.內容::selection,
+            div.內容 *::selection {
+                color: black;
+                background-color: #ffffff;
+            }
 
+            div.內容,
+            div.內容 * {
+                white-space: pre-wrap;
+            }
 
+            div.內容 a::selection,
+            div.內容 a *::selection {
+                color: black;
+                background-color: aqua;
+            }
+
+            div.塊 {
+                font-size: 20px;
+                padding: 10px;
+                border: 1px solid #808080;
+                margin: 30px;
+            }
+
+            div.橫 {
+                writing-mode: horizontal-tb;
+                -webkit-writing-mode: horizontal-tb;
+            }
+
+            div.塊::selection,
+            div.塊 *::selection {
+                color: rgb(0, 0, 0);
+                background-color: #808080;
+            }
+
+            div.日期::selection,
+            div.日期 *::selection {
+                color: black;
+                background-color: #80ffaa;
+            }
+
+            br {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            br::selection {
+                color: #00000000;
+                background-color: #00000000;
+            }
+
+            hr {
+                border: none;
+            }
+
+            hr.同日 {
+                border-right: 3px solid #ffffff06;
+            }
+
+            hr.轉日 {
+                border-right: 3px solid #ffffff30;
+            }
+
+            .日期 {
+                font-size: 15px;
+                color: #80ffaa;
+                padding-left: 0px;
+            }
+
+            .內容 {
+                font-size: 25px;
+                color: #ffffff;
+                padding-left: 0px;
+            }
+
+            .複製今日道曆 {
+                font-size: 25px;
+                text-decoration: none;
+                border: 0.5px dashed #00000000;
+                color: white;
+                background-color: #00000000;
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            @media (hover: hover) {
+                .複製今日道曆:hover {
+                    color: #000000;
+                    background-color: #ffffff;
+                }
+
+                .複製今日道曆:active {
+                    color: aqua;
+                    background-color: #000000;
+                    border-color: aqua;
+                }
+            }
+
+            @media (hover: none) {
+                .複製今日道曆:focus {
+                    color: #000000;
+                    background-color: #ffffff;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="prompt-list-group-content">
+        <a
+            href="#"
+            class="複製今日道曆 unselectable"
+            tabindex="0"
+            draggable="false"
+            >複製今日道曆</a
+        >
+        <script>
+            document.querySelectorAll(".複製今日道曆").forEach((link) => {
+                link.addEventListener("click", async function (event) {
+                    event.preventDefault();
+                    try {
+                        const textToCopy = 轉換道曆(
+                            new Date(),
+                            1,
+                            `/---/\nwww\tyyyy/mm/dd/HHQQ`
+                        );
+                        await navigator.clipboard.writeText(textToCopy);
+                    } catch (err) {}
+                });
+            });
+        </script>
+
+        <div id="日誌內容">
+            <script src="/javascript/日誌/処理文本.js"></script>
+        </div>
+    </body>
 </html>

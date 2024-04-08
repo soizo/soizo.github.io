@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html 滾動條theme="wiki">
     <head>
         <meta
             name="viewport"
@@ -32,26 +32,11 @@
             media="all"
         />
         <link
-            href="/css/滾動條/黑灰白滾動條.css"
+            href="/css/滾動條/方滾動條.css"
             rel="stylesheet"
             type="text/css"
             media="all"
         />
-        <script>
-            function changeCSSVariables(variables) {
-                Object.keys(variables).forEach(function (key) {
-                    document.documentElement.style.setProperty(
-                        key,
-                        variables[key]
-                    );
-                });
-            }
-            changeCSSVariables({
-                "--滾動條：背景色": "#1c1f24",
-                "--滾動條：三角背景色": "#1c1f24",
-                "--滾動條：交界背景色": "#1c1f24",
-            });
-        </script>
         <link rel="icon" href="/assets/絵文字/WIKI.png" type="image/x-icon" />
     </head>
     <body class="prompt-list-group-content">

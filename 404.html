@@ -1,22 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="height=device-height, initial-scale=1.0"
+        />
+        <title>尋无</title>
+        <script src="/javascript/公共/好多函數！.js"></script>
+        <link rel="icon" s-href="䈎面圖標：msg_error" type="image/x-icon" />
+        <link
+            rel="preload"
+            href="/fonts/只需HanaMinA.ttf"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            href="/css/功能.css"
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+        />
+        <link
+            href="/css/滾動條/方滾動條.css"
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+        />
+        <style>
+            @font-face {
+                font-family: "只需HanaMinA";
+                src: url("/fonts/只需HanaMinA.ttf") format("TrueType");
+                font-display: swap;
+            }
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="height=device-height, initial-scale=1.0">
-	<title>尋无</title>
-	<script src="/javascript/公共/好多函數！.js"></script>
-	<link rel="icon" s-href="䈎面圖標：msg_error" type="image/x-icon">
-	<link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/woff2" crossorigin="anonymous">
-	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/css/滾動條/黑灰白滾動條.css" rel="stylesheet" type="text/css" media="all">
-	<link href="/css/404.css" rel="stylesheet" type="text/css" media="all">
-</head>
+            body *,
+            body {
+                font-family: "只需HanaMinA";
+            }
 
-<body class="unselectable">
-	<div class="大">尋无</div>
-	<br>
-	<div class="中">NOT-FOUND<a class="中" href="/">主䈎</a></div>
-</body>
+            body {
+                writing-mode: vertical-rl;
+                overflow: hidden;
+                color: white;
+                background-color: blue;
+            }
 
+            .大 {
+                font-size: 300px;
+                line-height: 300px;
+            }
+
+            .中 {
+                font-size: 50px;
+                line-height: 50px;
+            }
+
+            a {
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+                font-weight: bold;
+                color: #00ffff;
+                opacity: 30%;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: white;
+                background-color: black;
+                opacity: 100%;
+            }
+        </style>
+    </head>
+
+    <body class="unselectable">
+        <div class="大">尋无</div>
+        <br />
+        <div class="中">NOT-FOUND<a class="中" href="/">主䈎</a></div>
+    </body>
 </html>
