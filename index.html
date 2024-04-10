@@ -77,6 +77,7 @@
                                 s-src="赤景靑面怒視目"
                                 class="unselectable"
                                 style="float: left; width: 270px"
+                                draggable="false"
                             />
                             <h2>灋顯東石</h2>
                             <hr style="margin-left: 50px; margin-right: 10px" />
@@ -158,9 +159,12 @@
                         </div>
                     </td>
                     <td id="下列">
-                        <div class="塊 最近更新日期">
-                            最近更新日期：<br />
-                            <span class="時間" id="GIT：今倉庫最近更新時間">
+                        <div class="塊 最近更新日期 unselectable">
+                            <span>最近更新日期：</span><br />
+                            <span
+                                class="時間 selectableAsText"
+                                id="GIT：今倉庫最近更新時間"
+                            >
                                 <script>
                                     function updateLatestGitUpdateTime() {
                                         const apiUrl =

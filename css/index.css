@@ -48,6 +48,11 @@ body {
 	text-decoration-thickness: 1px;
 }
 
+.時間:hover {
+	outline-style: dashed;
+	outline-width: 1px;
+}
+
 #上列 {
 	height: 675px;
 	vertical-align: top;
@@ -228,4 +233,15 @@ div.塊 {
 #愛好 .wiki:hover {
 	color: #000000;
 	background-color: #62909b;
+}
+
+
+/**                                                                     **/
+/**                                最近更新日期                               **/
+/**                                                                     **/
+
+.最近更新日期 *::selection,
+.最近更新日期::selection {
+	background-color: white;
+	color: #000000;
 }
