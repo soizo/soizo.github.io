@@ -4,17 +4,23 @@
 	font-display: swap;
 }
 
+:root {
+	--顏色大背景: #1c1f24;
+	--顏色大背景藍一點: #3e4757;
+	--顏色鏈接: #a1ecff
+}
+
 body {
 	margin: 0;
 	writing-mode: vertical-rl;
 	overflow-y: hidden;
-	background-color: #1c1f24;
+	background-color: var(--顏色大背景);
 }
 
 #content {
 	width: 100vw;
 	height: 100vh;
-	background-color: #1c1f24;
+	background-color: var(--顏色大背景);
 }
 
 :lang(han-char) {
@@ -27,13 +33,13 @@ body {
 /**                                                                     **/
 
 #䈎彙外 {
-	background-color: #1c1f24;
+	background-color: var(--顏色大背景);
 	font-family: 閹割unifont;
 	color: white;
 }
 
 #䈎彙 *::selection {
-	color: #1c1f24;
+	color: var(--顏色大背景);
 	background-color: white;
 }
 
@@ -64,7 +70,7 @@ body {
 }
 
 #䈎彙 tr:nth-child(even) {
-	background-color: #ffffff09;
+	background-color: #ffffff08;
 }
 
 #䈎彙 th {
@@ -76,19 +82,18 @@ body {
 #䈎彙 th::selection,
 #䈎彙 th *::selection {
 	background-color: #448d73;
-	color: #1c1f24;
+	color: var(--顏色大背景);
 }
 
 
 #䈎彙 a {
-	color: #ffffff;
+	color: white;
 	text-decoration: none;
 }
 
 #䈎彙 a::selection,
 #䈎彙 a *::selection {
-	color: white;
-	background-color: #62909b;
+	color: var(--顏色大背景);
 }
 
 #䈎彙 a:hover,
@@ -108,7 +113,7 @@ body {
 #䈎彙 a.「中國」::selection,
 #䈎彙 a.「中國」 *::selection {
 	background-color: yellow;
-	color: #1c1f24;
+	color: var(--顏色大背景);
 }
 
 #众Table>* {
@@ -129,12 +134,12 @@ body {
 
 #MD外部 {
 	font-family: 閹割unifont;
-	background-color: #1c1f24;
+	background-color: var(--顏色大背景);
 	color: white;
 }
 
 #MD外部 *::selection {
-	color: #1c1f24;
+	color: var(--顏色大背景);
 	background-color: white;
 }
 
@@ -162,11 +167,17 @@ body {
 }
 
 #MD內部 a {
-	color: #a1ecff;
+	color: var(--顏色鏈接);
+}
+
+#MD內部 a::selection,
+#MD內部 a *::selection {
+	color: var(--顏色大背景);
+	background-color: var(--顏色鏈接);
 }
 
 #MD內部 blockquote *::selection {
-	color: #1c1f24;
+	color: var(--顏色大背景);
 	background-color: #a1ffe0ee;
 }
 
@@ -202,8 +213,36 @@ body {
 #MD內部 th::selection,
 #MD內部 th *::selection {
 	background-color: #448d73;
-	color: #1c1f24;
+	color: var(--顏色大背景);
 }
+
+#MD內部 code {
+	font-size: 80%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: var(--顏色大背景藍一點);
+}
+
+#MD內部 code::selection {
+	color: white;
+	background-color: var(--顏色大背景藍一點);
+}
+
+#MD內部 code:not([class]) {
+	font-size: 80%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 4px;
+	color: tomato;
+	background-color: #ff63472a;
+}
+
+#MD內部 code:not([class])::selection {
+	color: var(--顏色大背景);
+	background-color: tomato;
+}
+
+
 
 
 /**                                                                     **/
@@ -224,7 +263,7 @@ body {
 #錯誤介面 {
 	width: 100vw;
 	height: 100vh;
-	background-color: #0000ff;
+	background-color: blue;
 	color: white;
 }
 
@@ -234,7 +273,7 @@ body {
 }
 
 #錯誤介面 *::selection {
-	color: #0000ff;
+	color: blue;
 	background-color: white;
 }
 
