@@ -90,21 +90,21 @@ body {
 }
 
 #个人紹介 a {
-	color: #ffffff;
+	color: #3854db;
 }
 
 #个人紹介 a:hover {
-	color: #000000;
-	background-color: #ffffff;
+	color: #f9faf4;
+	background-color: #3854db;
 }
 
 #个人紹介 .wiki {
-	color: #000000;
+	color: #51a06e;
 }
 
 #个人紹介 .wiki:hover {
-	color: #000000;
-	background-color: #ffffff;
+	color: #f9faf4;
+	background-color: #51a06e;
 }
 
 #个人紹介 .「中國」 {
@@ -113,6 +113,7 @@ body {
 
 #个人紹介 .「中國」:hover {
 	background-color: yellow;
+	color: red;
 }
 
 #个人紹介>h1,
