@@ -575,15 +575,18 @@ function addMobileWarning(test) {
 				direction="up"
 				scrollamount="20"
 				bgcolor="blue"
+				onmouseover="this.stop();"
+				onmouseout="this.start();"
 				style="
 					height: 100%;
 					padding-left: 7px;
 					padding-right: 5px;
 					margin: 0;
+					white-space: nowrap;
 				"
 			>
 				<span style="font-size: 40px; color: white"
-					>吿：ＷＩＮＤＯＷＳ端ＣＨＲＯＭＥ內核瀏覽最佳</span
+					>吿：手機端査看效果不佳！建議ＷＩＮＤＯＷＳ端ＣＨＲＯＭＥ內核瀏覽！</span
 				>
 			</marquee>
 		`
