@@ -561,37 +561,7 @@ function addMobileWarning(test) {
         // 創建style元素
         const style = document.createElement("style");
         // 設置CSS內容
-        style.textContent = `
-		#手机端警告 {
-			display:flex;
-			background-color: #0000ff;
-			overflow: hidden;
-			position: relative;
-			height: 100vh;
-			width: 40px;
-			align-content: center;
-			margin-left :20px;
-		}
-		
-		#手机端警告文字 {
-			color: white;
-			font-family: 閹割unifont;
-			text-align: center;
-			font-size: 30px;
-			animation: 手机端警告 20s linear infinite;
-			overflow: hidden;
-		}
-		
-		@keyframes 手机端警告 {
-			0% {
-				transform: translateY(100vh);
-			}
-		
-			100% {
-				transform: translateY(-100vh);
-			}
-		}
-		`;
+        style.textContent = ``;
         // 將style元素添加到head中
         document.head.appendChild(style);
 
@@ -599,11 +569,23 @@ function addMobileWarning(test) {
         document.body.insertAdjacentHTML(
             "afterbegin",
             `
-				<div id="手机端警告" class="unselectable">
-					<div id="手机端警告文字" class="unselectable">
-						吿：ＷＩＮＤＯＷＳ端ＣＨＲＯＭＥ內核瀏覽最佳
-					</div>
-				</div>
+			<marquee
+				id="手机端警告"
+				class="unselectable"
+				direction="up"
+				scrollamount="20"
+				bgcolor="blue"
+				style="
+					height: 100%;
+					padding-left: 7px;
+					padding-right: 5px;
+					margin: 0;
+				"
+			>
+				<span style="font-size: 40px; color: white"
+					>吿：ＷＩＮＤＯＷＳ端ＣＨＲＯＭＥ內核瀏覽最佳</span
+				>
+			</marquee>
 		`
         );
     }

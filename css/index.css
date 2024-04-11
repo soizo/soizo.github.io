@@ -29,6 +29,7 @@ body {
 	background-color: black;
 	color: white;
 	writing-mode: vertical-rl;
+	margin: 0;
 }
 
 
@@ -118,27 +119,27 @@ body {
 	color: red;
 }
 
-#个人紹介>h1,
-#个人紹介>h2,
-#个人紹介>h3 {
+#个人紹介>div>h1,
+#个人紹介>div>h2,
+#个人紹介>div>h3 {
 	font-family: "只需HanaMinA";
 
 }
 
-#个人紹介>h2,
-#个人紹介>h2 * {
+#个人紹介>div>h2,
+#个人紹介>div>h2 * {
 	font-size: 45px;
 }
 
-#个人紹介>h3,
-#个人紹介>h3 * {
+#个人紹介>div>h3,
+#个人紹介>div>h3 * {
 	font-size: 35px;
 	text-decoration: underline;
 	padding-right: 30px;
 
 }
 
-#个人紹介 hr {
+#个人紹介>div>hr {
 	border: none;
 	border: 2px solid black;
 }
