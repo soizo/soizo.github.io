@@ -26,18 +26,17 @@ body {
 }
 
 body {
-	background-color: black;
+	background-image: url('/assets/圖象/GIFs/我的圖冊/suckmonscreen.gif');
+	background-size: cover;
+	/* background-color: black; */
 	color: white;
 	writing-mode: vertical-rl;
 	margin: 0;
 }
 
-
 .聊天 {
 	writing-mode: horizontal-tb;
 }
-
-#文者燒殺人 {}
 
 .絵文字圖象 {
 	height: 1em;
@@ -56,19 +55,20 @@ body {
 	outline-width: 1px;
 }
 
+body>table {
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #上列 {
-	height: 675px;
+	/* height: 675px; */
 	vertical-align: top;
 }
 
 #下列 {
-	height: 225px;
+	/* height: 225px; */
 	vertical-align: top;
-}
-
-
-#Q1 {
-	/* margin-right: 0; */
 }
 
 /**                                                                     **/
@@ -155,6 +155,7 @@ div.塊 {
 	padding: 15px 10px;
 	margin: 5px;
 	margin-right: 0;
+	background-color: #000000;
 }
 
 @-moz-document url-prefix() {
