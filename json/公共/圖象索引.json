@@ -9,5 +9,8 @@
 		"msg_error": "/assets/䈎面圖標/msg_error.ico",
 		"event_log": "/assets/䈎面圖標/event_log.ico",
 		"directory_pictures": "/assets/䈎面圖標/dictionary_pictures.ico"
+	},
+	"MBTI": {
+		"INFP-T": "assets/圖象/狗INFP.png"
 	}
 }
