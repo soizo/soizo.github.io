@@ -583,6 +583,7 @@ function addMobileWarning(test) {
 					padding-right: 5px;
 					margin: 0;
 					white-space: nowrap;
+					font-family: '閹割unifont';
 				"
 			>
 				<span style="font-size: 40px; color: white"
