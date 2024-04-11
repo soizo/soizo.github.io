@@ -27,20 +27,13 @@
     </head>
 
     <body>
-        <!-- 隐藏的视频元素 -->
-        <video id="videoElement" style="display: none">
-            <source src="assets/視頻/狗INFP-小丑.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-
-        <!-- 可见的Canvas元素 -->
-        <div
-            style="
-                display: grid;
-                place-items: center;
-                height: 100vh; /* 使容器的高度占滿整個視窗的高度 */
-            "
-        >
+        <div style="display: grid; place-items: center; height: 100vh">
+            <!-- 隐藏的视频元素 -->
+            <video id="videoElement" style="display: none">
+                <source src="assets/視頻/狗INFP-小丑.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <!-- 可见的Canvas元素 -->
             <canvas id="videoCanvas"></canvas>
         </div>
 
@@ -48,8 +41,11 @@
             var video = document.getElementById("videoElement");
             var canvas = document.getElementById("videoCanvas");
             var context = canvas.getContext("2d");
+            var isMobile =
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                );
 
-            // 计算并设置Canvas大小以保持视频比例
             function setCanvasSize() {
                 var ratio = video.videoWidth / video.videoHeight;
                 var width = Math.min(window.innerWidth, video.videoWidth);
@@ -66,46 +62,39 @@
                 canvas.style.height = `${height}px`;
             }
 
-            video.addEventListener(
-                "play",
-                function () {
-                    var $this = this; // 视频的当前实例
-                    (function loop() {
-                        if (!$this.paused && !$this.ended) {
-                            setCanvasSize(); // 更新Canvas大小
-                            context.drawImage(
-                                $this,
-                                0,
-                                0,
-                                canvas.width,
-                                canvas.height
-                            );
-                            setTimeout(loop, 1000 / 30); // 绘制频率，这里是每秒30帧
-                        }
-                    })();
-                },
-                0
-            );
+            if (!isMobile) {
+                video.addEventListener(
+                    "play",
+                    function () {
+                        (function loop() {
+                            if (!video.paused && !video.ended) {
+                                setCanvasSize();
+                                context.drawImage(
+                                    video,
+                                    0,
+                                    0,
+                                    canvas.width,
+                                    canvas.height
+                                );
+                                setTimeout(loop, 1000 / 30); // 绘制频率，这里是每秒30帧
+                            }
+                        })();
+                    },
+                    0
+                );
 
-            video.addEventListener("loadedmetadata", setCanvasSize);
+                video.addEventListener("loadedmetadata", setCanvasSize);
+                window.addEventListener("resize", setCanvasSize);
 
-            video.play().catch(function (error) {
-                console.error("自动播放失败，错误信息：", error);
-            });
-
-            window.addEventListener("resize", setCanvasSize);
-
-            // 在移动或点击时播放视频
-            function playVideo() {
-                if (video.paused || video.ended) {
-                    video
-                        .play()
-                        .then(() => console.log("视频播放中"))
-                        .catch((e) =>
-                            console.error("播放视频失败，错误信息：", e)
-                        );
-                }
+                video.play().catch(function (error) {
+                    console.error("自动播放失败，错误信息：", error);
+                });
+            } else {
+                video.style.display = "block";
+                canvas.style.display = "none";
+                video.controls = true;
             }
+
             // 捕获交互事件来启动视频播放
             document.addEventListener("mousemove", playVideo);
             document.addEventListener("click", playVideo);
@@ -114,6 +103,16 @@
                     playVideo();
                 }
             });
+
+            function playVideo() {
+                if (video.paused || video.ended) {
+                    video
+                        .play()
+                        .catch((e) =>
+                            console.error("播放视频失败，错误信息：", e)
+                        );
+                }
+            }
         </script>
     </body>
 </html>
