@@ -73,8 +73,8 @@ body {
 /**                                                                     **/
 
 #个人紹介 {
-	border-color: red;
-	background-color: red;
+	border-color: #f9faf4;
+	background-color: #f9faf4;
 	color: black;
 	margin-left: 30px;
 }
@@ -86,7 +86,7 @@ body {
 
 #个人紹介 *::selection {
 	background-color: black;
-	color: red;
+	color: #f9faf4;
 }
 
 #个人紹介 a {
@@ -108,7 +108,7 @@ body {
 }
 
 #个人紹介 .「中國」 {
-	color: yellow;
+	color: rgb(0, 0, 0);
 }
 
 #个人紹介 .「中國」:hover {
@@ -185,7 +185,7 @@ div.塊 {
 
 #个人紹介 .遮擋下.遮擋空,
 #相關我列表 .遮擋下.遮擋空 {
-	color: #ff0000;
+	color: #f9faf4;
 }
 
 
