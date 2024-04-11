@@ -1,237 +1,105 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="height=device-height, initial-scale=0.9"
-        />
-        <title>灋顯東石的个人主䈎</title>
-        <script src="/javascript/公共/好多函數！.js"></script>
-        <script src="/javascript/公共/橫向捲動.js"></script>
-        <script src="/javascript/index/index.js"></script>
-        <script src="/javascript/公共/私用字.js"></script>
-        <script src="/javascript/公共/豎排符號.js"></script>
-        <script src="/javascript/公共/絵文字.js"></script>
-        <link rel="icon" s-href="䈎面圖標：erase_file" type="image/x-icon" />
-        <link
-            rel="preload"
-            href="/json/公共/私用字辭典.json"
-            as="fetch"
-            type="application/json"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="preload"
-            href="/fonts/閹割unifont-Medium.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="preload"
-            href="/fonts/只需HanaMinA.ttf"
-            as="font"
-            type="font/ttf"
-            crossorigin="anonymous"
-        />
-        <link
-            href="/css/功能.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <link
-            href="/css/滾動條/方滾動條.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <link
-            href="/css/index.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-    </head>
-    <body class="prompt-list-group-content">
-        <table>
-            <tbody>
-                <tr>
-                    <td id="上列">
-                        <div class="塊" id="个人紹介">
-                            <div>
-                                <img
-                                    s-src="素景靑面怒視目多目"
-                                    class="unselectable"
-                                    style="float: left; width: 230px"
-                                    draggable="false"
-                                />
-                                <img
-                                    id="文者燒殺人"
-                                    class="unselectable"
-                                    s-src="文者燒殺人"
-                                    draggable="false"
-                                    style="
-                                        width: 130px;
-                                        image-rendering: pixelated;
-                                        margin-right: -10px;
-                                    "
-                                />
-                                <p>
-                                    我是<span
-                                        style="
-                                            font-family: 只需HanaMinA;
-                                            font-weight: bold;
-                                            font-size: 40px;
-                                        "
-                                        >灋顯東石</span
-                                    >
-                                </p>
-                                <p>這裏是我的个人网站</p>
-                                <span>啓始日：</span
-                                ><span class="時間" style="font-weight: bold"
-                                    >:=四七二〇·二月十七·戌正一刻$扁=:</span
-                                >
-                                <br />
-                                <span
-                                    class="遮擋下"
-                                    style="background-color: #000"
-                                    >事實我早些時就啓始了，在乍日誌</span
-                                >
-                            </div>
-                            <div>
-                                <h3>關於我</h3>
-                                <ul id="相關我列表" style="padding-right: 20px">
-                                    <li>
-                                        我是<b
-                                            ><a
-                                                href="/wiki.html?title=中國"
-                                                target="_blank"
-                                                class="「中國」 wiki"
-                                                >中國</a
-                                            ></b
-                                        >人:=&CHINA-FLAG=:
-                                    </li>
-                                    <li>
-                                        <b>生辰</b>：<span class="時間"
-                                            >:=四七〇五·八月$扁=:</span
-                                        >
-                                    </li>
-                                    <li><b>男性</b>　性取向不明確</li>
-                                    <li>
-                                        <b>ＭＢＴＩ</b>人格爲Ｔ類<a
-                                            target="_blank"
-                                            href="https://www.16personalities.com/tw/infp-%E6%80%A7%E6%A0%BC"
-                                            >調停者</a
-                                        ><a s-href="MBTI：INFP-T" onclick="小丑音效()"target="_blank" style="background:none;">
-											<audio id="小丑">
-											<source src="assets/音頻/音效/小丑.mp3" type="audio/mp3">
-											</audio>
-											<script>
-												function 小丑音效() {
-													var audio = document.getElementById("小丑");
-													audio.play();
-												}
-											</script>
-										<img s-src="MBTI：INFP-T" style="width: 2em; float: up;"></img></a>
-                                    </li>
-                                    <li>
-                                        尊重多元性傾向　認同只<a
-                                            class="wiki"
-                                            target="_blank"
-                                            href="/wiki.html?title=性別四元論"
-                                            >性別四元論</a
-                                        >
-                                    </li>
-                                    <li>
-                                        <b>編程語言 :=&CODE=:</b
-                                        ><br />學得很雜　譬如<a
-                                            href="https://scratch.mit.edu/download"
-                                            target="_blank"
-                                            >SCRATCH</a
-                                        ><span>, </span><a>C++</a><span>, </span
-                                        ><a>GDscript</a
-                                        >都學過（或學校或自學）其餘主流語言都有了解或可讀
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="塊" id="愛好">
-                            <h3>愛好 :=&心=:</h3>
-                            <ul>
-                                <li>
-                                    <b>漢字</b
-                                    >　來自世界的漢字：中國日本韓國漢字　<br />㗂越𡨸喃　𗼇𘝞　以及
-                                    <p>恩其實主要是前面純漢字吧（笑）</p>
-                                </li>
-                                <li>
-                                    還有<b>:=藝$0=:術</b>也超愛，恩……那種視覺系的？
-                                    <p>
-                                        我創作的很多作品是<a
-                                            href="/wiki.html?title=匣污系"
-                                            class="wiki"
-                                            target="_blank"
-                                            >匣污系</a
-                                        >
-                                        <span class="遮擋下">原創詞彙……</span>
-                                    </p>
-                                    <p>不會繪畫，會修圖剪貼畫呵呵。</p>
-                                    <p>很希望可以自己作一款遊戲</p>
-                                </li>
-                                <li>
-                                    <b>編程</b
-                                    >。大槪也很喜愛！陪伴我很長時間的愛好
-                                </li>
-                                <li><b>宗教</b>也感興趣！</li>
-                            </ul>
-                        </div>
-                    </td>
-                    <td id="下列">
-                        <div class="塊 最近更新日期 unselectable">
-                            <span>最近更新日期：</span><br />
-                            <span
-                                class="時間 selectableAsText"
-                                id="GIT：今倉庫最近更新時間"
-                            >
-                                <script>
-                                    function updateLatestGitUpdateTime() {
-                                        const apiUrl =
-                                            "https://api.github.com/repos/soizo/soizo.github.io";
 
-                                        fetch(apiUrl)
-                                            .then((response) => response.json())
-                                            .then((data) => {
-                                                const lastUpdateTime = new Date(
-                                                    data.pushed_at
-                                                );
-                                                const formattedTime =
-                                                    window.轉換道曆(
-                                                        lastUpdateTime,
-                                                        undefined,
-                                                        "YYYY·MM·DD·HHQQ"
-                                                    );
-                                                document.getElementById(
-                                                    "GIT：今倉庫最近更新時間"
-                                                ).innerHTML = `:=${formattedTime}$扁=:`;
-                                            })
-                                            .catch((error) => {
-                                                console.error(
-                                                    "更新失敗:",
-                                                    error
-                                                );
-                                            });
-                                    }
-                                    updateLatestGitUpdateTime();
-                                </script>
-                            </span>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <script>
-            window.addMobileWarning();
-        </script>
-    </body>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="height=device-height, initial-scale=0.9" />
+	<title>灋顯東石的个人主䈎</title>
+	<script src="/javascript/公共/好多函數！.js"></script>
+	<script src="/javascript/公共/橫向捲動.js"></script>
+	<script src="/javascript/index/index.js"></script>
+	<script src="/javascript/公共/私用字.js"></script>
+	<script src="/javascript/公共/豎排符號.js"></script>
+	<script src="/javascript/公共/絵文字.js"></script>
+	<link rel="icon" s-href="䈎面圖標：erase_file" type="image/x-icon" />
+	<link rel="preload" href="/json/公共/私用字辭典.json" as="fetch" type="application/json" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/閹割unifont-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/滾動條/方滾動條.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/index.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body class="prompt-list-group-content">
+	<table>
+		<tbody>
+			<tr>
+				<td id="上列">
+					<div class="塊" id="个人紹介">
+						<div>
+							<img s-src="素景靑面怒視目多目" class="unselectable" style="float: left; width: 230px"
+								draggable="false" />
+							<img id="文者燒殺人" class="unselectable" s-src="文者燒殺人" draggable="false"
+								style="width: 130px; image-rendering: pixelated; margin-right: -10px;" />
+							<p>
+								我是<span style="font-family: 只需HanaMinA; font-weight: bold; font-size: 40px;">灋顯東石</span>
+							</p>
+							<p>這裏是我的个人网站</p>
+							<span>啓始日：</span><span class="時間" style="font-weight: bold">:=四七二〇·二月十七·戌正一刻$扁=:</span>
+							<br />
+							<span class="遮擋下" style="background-color: #000">事實我早些時就啓始了，在乍日誌</span>
+						</div>
+						<div>
+							<h3>關於我</h3>
+							<ul id="相關我列表" style="padding-right: 20px">
+								<li>我是<b><a href="/wiki.html?title=中國" target="_blank"
+											class="「中國」 wiki">中國</a></b>人:=&CHINA-FLAG=:</li>
+								<li><b>生辰</b>：<span class="時間">:=四七〇五·八月$扁=:</span></li>
+								<li><b>男性</b>　性取向不明確</li>
+								<li><b>ＭＢＴＩ</b>人格爲Ｔ類<a target="_blank"
+										href="https://www.16personalities.com/tw/infp-%E6%80%A7%E6%A0%BC">調停者</a><a
+										href="/%E7%8B%97INFP-T.html" target="_blank" style="background:none;"><img
+											s-src="MBTI：INFP-T" style="width: 2em; float: up;"></img></a></li>
+								<li>尊重多元性傾向　認同只<a class="wiki" target="_blank" href="/wiki.html?title=性別四元論">性別四元論</a>
+								</li>
+								<li><b>編程語言 :=&CODE=:</b><br />學得很雜　譬如<a href="https://scratch.mit.edu/download"
+										target="_blank">SCRATCH</a><span>, </span><a>C++</a><span>,
+									</span><a>GDscript</a>都學過（或學校或自學）其餘主流語言都有了解或可讀</li>
+							</ul>
+						</div>
+					</div>
+					<div class="塊" id="愛好">
+						<h3>愛好 :=&心=:</h3>
+						<ul>
+							<li><b>漢字</b>　來自世界的漢字：中國日本韓國漢字　<br />㗂越𡨸喃　𗼇𘝞　以及<p>恩其實主要是前面純漢字吧（笑）</p>
+							</li>
+							<li>還有<b>:=藝$0=:術</b>也超愛，恩……那種視覺系的？<p>我創作的很多作品是<a href="/wiki.html?title=匣污系" class="wiki"
+										target="_blank">匣污系</a><span class="遮擋下">原創詞彙……</span></p>
+								<p>不會繪畫，會修圖剪貼畫呵呵。</p>
+								<p>很希望可以自己作一款遊戲</p>
+							</li>
+							<li><b>編程</b>。大槪也很喜愛！陪伴我很長時間的愛好</li>
+							<li><b>宗教</b>也感興趣！</li>
+						</ul>
+					</div>
+				</td>
+				<td id="下列">
+					<div class="塊 最近更新日期 unselectable">
+						<span>最近更新日期：</span><br />
+						<span class="時間 selectableAsText" id="GIT：今倉庫最近更新時間">
+							<script>
+								function updateLatestGitUpdateTime() {
+									const apiUrl = "https://api.github.com/repos/soizo/soizo.github.io";
+									fetch(apiUrl)
+										.then((response) => response.json())
+										.then((data) => {
+											const lastUpdateTime = new Date(data.pushed_at);
+											const formattedTime = window.轉換道曆(lastUpdateTime, undefined, "YYYY·MM·DD·HHQQ");
+											document.getElementById("GIT：今倉庫最近更新時間").innerHTML = `:=${formattedTime}$扁=:`;
+										})
+										.catch((error) => {
+											console.error("更新失敗:", error);
+										});
+								}
+								updateLatestGitUpdateTime();
+							</script>
+						</span>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>window.addMobileWarning();</script>
+</body>
+
 </html>

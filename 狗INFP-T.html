@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>狗INFP-T</title>
+        <link rel="icon" href="assets/䈎面圖標/小丑INFP.png" type="image/png" />
+        <link
+            rel="preload"
+            href="assets/視頻/狗INFP-小丑.mp4"
+            type="video/mp4"
+            crossorigin="anonymous"
+        />
+        <style>
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
+            }
+            #videoCanvas {
+                display: block; /* 将canvas设置为块级元素 */
+                margin: auto; /* 水平居中 */
+                max-width: 100%; /* 最大宽度限制为视口宽度，保持视频比例 */
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- 隐藏的视频元素 -->
+        <video id="videoElement" style="display: none">
+            <source src="assets/視頻/狗INFP-小丑.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- 可见的Canvas元素 -->
+        <div
+            style="
+                display: grid;
+                place-items: center;
+                height: 100vh; /* 使容器的高度占滿整個視窗的高度 */
+            "
+        >
+            <canvas id="videoCanvas"></canvas>
+        </div>
+
+        <script>
+            var video = document.getElementById("videoElement");
+            var canvas = document.getElementById("videoCanvas");
+            var context = canvas.getContext("2d");
+
+            // 计算并设置Canvas大小以保持视频比例
+            function setCanvasSize() {
+                var ratio = video.videoWidth / video.videoHeight;
+                var width = Math.min(window.innerWidth, video.videoWidth);
+                var height = width / ratio;
+
+                if (height > window.innerHeight) {
+                    height = window.innerHeight;
+                    width = height * ratio;
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+            }
+
+            video.addEventListener(
+                "play",
+                function () {
+                    var $this = this; // 视频的当前实例
+                    (function loop() {
+                        if (!$this.paused && !$this.ended) {
+                            setCanvasSize(); // 更新Canvas大小
+                            context.drawImage(
+                                $this,
+                                0,
+                                0,
+                                canvas.width,
+                                canvas.height
+                            );
+                            setTimeout(loop, 1000 / 30); // 绘制频率，这里是每秒30帧
+                        }
+                    })();
+                },
+                0
+            );
+
+            video.addEventListener("loadedmetadata", setCanvasSize);
+
+            video.play().catch(function (error) {
+                console.error("自动播放失败，错误信息：", error);
+            });
+
+            window.addEventListener("resize", setCanvasSize);
+
+            // 在移动或点击时播放视频
+            function playVideo() {
+                if (video.paused || video.ended) {
+                    video
+                        .play()
+                        .then(() => console.log("视频播放中"))
+                        .catch((e) =>
+                            console.error("播放视频失败，错误信息：", e)
+                        );
+                }
+            }
+            // 捕获交互事件来启动视频播放
+            document.addEventListener("mousemove", playVideo);
+            document.addEventListener("click", playVideo);
+            document.addEventListener("keydown", (event) => {
+                if (event.key === " " || event.key === "Enter") {
+                    playVideo();
+                }
+            });
+        </script>
+    </body>
+</html>
