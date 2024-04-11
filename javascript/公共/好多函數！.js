@@ -573,7 +573,7 @@ function addMobileWarning(test) {
 				id="手机端警告"
 				class="unselectable"
 				direction="up"
-				scrollamount="20"
+				scrollamount="30%"
 				bgcolor="blue"
 				onmouseover="this.stop();"
 				onmouseout="this.start();"
