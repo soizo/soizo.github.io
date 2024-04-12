@@ -67,7 +67,7 @@ body>table {
 }
 
 #下列 {
-	height: 225px;
+	height: 300px;
 	vertical-align: top;
 }
 
@@ -162,6 +162,12 @@ div.塊 {
 	background-color: #000000;
 }
 
+div.塊::selection,
+div.塊 *::selection {
+	color: #000000;
+	background-color: white;
+}
+
 @-moz-document url-prefix() {
 	div.塊 {
 		background-color: #000000d3;
@@ -253,4 +259,16 @@ div.塊 {
 .最近更新日期::selection {
 	background-color: white;
 	color: #000000;
+}
+
+
+/**                                                                     **/
+/**                                 一些䈎面                                **/
+/**                                                                     **/
+
+.一些䈎面 ul li::marker {
+	color: red;
+	/* 改變標記顏色為紅色 */
+	font-size: 20px;
+	/* 設定標記的字體大小為20px */
 }
