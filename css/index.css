@@ -26,8 +26,12 @@ body {
 }
 
 body {
-	background-image: url('/assets/圖象/GIFs/我的圖冊/suckmonscreen.gif');
+	background-image: url('/assets/圖象/konataBG.png');
 	background-size: cover;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	/* 背景圖片固定，不隨內容滾動 */
 	/* background-color: black; */
 	color: white;
 	writing-mode: vertical-rl;
@@ -263,12 +267,13 @@ div.塊 *::selection {
 
 
 /**                                                                     **/
-/**                                 一些䈎面                                **/
+/**                                 我的䈎面                                **/
 /**                                                                     **/
+#我的䈎面 a {
+	color: white;
+	text-decoration: none;
+}
 
-.一些䈎面 ul li::marker {
-	color: red;
-	/* 改變標記顏色為紅色 */
-	font-size: 20px;
-	/* 設定標記的字體大小為20px */
+#我的䈎面 a:hover {
+	text-decoration: underline;
 }
