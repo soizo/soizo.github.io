@@ -67,7 +67,7 @@ body>table {
 }
 
 #下列 {
-	/* height: 225px; */
+	height: 225px;
 	vertical-align: top;
 }
 
@@ -142,6 +142,10 @@ body>table {
 #个人紹介>div>hr {
 	border: none;
 	border: 2px solid black;
+}
+
+#个人紹介 ul li {
+	padding-left: 15px;
 }
 
 /**                                                                     **/
