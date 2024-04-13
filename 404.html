@@ -1,82 +1,72 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="height=device-height, initial-scale=1.0"
-        />
-        <title>尋无</title>
-        <script src="/javascript/公共/好多函數！.js"></script>
-        <link rel="icon" s-href="䈎面圖標：msg_error" type="image/x-icon" />
-        <link
-            rel="preload"
-            href="/fonts/只需HanaMinA.ttf"
-            as="font"
-            type="font/woff2"
-            crossorigin="anonymous"
-        />
-        <link
-            href="/css/功能.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <link
-            href="/css/滾動條/方滾動條.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <style>
-            @font-face {
-                font-family: "只需HanaMinA";
-                src: url("/fonts/只需HanaMinA.ttf") format("TrueType");
-                font-display: swap;
-            }
 
-            body *,
-            body {
-                font-family: "只需HanaMinA";
-            }
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="height=device-height, initial-scale=1.0" />
+	<title>尋无</title>
+	<script src="/javascript/公共/好多函數！.js"></script>
+	<link rel="icon" s-href="䈎面圖標：尋无" type="image/x-icon" />
+	<link rel="preload" href="/fonts/閹割unifont-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<!-- <link rel="preload" href="/fonts/只需HanaMinA.ttf" as="font" type="font/woff2" crossorigin="anonymous" /> -->
+	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/滾動條/方滾動條.css" rel="stylesheet" type="text/css" media="all" />
+	<style>
+		/* @font-face {
+			font-family: "只需HanaMinA";
+			src: url("/fonts/只需HanaMinA.ttf") format("TrueType");
+			font-display: swap;
+		} */
 
-            body {
-                writing-mode: vertical-rl;
-                overflow: hidden;
-                color: white;
-                background-color: blue;
-            }
+		@font-face {
+			font-family: '閹割unifont';
+			src: url('/fonts/閹割unifont-Medium.woff2') format('woff2');
+			font-display: swap;
+		}
 
-            .大 {
-                font-size: 300px;
-                line-height: 300px;
-            }
+		body *,
+		body {
+			font-family: "閹割unifont";
+		}
 
-            .中 {
-                font-size: 50px;
-                line-height: 50px;
-            }
+		body {
+			writing-mode: vertical-rl;
+			overflow: hidden;
+			color: white;
+			background-color: blue;
+		}
 
-            a {
-                -webkit-transition-duration: 0.3s;
-                transition-duration: 0.3s;
-                font-weight: bold;
-                color: #00ffff;
-                opacity: 30%;
-                text-decoration: none;
-            }
+		.大 {
+			font-size: 300px;
+			line-height: 300px;
+		}
 
-            a:hover {
-                color: white;
-                background-color: black;
-                opacity: 100%;
-            }
-        </style>
-    </head>
+		.中 {
+			font-size: 50px;
+			line-height: 50px;
+		}
 
-    <body class="unselectable">
-        <div class="大">尋无</div>
-        <br />
-        <div class="中">NOT-FOUND<a class="中" href="/">主䈎</a></div>
-    </body>
+		a {
+			-webkit-transition-duration: 0.3s;
+			transition-duration: 0.3s;
+			font-weight: bold;
+			color: #00ffff;
+			opacity: 30%;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: white;
+			background-color: black;
+			opacity: 100%;
+		}
+	</style>
+</head>
+
+<body class="unselectable">
+	<div class="大">尋无</div>
+	<br />
+	<div class="中">NOT-FOUND<a class="中" href="/">主䈎</a></div>
+</body>
+
 </html>

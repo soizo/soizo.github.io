@@ -1,137 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>我的圖冊</title>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="height=device-height, initial-scale=1.0"
-        />
-        <script src="/javascript/公共/好多函數！.js"></script>
-        <script src="/javascript/公共/橫向捲動.js"></script>
-        <link
-            rel="icon"
-            s-href="䈎面圖標：directory_pictures"
-            type="image/x-icon"
-        />
-        <link
-            href="/css/功能.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <link
-            href="/css/滾動條/方滾動條.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <link
-            href="/css/我的圖冊.css"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-        />
-        <style>
-            @font-face {
-                font-family: "閹割unifont";
-                src: url("/fonts/閹割unifont-Medium.woff2") format("woff2");
-                font-display: swap;
-            }
 
-            body *,
-            body {
-                font-family: "閹割unifont";
-            }
+<head>
+	<title>我的圖冊</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="height=device-height, initial-scale=1.0" />
+	<script src="/javascript/公共/好多函數！.js"></script>
+	<script src="/javascript/公共/橫向捲動.js"></script>
+	<link rel="icon" s-href="䈎面圖標：我的圖冊" type="image/x-icon" />
+	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/滾動條/方滾動條.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/我的圖冊.css" rel="stylesheet" type="text/css" media="all" />
+	<style>
+		@font-face {
+			font-family: "閹割unifont";
+			src: url("/fonts/閹割unifont-Medium.woff2") format("woff2");
+			font-display: swap;
+		}
 
-            body {
-                background-image: url("/assets/GIFs/我的圖冊/我的圖冊BG.gif");
-                background-size: cover;
-                background-position: right;
-                height: 100vh;
-                padding: 0;
-                margin: 0;
-                background-color: black;
-                color: white;
-                writing-mode: vertical-rl;
-                overflow-y: hidden;
-            }
+		body *,
+		body {
+			font-family: "閹割unifont";
+		}
 
-            #全部圖片 button.圖片按鈕,
-            #全部圖片 button.圖片按鈕 img {
-                margin: 10px;
-            }
+		body {
+			background-image: url("/assets/GIFs/我的圖冊/我的圖冊BG.gif");
+			background-size: cover;
+			background-position: right;
+			height: 100vh;
+			padding: 0;
+			margin: 0;
+			background-color: black;
+			color: white;
+			writing-mode: vertical-rl;
+			overflow-y: hidden;
+		}
 
-            button.圖片按鈕 {
-                background-color: #00000000;
-                border: none;
-                width: 156px;
-                cursor: pointer;
-            }
+		#全部圖片 button.圖片按鈕,
+		#全部圖片 button.圖片按鈕 img {
+			margin: 10px;
+		}
 
-            button.圖片按鈕 img {
-                -webkit-transition-duration: 0.3s;
-                transition-duration: 0.3s;
-                width: 156px;
-            }
+		button.圖片按鈕 {
+			background-color: #00000000;
+			border: none;
+			width: 156px;
+			cursor: pointer;
+		}
 
-            @media (hover: hover) {
-                button.圖片按鈕 img {
-                    -webkit-transition-duration: 0.3s;
-                    transition-duration: 0.3s;
-                }
+		button.圖片按鈕 img {
+			-webkit-transition-duration: 0.3s;
+			transition-duration: 0.3s;
+			width: 156px;
+		}
 
-                button.圖片按鈕:hover img {
-                    filter: brightness(150%) contrast(150%);
-                    transform: scale(1.2);
-                }
+		@media (hover: hover) {
+			button.圖片按鈕 img {
+				-webkit-transition-duration: 0.3s;
+				transition-duration: 0.3s;
+			}
 
-                button.圖片按鈕:active img {
-                    filter: brightness(50%) contrast(150%);
-                    transform: scale(1.1);
-                }
-            }
+			button.圖片按鈕:hover img {
+				filter: brightness(150%) contrast(150%);
+				transform: scale(1.2);
+			}
 
-            @media (hover: none) {
-                button.圖片按鈕 img {
-                    -webkit-transition-duration: 0.5s;
-                    transition-duration: 0.5s;
-                }
+			button.圖片按鈕:active img {
+				filter: brightness(50%) contrast(150%);
+				transform: scale(1.1);
+			}
+		}
 
-                button.圖片按鈕:focus img {
-                    filter: brightness(150%) contrast(150%);
-                    transform: scale(1.3);
-                }
-            }
+		@media (hover: none) {
+			button.圖片按鈕 img {
+				-webkit-transition-duration: 0.5s;
+				transition-duration: 0.5s;
+			}
 
-            @keyframes fall {
-                0% {
-                    transform: translateY(0%);
-                }
+			button.圖片按鈕:focus img {
+				filter: brightness(150%) contrast(150%);
+				transform: scale(1.3);
+			}
+		}
 
-                100% {
-                    transform: translateY(100vh);
-                    opacity: 50%;
-                }
-            }
+		@keyframes fall {
+			0% {
+				transform: translateY(0%);
+			}
 
-            .pop-text {
-                overflow: hidden;
-                font-size: 20px;
-                position: fixed;
-                left: 0;
-                top: 0;
-                z-index: 9999;
-                animation: fall 2s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards;
-            }
-        </style>
-    </head>
+			100% {
+				transform: translateY(100vh);
+				opacity: 50%;
+			}
+		}
 
-    <body class="prompt-list-group-content">
-        <!-- <div id= "友情鏈結">貓盒</div> -->
-        <div id="全部圖片" class="unselectable">
-            <script src="/javascript/我的圖冊/按鈕.js"></script>
-            <script src="/javascript/我的圖冊/我的圖冊.js"></script>
-        </div>
-    </body>
+		.pop-text {
+			overflow: hidden;
+			font-size: 20px;
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 9999;
+			animation: fall 2s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards;
+		}
+	</style>
+</head>
+
+<body class="prompt-list-group-content">
+	<!-- <div id= "友情鏈結">貓盒</div> -->
+	<div id="全部圖片" class="unselectable">
+		<script src="/javascript/我的圖冊/按鈕.js"></script>
+		<script src="/javascript/我的圖冊/我的圖冊.js"></script>
+	</div>
+</body>
+
 </html>
