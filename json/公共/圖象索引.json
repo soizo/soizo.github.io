@@ -8,7 +8,8 @@
 		"主䈎": "assets/䈎面圖標/erase_file-0.ico",
 		"尋无": "/assets/䈎面圖標/msg_error.ico",
 		"日誌": "/assets/䈎面圖標/event_log.ico",
-		"我的圖冊": "/assets/䈎面圖標/dictionary_pictures.ico"
+		"我的圖冊": "/assets/䈎面圖標/dictionary_pictures.ico",
+		"聯繫我": "/assets/䈎面圖標/phone_desk.ico"
 	},
 	"MBTI": {
 		"INFP-T": "assets/圖象/狗INFP.png"

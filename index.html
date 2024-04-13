@@ -104,6 +104,7 @@
 							<a href="/">✩　主䈎</a><br>
 							<a href="/日誌.html">:=&䈎面圖標：日誌&=:　日誌</a><br>
 							<a href="/404.html">:=&䈎面圖標：尋无&=:　尋无</a><br>
+							<a href="/聯繫我.html">:=&䈎面圖標：聯繫我&=:　聯繫我</a><br>
 							<hr>
 							<a href="https://github.com/soizo/">:=&GITHUB=:　GITHUB</a>
 						</div>
@@ -123,9 +124,32 @@
 				bottom: 0;
 			}
 		</style>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const 計數器 = document.getElementById('計數器');
+
+				if (計數器) {
+					禁用元素及子孫(計數器);
+				}
+
+				function 禁用元素及子孫(元素) {
+					Array.from(元素.querySelectorAll('*')).forEach(子元素 => {
+						子元素.style.userSelect = 'none';  // 不可選擇
+						子元素.style.pointerEvents = 'none';  // 不可點擊
+						子元素.style.cursor = 'default';
+						子元素.draggable = false;  // 不可拖動
+					});
+
+					// 也要設置最初的元素
+					元素.style.userSelect = 'none';
+					元素.style.pointerEvents = 'none';
+					元素.draggable = false;
+				}
+			});
+		</script>
 		<div style="image-rendering: pixelated;">
-			<script language="javascript" type="text/javascript"
-				src="//counter1.fc2.com/counter.php?id=89507337"></script>
+			<script language=" javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89507337">
+			</script>
 			<noscript><img src="//counter1.fc2.com/counter_img.php?id=89507337" /></noscript> <noscript><img
 					src="//counter1.fc2.com/counter_img.php?id=89507336" /></noscript>
 		</div>
