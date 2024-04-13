@@ -1,118 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>狗INFP-T</title>
-        <meta name="viewport" content="width=device-width, initial-scale=0.9" />
-        <link rel="icon" href="assets/䈎面圖標/小丑INFP.png" type="image/png" />
-        <link
-            rel="preload"
-            href="assets/視頻/狗INFP-小丑.mp4"
-            type="video/mp4"
-            crossorigin="anonymous"
-        />
-        <style>
-            body,
-            html {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                height: 100%;
-            }
-            #videoCanvas {
-                display: block; /* 将canvas设置为块级元素 */
-                margin: auto; /* 水平居中 */
-                max-width: 100%; /* 最大宽度限制为视口宽度，保持视频比例 */
-            }
-        </style>
-    </head>
 
-    <body>
-        <div style="display: grid; place-items: center; height: 100vh">
-            <!-- 隐藏的视频元素 -->
-            <video id="videoElement" style="display: none">
-                <source src="assets/視頻/狗INFP-小丑.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <!-- 可见的Canvas元素 -->
-            <canvas id="videoCanvas"></canvas>
-        </div>
+<head>
+	<title>狗INFP-T</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+	<link rel="icon" href="assets/䈎面圖標/小丑INFP.png" type="image/png" />
+	<link rel="preload" href="assets/視頻/狗INFP-小丑.mp4" type="video/mp4" as="fetch" crossorigin="anonymous" />
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			height: 100%;
+		}
 
-        <script>
-            var video = document.getElementById("videoElement");
-            var canvas = document.getElementById("videoCanvas");
-            var context = canvas.getContext("2d");
-            var isMobile =
-                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                    navigator.userAgent
-                );
+		#videoCanvas {
+			display: block;
+			/* 將canvas設置為塊級元素 */
+			margin: auto;
+			/* 水平居中 */
+			max-width: 100%;
+			/* 最大寬度限制為視口寬度，保持視頻比例 */
+		}
+	</style>
+</head>
 
-            function setCanvasSize() {
-                var ratio = video.videoWidth / video.videoHeight;
-                var width = Math.min(window.innerWidth, video.videoWidth);
-                var height = width / ratio;
+<body>
+	<div style="display: grid; place-items: center; height: 100vh">
+		<!-- 隱藏的視頻元素 -->
+		<video id="videoElement" style="display: none">
+			<source src="assets/視頻/狗INFP-小丑.mp4" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+		<!-- 可見的Canvas元素 -->
+		<canvas id="videoCanvas"></canvas>
+	</div>
 
-                if (height > window.innerHeight) {
-                    height = window.innerHeight;
-                    width = height * ratio;
-                }
+	<script>
+		var video = document.getElementById("videoElement");
+		var canvas = document.getElementById("videoCanvas");
+		var context = canvas.getContext("2d");
+		var isMobile =
+			/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+				navigator.userAgent
+			);
 
-                canvas.width = width;
-                canvas.height = height;
-                canvas.style.width = `${width}px`;
-                canvas.style.height = `${height}px`;
-            }
+		function setCanvasSize() {
+			var ratio = video.videoWidth / video.videoHeight;
+			var width = Math.min(window.innerWidth, video.videoWidth);
+			var height = width / ratio;
 
-            if (!isMobile) {
-                video.addEventListener(
-                    "play",
-                    function () {
-                        (function loop() {
-                            if (!video.paused && !video.ended) {
-                                setCanvasSize();
-                                context.drawImage(
-                                    video,
-                                    0,
-                                    0,
-                                    canvas.width,
-                                    canvas.height
-                                );
-                                setTimeout(loop, 1000 / 30); // 绘制频率，这里是每秒30帧
-                            }
-                        })();
-                    },
-                    0
-                );
+			if (height > window.innerHeight) {
+				height = window.innerHeight;
+				width = height * ratio;
+			}
 
-                video.addEventListener("loadedmetadata", setCanvasSize);
-                window.addEventListener("resize", setCanvasSize);
+			canvas.width = width;
+			canvas.height = height;
+			canvas.style.width = `${width}px`;
+			canvas.style.height = `${height}px`;
+		}
 
-                video.play().catch(function (error) {
-                    console.error("自动播放失败，错误信息：", error);
-                });
-            } else {
-                video.style.display = "block";
-                canvas.style.display = "none";
-                video.controls = true;
-            }
+		if (!isMobile) {
+			video.addEventListener(
+				"play",
+				function () {
+					(function loop() {
+						if (!video.paused && !video.ended) {
+							setCanvasSize();
+							context.drawImage(
+								video,
+								0,
+								0,
+								canvas.width,
+								canvas.height
+							);
+							setTimeout(loop, 1000 / 30); // 繪製頻率，這裡是每秒30幀
+						}
+					})();
+				},
+				0
+			);
 
-            // 捕获交互事件来启动视频播放
-            document.addEventListener("mousemove", playVideo);
-            document.addEventListener("click", playVideo);
-            document.addEventListener("keydown", (event) => {
-                if (event.key === " " || event.key === "Enter") {
-                    playVideo();
-                }
-            });
+			video.addEventListener("loadedmetadata", setCanvasSize);
+			window.addEventListener("resize", setCanvasSize);
 
-            function playVideo() {
-                if (video.paused || video.ended) {
-                    video
-                        .play()
-                        .catch((e) =>
-                            console.error("播放视频失败，错误信息：", e)
-                        );
-                }
-            }
-        </script>
-    </body>
+			video.play().catch(function (error) {
+				console.error("自動播放失敗，錯誤信息：", error);
+			});
+		} else {
+			video.style.display = "block";
+			canvas.style.display = "none";
+			video.controls = true;
+		}
+
+		// 捕獲交互事件來啟動視頻播放
+		document.addEventListener("mousemove", handleInteraction);
+		document.addEventListener("click", handleInteraction);
+		document.addEventListener("keydown", handleInteraction);
+
+		function handleInteraction(event) {
+			if (event.key === " " || event.key === "Enter" || event.type === "click" || event.type === "mousemove") {
+				playVideo();
+			}
+		}
+
+		let hasPlayed = false; // 添加一個標誌來記錄視頻是否已播放
+		function playVideo() {
+			if (!hasPlayed && (video.paused || video.ended)) { // 只有在視頻未播放時才播放
+				video.play().then(() => {
+					console.log(hasPlayed);
+					hasPlayed = true; // 標記視頻已播放
+					// 播放後移除事件監聽器，避免重複播放
+					document.removeEventListener("mousemove", handleInteraction);
+					document.removeEventListener("click", handleInteraction);
+					document.removeEventListener("keydown", handleInteraction);
+				}).catch((e) => {
+					console.error("播放視頻失敗，錯誤信息：", e);
+				});
+			}
+		}
+
+	</script>
+</body>
+
 </html>
