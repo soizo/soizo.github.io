@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const 遮擋元素們 = document.querySelectorAll(".遮擋下");
-
+    鏈結定位("/json/公共/圖象索引.json");
     遮擋元素們.forEach((遮擋元素) => {
         遮擋元素.classList.add("遮擋有");
 

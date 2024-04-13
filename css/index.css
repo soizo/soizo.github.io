@@ -277,3 +277,9 @@ div.塊 *::selection {
 #我的䈎面 a:hover {
 	text-decoration: underline;
 }
+
+#我的䈎面 div hr {
+	margin-top: 0;
+	height: 90%;
+	border-color: #ffffff40;
+}
