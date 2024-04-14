@@ -98,12 +98,10 @@ function updateMusicBoxContent(track, imageUrl, currentTrackUrl) {
 
     const songName = document.createElement("marquee");
     songName.className = "songname";
-    songName.onmouseover = () => songName.stop();
-    // songName.onmouseout = () => {
-    //     songName.start();
-    // };
     songName.scrollAmount = "3";
     songName.textContent = track.name;
+    songName.onmouseover = () => songName.stop();
+    songName.onmouseout = () => songName.start();
     div.appendChild(songName);
     // const songNameElement = musicBox.querySelectorAll(".songName");
     // songNameElement.forEach((element) => {
@@ -123,7 +121,7 @@ function updateMusicBoxContent(track, imageUrl, currentTrackUrl) {
     const lastPlayed = document.createElement("div");
     lastPlayed.className = "lastplayed";
     lastPlayed.textContent = nowplaying
-        ? "只今聴"
+        ? "只今在聴"
         : "上次聴：　" +
           (track.date
               ? new Date(track.date["#text"] + " UTC").toLocaleString("zh-TW", {
