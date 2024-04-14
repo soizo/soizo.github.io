@@ -11,8 +11,8 @@ function updateMusicBox() {
             const tracks = data.recenttracks.track;
             if (tracks.length > 0) {
                 const track = tracks[0];
+                console.log(tracks);
                 const currentTrackUrl = track.url ? track.url : "#";
-
                 // 只有在链接发生实质性变化时才更新音乐盒
                 if (currentTrackUrl !== lastValidTrackUrl) {
                     const imageUrl = track.image[2]["#text"]
