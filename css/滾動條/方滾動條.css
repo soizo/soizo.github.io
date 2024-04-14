@@ -1,27 +1,86 @@
 :root {
+	--滾動條：樣矢上白: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢上灰縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢下白: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢下灰縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢左白: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢左灰縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢右白: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢右灰縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+
+	--滾動條：樣矢上泉此方綠: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23779f6b" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢上泉此方綠深縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cpath fill="%235a7850" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢下泉此方綠: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23779f6b" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢下泉此方綠深縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%235a7850" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢左泉此方綠: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23779f6b" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢左泉此方綠深縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%235a7850" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢右泉此方綠: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23779f6b" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢右泉此方綠深縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%235a7850" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+
+
+	/** **/
+
 	--滾動條：背景色: black;
 	--滾動條：三角背景色: black;
 	--滾動條：交界背景色: black;
 	--滾動條：條色: #ffffff40;
-	--滾動條：碰到時條色: #ffffffa0;
+	--滾動條：條色及: #ffffffa0;
+	--滾動條：條色作: #ffffff;
+
+	--滾動條：矢上常: var(--滾動條：樣矢上白);
+	--滾動條：矢上及: var(--滾動條：樣矢上白);
+	--滾動條：矢上作: var(--滾動條：樣矢上灰縮);
+	--滾動條：矢下常: var(--滾動條：樣矢下白);
+	--滾動條：矢下及: var(--滾動條：樣矢下白);
+	--滾動條：矢下作: var(--滾動條：樣矢下灰縮);
+	--滾動條：矢左常: var(--滾動條：樣矢左白);
+	--滾動條：矢左及: var(--滾動條：樣矢左白);
+	--滾動條：矢左作: var(--滾動條：樣矢左灰縮);
+	--滾動條：矢右常: var(--滾動條：樣矢右白);
+	--滾動條：矢右及: var(--滾動條：樣矢右白);
+	--滾動條：矢右作: var(--滾動條：樣矢右灰縮);
 }
 
 html[滾動條theme="wiki"] {
 	--滾動條：背景色: #1c1f24;
 	--滾動條：三角背景色: #1c1f24;
 	--滾動條：交界背景色: #1c1f24;
+	--滾動條：條色作: #ffffffa0;
+
+}
+
+html[滾動條theme="泉此方綠"] {
+	--滾動條：背景色: #dff1db;
+	--滾動條：三角背景色: #dff1db;
+	--滾動條：交界背景色: #dff1db;
+	--滾動條：條色: #779f6b;
+	--滾動條：條色及: #6f9464;
+	--滾動條：條色作: #5a7850;
+
+	--滾動條：矢上常: var(--滾動條：樣矢上泉此方綠);
+	--滾動條：矢上及: var(--滾動條：樣矢上泉此方綠);
+	--滾動條：矢上作: var(--滾動條：樣矢上泉此方綠深縮);
+	--滾動條：矢下常: var(--滾動條：樣矢下泉此方綠);
+	--滾動條：矢下及: var(--滾動條：樣矢下泉此方綠);
+	--滾動條：矢下作: var(--滾動條：樣矢下泉此方綠深縮);
+	--滾動條：矢左常: var(--滾動條：樣矢左泉此方綠);
+	--滾動條：矢左及: var(--滾動條：樣矢左泉此方綠);
+	--滾動條：矢左作: var(--滾動條：樣矢左泉此方綠深縮);
+	--滾動條：矢右常: var(--滾動條：樣矢右泉此方綠);
+	--滾動條：矢右及: var(--滾動條：樣矢右泉此方綠);
+	--滾動條：矢右作: var(--滾動條：樣矢右泉此方綠深縮);
 }
 
 /**              滾動條              **/
-.prompt-list-group-content::-webkit-scrollbar {
+.自訂滾動條::-webkit-scrollbar {
 	width: 17px;
 }
 
-.prompt-list-group-content::-webkit-scrollbar-track {
+.自訂滾動條::-webkit-scrollbar-track {
 	background-color: var(--滾動條：背景色);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-thumb {
+.自訂滾動條::-webkit-scrollbar-thumb {
 	background-color: var(--滾動條：條色);
 	height: 24px;
 	width: 24px;
@@ -29,12 +88,16 @@ html[滾動條theme="wiki"] {
 }
 
 
-.prompt-list-group-content::-webkit-scrollbar-thumb:hover {
-	background-color: var(--滾動條：碰到時條色);
+.自訂滾動條::-webkit-scrollbar-thumb:hover {
+	background-color: var(--滾動條：條色及);
+}
+
+.自訂滾動條::-webkit-scrollbar-thumb:active {
+	background-color: var(--滾動條：條色作);
 }
 
 /** 自定义滑动按钮 **/
-.prompt-list-group-content::-webkit-scrollbar-button:single-button {
+.自訂滾動條::-webkit-scrollbar-button:single-button {
 	background-color: var(--滾動條：三角背景色);
 	display: block;
 	background-size: 10px;
@@ -42,70 +105,70 @@ html[滾動條theme="wiki"] {
 }
 
 /** 上箭头 **/
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:vertical:decrement {
+.自訂滾動條::-webkit-scrollbar-button:single-button:vertical:decrement {
 	height: 17px;
 	width: 17px;
 	background-position: center 4px;
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+	background-image: var(--滾動條：矢上常);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+.自訂滾動條::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+	background-image: var(--滾動條：矢上及);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:vertical:decrement:active {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+.自訂滾動條::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+	background-image: var(--滾動條：矢上作);
 }
 
 /** 下箭头 **/
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:vertical:increment {
+.自訂滾動條::-webkit-scrollbar-button:single-button:vertical:increment {
 	height: 17px;
 	width: 17px;
 	background-position: center 4px;
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	background-image: var(--滾動條：矢下常);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:vertical:increment:hover {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+.自訂滾動條::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+	background-image: var(--滾動條：矢下及);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:vertical:increment:active {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+.自訂滾動條::-webkit-scrollbar-button:single-button:vertical:increment:active {
+	background-image: var(--滾動條：矢下作);
 }
 
 /** 左箭头 **/
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:horizontal:decrement {
+.自訂滾動條::-webkit-scrollbar-button:single-button:horizontal:decrement {
 	height: 17px;
 	width: 17px;
 	background-position: 3px 3px;
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	background-image: var(--滾動條：矢左常);
 }
 
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+.自訂滾動條::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+	background-image: var(--滾動條：矢左及);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+.自訂滾動條::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
+	background-image: var(--滾動條：矢左作);
 }
 
 /** 右箭头 **/
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:horizontal:increment {
+.自訂滾動條::-webkit-scrollbar-button:single-button:horizontal:increment {
 	height: 17px;
 	width: 17px;
 	background-position: 3px 3px;
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')
+	background-image: var(--滾動條：矢右常);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23fff" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')
+.自訂滾動條::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+	background-image: var(--滾動條：矢右及);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-button:single-button:horizontal:increment:active {
-	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23606060" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')
+.自訂滾動條::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+	background-image: var(--滾動條：矢右作);
 }
 
-.prompt-list-group-content::-webkit-scrollbar-corner {
+.自訂滾動條::-webkit-scrollbar-corner {
 	background-color: var(--滾動條：交界背景色);
 }
