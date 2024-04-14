@@ -20,7 +20,11 @@ function updateMusicBox() {
                 if (currentTrackUrl !== lastValidTrackUrl) {
                     // 检查自定义封面图片是否存在
                     console.log(track.name);
-                    const encodedTrackName = encodeURIComponent(track.name);
+                    const encodedTrackName = Array.from(
+                        new TextEncoder().encode(track.name)
+                    )
+                        .map((byte) => byte.toString(16).padStart(2, "0"))
+                        .join("");
                     console.log(encodedTrackName);
                     const localImagePath = `/assets/圖象/UI/musicbox/封面/${encodedTrackName}.jpg`;
 
@@ -161,7 +165,9 @@ function setMusicBoxStyles() {
         albumCover.style.height = "50px";
         albumCover.style.marginRight = "10px";
         albumCover.style.marginTop = "10px";
-        albumCover.style.imageRendering = "pixelated";
+        if (!有封面嗎) {
+            albumCover.style.imageRendering = "pixelated";
+        }
     }
 
     const songName = musicBox.querySelector(".songname");
