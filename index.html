@@ -118,143 +118,7 @@
 					</div>
 					<div style="writing-mode: horizontal-tb;">
 						<div id="musicbox">
-							<div class="unselectable">
-							</div>
-							<script>
-								const API_KEY = 'e0e9854b15c2f71b37b26e29342509ba';
-								const USER_NAME = 'SoizoKtantas';
-								let lastValidTrackUrl = null; // 用於存儲最後一次有效的音樂鏈接
-
-								// 函數：從 API 獲取並更新音樂盒資訊
-								function updateMusicBox() {
-									fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${USER_NAME}&api_key=${API_KEY}&format=json&limit=1`)
-										.then(response => response.json())
-										.then(data => {
-											const tracks = data.recenttracks.track;
-											if (tracks.length > 0) {
-												const track = tracks[0];
-												const currentTrackUrl = track.url ? track.url : '#';
-
-												// 只有在鏈接發生實質性變化時才更新音樂盒
-												if (currentTrackUrl !== lastValidTrackUrl) {
-													console.log(track);
-													const imageUrl = track.image[2]['#text'] ? track.image[2]['#text'] : '/assets/圖象/UI/musicbox/defaultMusic.png';
-													const musicBox = document.querySelector('#musicbox>div');
-													const nowplaying = ["@attr"].nowplaying in track;
-													let 最近時間 = '';
-													if (!nowplaying && track.date) {
-														let 中國時間 = new Date(track.date['#text']);
-														中國時間.setHours(中國時間.getHours() + 8);
-														最近時間 = window.轉換道曆(中國時間, undefined, 'YY年MMDDHHQQ');
-													}
-													const trackInfoHTML = `
-														<b class="currentlylistening"><span style="color:${nowplaying ? '#7bd88f' : '#ffffff80'};">●</span>　最近播放：</b>
-														<a href="${currentTrackUrl}" target="_blank" class="track">
-															<img src="${imageUrl}" class="albumcover">
-															<div>
-																<marquee class="songname" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="3">${track.name}</marquee>
-																<div class="artist">${track.artist ? track.artist['#text'] : '佚名'}</div>
-															</div>
-														</a>
-														<div class="lastplayed">${nowplaying ? '只今聴' : ('上次聴：　' + 最近時間)}</div>
-													`;
-
-													musicBox.innerHTML = trackInfoHTML;
-													lastValidTrackUrl = currentTrackUrl; // 更新最後一次有效的鏈接
-												}
-											} else {
-												document.querySelector('#musicbox>div').innerHTML = '<p>无有最近播放</p>';
-											}
-										})
-										.catch(err => {
-											console.error('擷取Last.fm數據錯誤：', err);
-											document.querySelector('#musicbox>div').innerHTML = '<p>擷取數據錯誤</p>';
-										});
-								}
-
-								// 初始更新
-								updateMusicBox();
-
-								// 監聽器設置，用於偵測鏈接變化
-								const observer = new MutationObserver(mutations => {
-									mutations.forEach(mutation => {
-										if (mutation.type === 'childList' && mutation.addedNodes.length) {
-											updateMusicBox();
-										}
-									});
-								});
-
-								// 設定監聽的目標節點及配置
-								const targetNode = document.querySelector('#musicbox>div');
-								const config = { childList: true };
-
-								// 啟動監聽
-								observer.observe(targetNode, config);
-
-
-							</script>
-							<style>
-								#musicbox>div {
-									writing-mode: horizontal-tb;
-									width: 250px;
-									background-color: #1f1f1f;
-									border: 2px solid #383838;
-									border-radius: 4px;
-									color: #fff;
-									padding: 10px 15px;
-									margin: 5px 0;
-									font-family: 閹割Unifont;
-									box-shadow: inset 0 0 6px rgba(70, 70, 70, .479);
-									display: block;
-								}
-
-								#musicbox>div .track {
-									display: flex;
-									align-items: center;
-								}
-
-								#musicbox>div .albumcover {
-									width: 50px;
-									height: 50px;
-									margin-right: 10px;
-									margin-top: 10px;
-									image-rendering: pixelated;
-									/* object-fit: contain; */
-									/* 保證圖片完整顯示且比例不變 */
-								}
-
-								#musicbox>div .songname {
-									font-size: 0.9em;
-									font-smooth: never;
-									-webkit-font-smoothing: none;
-									max-width: 150px;
-								}
-
-								#musicbox>div .artist {
-									font-size: 0.9em;
-									color: #fff;
-									text-shadow: var(--body-text-shadow);
-									max-width: 150px;
-									white-space: nowrap;
-									overflow: hidden;
-								}
-
-								#musicbox>div .lastplayed {
-									color: gray;
-									font-size: 0.8em;
-									margin-top: 8px;
-								}
-
-								#musicbox>div a,
-								#musicbox>div a * {
-									color: white;
-									text-decoration: none;
-								}
-
-								#musicbox>div a *:not(div:not([class])):hover {
-									text-decoration: underline;
-								}
-							</style>
+							<script src="javascript/塊/musicbox.js"></script>
 						</div>
 						<div style="width: 280px;">
 							<style>
@@ -263,12 +127,12 @@
 									image-rendering: pixelated;
 								}
 							</style>
-							<marquee class="迴轉" alt="態度" scrollamount="5" loop="infinite" onmouseover="this.stop();"
-								onmouseout="this.start();">
+							<marquee class="迴轉 unselectable" alt="態度" scrollamount="5" loop="infinite"
+								onmouseover="this.stop();" onmouseout="this.start();" direction="right">
 
 							</marquee>
-							<marquee class="迴轉" alt="好站" scrollamount="5" loop="infinite" onmouseover="this.stop();"
-								onmouseout="this.start();" direction="right">
+							<marquee class="迴轉 unselectable" alt="好站" scrollamount="5" loop="infinite"
+								onmouseover="this.stop();" onmouseout="this.start();" direction="left">
 								<a href="https://dimden.dev/"><img
 										src="https://dimden.dev/services/images/88x31.gif"></a>
 								<a href="https://cherubiims.neocities.org" target="_blank"><img
