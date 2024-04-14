@@ -33,7 +33,18 @@ body {
 	background-attachment: fixed;
 	/* 背景圖片固定，不隨內容滾動 */
 	/* background-color: black; */
+	writing-mode: horizontal-tb;
 	color: white;
-	writing-mode: vertical-rl;
 	margin: 0;
+}
+
+#大容器 {
+	display: flexbox;
+	color: black;
+	font-size: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	/* 使用視窗的全高 */
 }

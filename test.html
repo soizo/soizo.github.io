@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>我的最近播放</title>
+	<script src="/javascript/公共/好多函數！.js"></script>
+	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+	<div id="musicbox">
+		<div class="unselectable">
+		</div>
+		<script>
+			const API_KEY = 'e0e9854b15c2f71b37b26e29342509ba';
+			const USER_NAME = 'SoizoKtantas';
+
+			fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${USER_NAME}&api_key=${API_KEY}&format=json&limit=1`)
+				.then(response => response.json())
+				.then(data => {
+					const tracks = data.recenttracks.track;
+					if (tracks.length > 0) {
+						const track = tracks[0];
+						console.log(track.image[2]['#text']);
+						const imageUrl = track.image[2]['#text'] ? track.image[2]['#text'] : '/assets/圖象/UI/musicbox/defaultmusic.jpg';
+						const musicBox = document.querySelector('#musicbox>div');
+
+						const trackInfoHTML = `
+				<b class="currentlylistening"><span style="color:${track.date ? '#ffffff80' : '#7bd88f'};">●</span>　最近播放：</b>
+				<a href="${track.url ? track.url : '#'}" target="_blank" class="track">
+					<img src="${imageUrl}" class="albumcover">
+					<div>
+					<marquee class="songname" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="3">${track.name}</marquee>
+					<div class="artist">${track.artist ? track.artist['#text'] : '佚名'}</div>
+					</div>
+				</a>
+				<div class="lastplayed">${track.date ? '上次聴：　' + window.轉換道曆(track.date['#text'], undefined, 'YY年MMDDHHQQ') : '只今聴'}</div>
+				`;
+
+						musicBox.innerHTML = trackInfoHTML;
+					} else {
+						document.querySelector('#musicbox>div').innerHTML = '<p>无有最近播放</p>';
+					}
+				})
+				.catch(err => {
+					console.error('Error fetching Last.fm data: ', err);
+					document.querySelector('#musicbox>div').innerHTML = '<p>擷取數據錯誤</p>';
+				});
+
+		</script>
+		<style>
+			#musicbox>div {
+				width: 250px;
+				background-color: #1f1f1f;
+				border: 2px solid #383838;
+				border-radius: 4px;
+				color: #fff;
+				padding: 10px 15px;
+				margin: 10px 0;
+				font-family: 閹割Unifont;
+				box-shadow: inset 0 0 6px rgba(70, 70, 70, .479);
+				display: block;
+			}
+
+			#musicbox>div .track {
+				display: flex;
+				align-items: center;
+			}
+
+			#musicbox>div .albumcover {
+				width: 50px;
+				height: 50px;
+				margin-right: 10px;
+				margin-top: 10px;
+				image-rendering: pixelated;
+			}
+
+			#musicbox>div .songname {
+				font-size: 0.9em;
+				font-smooth: never;
+				-webkit-font-smoothing: none;
+			}
+
+			#musicbox>div .artist {
+				font-size: 0.9em;
+				color: #fff;
+				text-shadow: var(--body-text-shadow);
+			}
+
+			#musicbox>div .lastplayed {
+				color: gray;
+				font-size: 0.8em;
+				margin-top: 8px;
+			}
+
+			#musicbox>div a,
+			#musicbox>div a * {
+				color: white;
+				text-decoration: none;
+			}
+
+			#musicbox>div a *:not(div:not([class])):hover {
+				text-decoration: underline;
+			}
+		</style>
+	</div>
+</body>
+
+</html>
