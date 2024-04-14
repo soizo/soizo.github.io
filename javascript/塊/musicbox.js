@@ -175,7 +175,7 @@ function setMusicBoxStyles() {
         songName.style.fontSize = "0.9em";
         songName.style.fontSmooth = "never";
         songName.style.webkitFontSmoothing = "none";
-        songName.style.maxWidth = "150px";
+        songName.style.width = "150px";
     }
 
     const artist = musicBox.querySelector(".artist");
