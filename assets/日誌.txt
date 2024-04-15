@@ -231,3 +231,7 @@ THU	4721/03/04/戌初一刻
 /---/
 FRI	4721/03/04/寅正四刻
 恩心情有點好，可能是快<a href="https://zh.wikipedia.org/zh-tw/%E6%AD%BB%E4%BA%A1" target="_blank">死</a>了
+
+/---/
+MON	4721/03/08/亥正一刻
+感覺好自怡，好歡樂。
