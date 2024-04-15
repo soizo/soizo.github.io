@@ -5,17 +5,21 @@
 	"赤景靑面怒視目": "/assets/圖象/赤景靑面怒視目.jpg",
 	"素景靑面怒視目多目": "/assets/圖象/素景靑面怒視目多目.jpg",
 	"䈎面圖標": {
-		"主䈎": "assets/䈎面圖標/erase_file-0.ico",
-		"尋无": "/assets/䈎面圖標/msg_error.ico",
-		"日誌": "/assets/䈎面圖標/event_log.ico",
-		"我的圖冊": "/assets/䈎面圖標/dictionary_pictures.ico",
-		"聯繫我": "/assets/䈎面圖標/phone_desk.ico"
+		"主䈎": "/assets/圖象/UI/䈎面圖標/erase_file-0.ico",
+		"尋无": "/assets/圖象/UI/䈎面圖標/msg_error.ico",
+		"日誌": "/assets/圖象/UI/䈎面圖標/event_log.ico",
+		"我的圖冊": "/assets/圖象/UI/䈎面圖標/dictionary_pictures.ico",
+		"聯繫我": "/assets/圖象/UI/䈎面圖標/phone_desk.ico"
 	},
 	"MBTI": {
-		"INFP-T": "assets/圖象/狗INFP.png"
+		"INFP-T": "/assets/圖象/狗INFP.png"
 	},
 	"廠商": {
-		"QQ音樂": "/assets/䈎面圖標/QQ音樂.ico",
-		"网易云": "/assets/䈎面圖標/网易云.ico"
+		"QQ音樂": "/assets/圖象/UI/廠商圖標/QQ音樂.ico",
+		"网易云": "/assets/圖象/UI/廠商圖標/网易云.ico",
+		"音云": "/assets/圖象/UI/廠商圖標/SoundCloud.png",
+		"GITHUB": "/assets/絵文字/GITHUB.png",
+		"抖音": "/assets/圖象/UI/廠商圖標/抖音.png",
+		"嗶哩嗶哩": "/assets/圖象/UI/廠商圖標/嗶哩嗶哩.png"
 	}
 }

@@ -640,3 +640,7 @@ function addMobileWarning(test) {
         );
     }
 }
+
+function 失效鏈接作用器() {
+    const 失效鏈接 = querySelectorAll(".失效鏈接");
+}
