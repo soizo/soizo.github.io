@@ -4,6 +4,30 @@ let lastValidTrackUrl = null; // 用於存儲最後一次有效的音樂鏈接
 // 函数：从 API 获取并更新音乐盒信息
 let 有封面嗎 = false;
 const 默認封面 = "/assets/圖象/UI/musicbox/defaultMusic.png";
+const 歌曲封面素繒路徑 = "/json/musicbox/歌曲封面.json";
+// 函数：从 JSON 获取封面
+function fetchCoverFromJson(trackName, trackArtist) {
+    return fetch(歌曲封面素繒路徑)
+        .then((response) => response.json())
+        .then((covers) => {
+            console.log(trackName + "_" + trackArtist);
+            const encodedTrackNameAndArtist =
+                Array.from(new TextEncoder().encode(trackName))
+                    .map((byte) => byte.toString(16).padStart(2, "0"))
+                    .join("") +
+                "_" +
+                Array.from(new TextEncoder().encode(trackArtist))
+                    .map((byte) => byte.toString(16).padStart(2, "0"))
+                    .join("");
+            console.log(encodedTrackNameAndArtist);
+            return covers[encodedTrackNameAndArtist] || null;
+        })
+        .catch((error) => {
+            console.error("讀取歌曲封面錯誤：", error);
+            return null;
+        });
+}
+let lastTrackInfo = {}; // 初始化為空對象
 
 function updateMusicBox() {
     fetch(
@@ -12,55 +36,46 @@ function updateMusicBox() {
         .then((response) => response.json())
         .then((data) => {
             const tracks = data.recenttracks.track;
-            if (tracks.length > 0) {
+            if (tracks && tracks.length > 0) {
                 const track = tracks[0];
-                console.log(tracks);
                 const currentTrackUrl = track.url ? track.url : "#";
-                // 只有在链接发生实质性变化时才更新音乐盒
-                if (currentTrackUrl !== lastValidTrackUrl) {
-                    // 检查自定义封面图片是否存在
-                    console.log(track.name);
-                    const encodedTrackName = Array.from(
-                        new TextEncoder().encode(track.name)
-                    )
-                        .map((byte) => byte.toString(16).padStart(2, "0"))
-                        .join("");
-                    console.log(encodedTrackName);
-                    const localImagePath = `/assets/圖象/UI/musicbox/封面/${encodedTrackName}.jpg`;
+                const currentTrackName = track.name;
+                const currentTime = track.date
+                    ? track.date["#text"]
+                    : "未知時間";
 
-                    fetch(localImagePath, { method: "HEAD" })
-                        .then((response) => {
-                            let imageUrl;
-                            if (response.ok) {
-                                imageUrl = localImagePath; // 使用自定义封面图片
-                                有封面嗎 = true;
-                            } else {
-                                有封面嗎 = track.image[2]["#text"];
-                                imageUrl = 有封面嗎
+                if (
+                    !lastTrackInfo.url ||
+                    currentTrackUrl !== lastTrackInfo.url ||
+                    currentTrackName !== lastTrackInfo.name ||
+                    currentTime !== lastTrackInfo.time
+                ) {
+                    fetchCoverFromJson(track.name, track.artist["#text"])
+                        .then((customImageUrl) => {
+                            const imageUrl =
+                                customImageUrl ||
+                                (track.image[2]["#text"]
                                     ? track.image[2]["#text"]
-                                    : 默認封面; // 使用默认或API图片
-                            }
+                                    : 默認封面);
                             updateMusicBoxContent(
                                 track,
                                 imageUrl,
                                 currentTrackUrl
-                            ); // 更新内容的函数
+                            );
                         })
                         .catch((error) => {
-                            有封面嗎 = track.image[2]["#text"];
-                            let imageUrl = 有封面嗎
-                                ? track.image[2]["#text"]
-                                : 默認封面;
-                            updateMusicBoxContent(
-                                track,
-                                imageUrl,
-                                currentTrackUrl
-                            ); // 更新内容的函数
+                            console.error("更新封面時出錯: ", error);
                         });
+
+                    lastTrackInfo = {
+                        url: currentTrackUrl,
+                        name: currentTrackName,
+                        time: currentTime,
+                    };
                 }
             } else {
                 document.getElementById("musicbox").innerHTML =
-                    "<p>无有最近播放</p>";
+                    "<p>無最近播放</p>";
             }
         })
         .catch((err) => {
@@ -172,7 +187,7 @@ function setMusicBoxStyles() {
 
     const songName = musicBox.querySelector(".songname");
     if (songName) {
-        songName.style.fontSize = "0.9em";
+        songName.style.fontSize = "1.5em";
         songName.style.fontSmooth = "never";
         songName.style.webkitFontSmoothing = "none";
         songName.style.width = "150px";
@@ -216,6 +231,9 @@ function setMusicBoxStyles() {
 
 // 初始更新
 updateMusicBox();
+
+// 每分鐘更新一次音樂盒信息
+setInterval(updateMusicBox, 600);
 
 // 監聽器設置，用於偵測鏈接變化
 const observer = new MutationObserver((mutations) => {
