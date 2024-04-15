@@ -40,9 +40,7 @@ function updateMusicBox() {
                 const track = tracks[0];
                 const currentTrackUrl = track.url ? track.url : "#";
                 const currentTrackName = track.name;
-                const currentTime = track.date
-                    ? track.date["#text"]
-                    : "未知時間";
+                const currentTime = track.date ? track.date["#text"] : null;
 
                 if (
                     !lastTrackInfo.url ||
@@ -142,12 +140,19 @@ function updateMusicBoxContent(track, imageUrl, currentTrackUrl) {
     lastPlayed.textContent = nowplaying
         ? "只今在聴"
         : "上次聴：　" +
-          (track.date
-              ? new Date(track.date["#text"] + " UTC").toLocaleString("zh-TW", {
-                    timeZone: "Asia/Shanghai",
-                    hour12: false,
-                })
-              : "");
+          window.轉換道曆(
+              track.date
+                  ? new Date(track.date["#text"] + " UTC").toLocaleString(
+                        "zh-TW",
+                        {
+                            timeZone: "Asia/Shanghai",
+                            hour12: false,
+                        }
+                    )
+                  : "",
+              undefined,
+              "YY年MMDDHHQQ"
+          );
     musicBox.appendChild(lastPlayed);
 
     lastValidTrackUrl = currentTrackUrl; // 更新最后一次有效的链接
@@ -233,7 +238,7 @@ function setMusicBoxStyles() {
 updateMusicBox();
 
 // 每分鐘更新一次音樂盒信息
-setInterval(updateMusicBox, 600);
+setInterval(updateMusicBox, 6000);
 
 // 監聽器設置，用於偵測鏈接變化
 const observer = new MutationObserver((mutations) => {

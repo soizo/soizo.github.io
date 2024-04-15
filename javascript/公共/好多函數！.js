@@ -646,6 +646,7 @@ function 失效鏈接作用器() {
     // 選擇所有具有 class '失效鏈接' 的元素
     var elements = document.querySelectorAll(".失效鏈接");
     if (elements.length > 0) {
+        let 內裏內容 = "";
         var notif = document.createElement("div");
 
         notif.id = "失效鏈接解釋";
@@ -660,25 +661,31 @@ function 失效鏈接作用器() {
         notif.style.whiteSpace = "pre-wrap";
         notif.style.fontFamily = "閹割Unifont";
 
-        notif.style.display = "block";
+        notif.style.display = "flex";
         notif.style.opacity = "0";
-        notif.style.transition = "opacity 0.2s ease-in-out";
+        notif.style.transition = "opacity 0.1s ease-in-out";
+        notif.style.overflow = "hidden";
+        notif.draggable = false;
 
         document.body.appendChild(notif);
 
         document.addEventListener("mousemove", function (event) {
-            notif.style.left = event.pageX - 10 - notif.offsetWidth + "px"; // 小偏移避免遮蓋鼠標
+            notif.style.left = event.pageX - 10 - notif.offsetWidth + "px";
             notif.style.top = event.pageY + "px";
+            notif.innerHTML = 內裏內容; // 確保這裡使用引號包圍字串
         });
+        document.addEventListener("wheel", 不及);
 
         function 及(element, event) {
             if (element.hasAttribute("失效鏈接解釋")) {
                 const 解釋 = element.getAttribute("失效鏈接解釋");
                 if (解釋) {
-                    notif.innerHTML = 解釋;
+                    內裏內容 = 解釋;
                     element.style.cursor = "help";
                     notif.style.opacity = "1";
                 }
+                var rect = notif.getBoundingClientRect();
+                notif.width = rect.width;
             }
         }
 
@@ -690,10 +697,10 @@ function 失效鏈接作用器() {
             element.style.textDecoration = "line-through";
             element.style.color = "grey";
             element.classList.add("unselectable");
-            element.addEventListener("mouseover", function (event) {
+            element.addEventListener("mouseenter", function (event) {
                 及(element, event);
             });
-            element.addEventListener("mouseout", function () {
+            element.addEventListener("mouseleave", function () {
                 不及(element);
             });
         }
