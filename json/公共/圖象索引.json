@@ -15,11 +15,12 @@
 		"INFP-T": "/assets/圖象/狗INFP.png"
 	},
 	"廠商": {
-		"QQ音樂": "/assets/圖象/UI/廠商圖標/QQ音樂.ico",
-		"网易云": "/assets/圖象/UI/廠商圖標/网易云.ico",
+		"QQ音樂": "/assets/圖象/UI/廠商圖標/QQ音樂.png",
+		"网易云": "/assets/圖象/UI/廠商圖標/网易云.png",
 		"音云": "/assets/圖象/UI/廠商圖標/SoundCloud.png",
 		"GITHUB": "/assets/絵文字/GITHUB.png",
 		"抖音": "/assets/圖象/UI/廠商圖標/抖音.png",
-		"嗶哩嗶哩": "/assets/圖象/UI/廠商圖標/嗶哩嗶哩.png"
+		"嗶哩嗶哩": "/assets/圖象/UI/廠商圖標/嗶哩嗶哩.png",
+		"小紅書": "/assets/圖象/UI/廠商圖標/小紅書.png"
 	}
 }
