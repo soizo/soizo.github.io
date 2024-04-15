@@ -660,6 +660,7 @@ function 解釋塊作用器() {
             "1px 0 #999,0 1px #999,1px 1px #999,inset 1px 1px #fff,2px 2px 7px 1px rgba(255,255,255,.2)";
         解釋塊.style.whiteSpace = "pre-wrap";
         解釋塊.style.fontFamily = "閹割Unifont";
+        解釋塊.style.display = "none";
 
         解釋塊.style.overflow = "hidden";
         解釋塊.draggable = false;
@@ -673,10 +674,7 @@ function 解釋塊作用器() {
         });
         document.addEventListener("wheel", 不及);
 
-        var 及邪 = false;
-
         function 及(element, event) {
-            及邪 = true;
             if (element.hasAttribute("解釋")) {
                 const 解釋 = element.getAttribute("解釋");
                 if (解釋) {
@@ -688,7 +686,6 @@ function 解釋塊作用器() {
         }
 
         function 不及(element) {
-            及邪 = false;
             解釋塊.style.display = "none";
         }
 
