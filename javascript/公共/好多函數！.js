@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+    失效鏈接作用器();
 });
 
 /**                 執   行   區                 **/
@@ -642,5 +643,69 @@ function addMobileWarning(test) {
 }
 
 function 失效鏈接作用器() {
-    const 失效鏈接 = querySelectorAll(".失效鏈接");
+    // 選擇所有具有 class '失效鏈接' 的元素
+    var elements = document.querySelectorAll(".失效鏈接");
+    if (elements.length > 0) {
+        var notif = document.createElement("div");
+
+        notif.id = "失效鏈接解釋";
+        notif.style.background = "#feffe0";
+        notif.style.padding = "5px";
+        notif.style.border = "1px solid #333";
+        notif.style.position = "absolute";
+        notif.style.color = "black";
+        notif.style.borderRadius = "6px";
+        notif.style.boxShadow =
+            "1px 0 #999,0 1px #999,1px 1px #999,inset 1px 1px #fff,2px 2px 7px 1px rgba(255,255,255,.2)";
+        notif.style.whiteSpace = "pre-wrap";
+        notif.style.fontFamily = "閹割Unifont";
+
+        notif.style.display = "block";
+        notif.style.opacity = "0";
+        notif.style.transition = "opacity 0.2s ease-in-out";
+
+        document.body.appendChild(notif);
+
+        document.addEventListener("mousemove", function (event) {
+            notif.style.left = event.pageX - 10 - notif.offsetWidth + "px"; // 小偏移避免遮蓋鼠標
+            notif.style.top = event.pageY + "px";
+        });
+
+        function 及(element, event) {
+            if (element.hasAttribute("失效鏈接解釋")) {
+                const 解釋 = element.getAttribute("失效鏈接解釋");
+                if (解釋) {
+                    notif.innerHTML = 解釋;
+                    element.style.cursor = "help";
+                    notif.style.opacity = "1";
+                }
+            }
+        }
+
+        function 不及(element) {
+            notif.style.opacity = "0";
+        }
+
+        function 變更(element) {
+            element.style.textDecoration = "line-through";
+            element.style.color = "grey";
+            element.classList.add("unselectable");
+            element.addEventListener("mouseover", function (event) {
+                及(element, event);
+            });
+            element.addEventListener("mouseout", function () {
+                不及(element);
+            });
+        }
+        // 對每個元素及其子節點應用樣式
+        elements.forEach(function (element) {
+            // 設置當前元素的 textDecoration
+            變更(element);
+            // 遍歷並設置所有子節點的 textDecoration
+            var childNodes = element.querySelectorAll("*");
+            childNodes.forEach(function (child) {
+                變更(child);
+            });
+        });
+    }
 }
