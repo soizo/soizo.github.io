@@ -661,9 +661,6 @@ function 解釋塊作用器() {
         解釋塊.style.whiteSpace = "pre-wrap";
         解釋塊.style.fontFamily = "閹割Unifont";
 
-        解釋塊.style.display = "flex";
-        解釋塊.style.opacity = "0";
-        解釋塊.style.transition = "opacity 0.1s ease-in-out";
         解釋塊.style.overflow = "hidden";
         解釋塊.draggable = false;
 
@@ -676,21 +673,23 @@ function 解釋塊作用器() {
         });
         document.addEventListener("wheel", 不及);
 
+        var 及邪 = false;
+
         function 及(element, event) {
+            及邪 = true;
             if (element.hasAttribute("解釋")) {
                 const 解釋 = element.getAttribute("解釋");
                 if (解釋) {
                     內裏內容 = 解釋;
                     element.style.cursor = "help";
-                    解釋塊.style.opacity = "1";
+                    解釋塊.style.display = "flex";
                 }
-                var rect = 解釋塊.getBoundingClientRect();
-                解釋塊.width = rect.width;
             }
         }
 
         function 不及(element) {
-            解釋塊.style.opacity = "0";
+            及邪 = false;
+            解釋塊.style.display = "none";
         }
 
         function 變更(element) {
