@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-    失效鏈接作用器();
+    解釋塊作用器();
 });
 
 /**                 執   行   區                 **/
@@ -642,61 +642,58 @@ function addMobileWarning(test) {
     }
 }
 
-function 失效鏈接作用器() {
+function 解釋塊作用器() {
     // 選擇所有具有 class '失效鏈接' 的元素
-    var elements = document.querySelectorAll(".失效鏈接");
+    var elements = document.querySelectorAll(".解釋");
     if (elements.length > 0) {
         let 內裏內容 = "";
-        var notif = document.createElement("div");
+        var 解釋塊 = document.createElement("div");
 
-        notif.id = "失效鏈接解釋";
-        notif.style.background = "#feffe0";
-        notif.style.padding = "5px";
-        notif.style.border = "1px solid #333";
-        notif.style.position = "absolute";
-        notif.style.color = "black";
-        notif.style.borderRadius = "6px";
-        notif.style.boxShadow =
+        解釋塊.id = "失效鏈接解釋";
+        解釋塊.style.background = "#feffe0";
+        解釋塊.style.padding = "5px";
+        解釋塊.style.border = "1px solid #333";
+        解釋塊.style.position = "absolute";
+        解釋塊.style.color = "black";
+        解釋塊.style.borderRadius = "6px";
+        解釋塊.style.boxShadow =
             "1px 0 #999,0 1px #999,1px 1px #999,inset 1px 1px #fff,2px 2px 7px 1px rgba(255,255,255,.2)";
-        notif.style.whiteSpace = "pre-wrap";
-        notif.style.fontFamily = "閹割Unifont";
+        解釋塊.style.whiteSpace = "pre-wrap";
+        解釋塊.style.fontFamily = "閹割Unifont";
 
-        notif.style.display = "flex";
-        notif.style.opacity = "0";
-        notif.style.transition = "opacity 0.1s ease-in-out";
-        notif.style.overflow = "hidden";
-        notif.draggable = false;
+        解釋塊.style.display = "flex";
+        解釋塊.style.opacity = "0";
+        解釋塊.style.transition = "opacity 0.1s ease-in-out";
+        解釋塊.style.overflow = "hidden";
+        解釋塊.draggable = false;
 
-        document.body.appendChild(notif);
+        document.body.appendChild(解釋塊);
 
         document.addEventListener("mousemove", function (event) {
-            notif.style.left = event.pageX - 10 - notif.offsetWidth + "px";
-            notif.style.top = event.pageY + "px";
-            notif.innerHTML = 內裏內容; // 確保這裡使用引號包圍字串
+            解釋塊.style.left = event.pageX - 10 - 解釋塊.offsetWidth + "px";
+            解釋塊.style.top = event.pageY + "px";
+            解釋塊.innerHTML = 內裏內容; // 確保這裡使用引號包圍字串
         });
         document.addEventListener("wheel", 不及);
 
         function 及(element, event) {
-            if (element.hasAttribute("失效鏈接解釋")) {
-                const 解釋 = element.getAttribute("失效鏈接解釋");
+            if (element.hasAttribute("解釋")) {
+                const 解釋 = element.getAttribute("解釋");
                 if (解釋) {
                     內裏內容 = 解釋;
                     element.style.cursor = "help";
-                    notif.style.opacity = "1";
+                    解釋塊.style.opacity = "1";
                 }
-                var rect = notif.getBoundingClientRect();
-                notif.width = rect.width;
+                var rect = 解釋塊.getBoundingClientRect();
+                解釋塊.width = rect.width;
             }
         }
 
         function 不及(element) {
-            notif.style.opacity = "0";
+            解釋塊.style.opacity = "0";
         }
 
         function 變更(element) {
-            element.style.textDecoration = "line-through";
-            element.style.color = "grey";
-            element.classList.add("unselectable");
             element.addEventListener("mouseenter", function (event) {
                 及(element, event);
             });
