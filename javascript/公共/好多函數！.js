@@ -649,7 +649,7 @@ function 解釋塊作用器() {
         let 內裏內容 = "";
         var 解釋塊 = document.createElement("div");
 
-        解釋塊.id = "失效鏈接解釋";
+        解釋塊.id = "解釋";
         解釋塊.style.background = "#feffe0";
         解釋塊.style.padding = "5px";
         解釋塊.style.border = "1px solid #333";
