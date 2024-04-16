@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     解釋塊作用器();
+    updateDraggableAttributes();
 });
 
 /**                 執   行   區                 **/
@@ -708,4 +709,27 @@ function 解釋塊作用器() {
             });
         });
     }
+}
+function updateDraggableAttributes() {
+    function setDraggable(element, value) {
+        if (element.draggable !== value) {
+            element.draggable = value;
+        }
+    }
+
+    const elements = document.querySelectorAll(".undraggable");
+
+    elements.forEach((element) => {
+        setDraggable(element, false);
+
+        const allDescendants = element.getElementsByTagName("*");
+        for (const descendant of allDescendants) {
+            setDraggable(descendant, false);
+        }
+    });
+
+    const draggableElements = document.querySelectorAll(".draggable");
+    draggableElements.forEach((element) => {
+        setDraggable(element, true);
+    });
 }

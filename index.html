@@ -124,21 +124,27 @@
 						</div>
 					</div>
 					<div 備註="MusicBox和跑馬燈" style="writing-mode: horizontal-tb;">
-						<div id="musicbox" class="unselectable">
+						<div id="musicbox" class="unselectable undraggable">
 							<script src="javascript/塊/musicbox.js"></script>
 						</div>
-						<div 備註="跑馬燈" style="width: 280px;">
+						<div id="跑馬燈" style="width: 280px;">
 							<style>
 								.迴轉 * {
 									height: 30px;
 									image-rendering: pixelated;
 								}
 							</style>
-							<marquee class="迴轉 unselectable" alt="態度" scrollamount="5" loop="infinite" onmouseover="this.stop();"
-								onmouseout="this.start();" direction="right">
+							<marquee class="迴轉 unselectable undraggable" 備註="態度" scrollamount="5" loop="infinite"
+								onmouseover="this.stop();" onmouseout="this.start();" direction="right">
+								<script>
 
+								</script>
+								<img src="/assets/圖象/貼紙/態度/asswolf_txt.gif">
+								<img src="/assets/圖象/貼紙/態度/phonechump.gif" alt="">
+								<img src="/assets/圖象/貼紙/態度/win95.gif" alt="">
 							</marquee>
-							<marquee class="迴轉 unselectable" alt="好站" scrollamount="5" loop="infinite" onmouseover="this.stop();"
+
+							<marquee class="迴轉 unselectable" 備註="好站" scrollamount="5" loop="infinite" onmouseover="this.stop();"
 								onmouseout="this.start();" direction="left">
 								<a href="https://dimden.dev/"><img src="https://dimden.dev/services/images/88x31.gif"></a>
 								<a href="https://cherubiims.neocities.org" target="_blank"><img
@@ -172,13 +178,18 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<div id="ずんだもん">
+		<script src="/javascript/塊/ずんだもん.js"></script>
+	</div>
+
 	<!-- FC2計數器 開始 -->
-	<div 備註="可愛少女舉牌計數器" id="計數器" class="unselectable" draggable="false">
+	<!-- <div 備註="可愛少女舉牌計數器" id="計數器" class="unselectable  undraggable" draggable="false">
 		<style>
 			#計數器 {
 				writing-mode: horizontal-tb;
 				display: flex;
-				position: fixed;
+				/* position: fixed; */
 				left: 0;
 				bottom: 0;
 			}
@@ -212,7 +223,7 @@
 			<noscript><img src="https://counter1.fc2.com/counter_img.php?id=89507337" /></noscript> <noscript><img
 					src="https://counter1.fc2.com/counter_img.php?id=89507336" /></noscript>
 		</div>
-	</div>
+	</div> -->
 	<!-- FC2計數器 結束 -->
 	<script>window.addMobileWarning();</script>
 </body>
