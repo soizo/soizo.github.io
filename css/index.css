@@ -283,3 +283,8 @@ div.塊 *::selection {
 	height: 90%;
 	border-color: #ffffff40;
 }
+
+#我的䈎面 .失效鏈接 {
+	text-decoration: line-through;
+	color: grey;
+}

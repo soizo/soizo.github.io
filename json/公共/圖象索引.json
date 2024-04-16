@@ -9,7 +9,9 @@
 		"尋无": "/assets/圖象/UI/䈎面圖標/msg_error.ico",
 		"日誌": "/assets/圖象/UI/䈎面圖標/event_log.ico",
 		"我的圖冊": "/assets/圖象/UI/䈎面圖標/dictionary_pictures.ico",
-		"聯繫我": "/assets/圖象/UI/䈎面圖標/phone_desk.ico"
+		"聯繫我": "/assets/圖象/UI/䈎面圖標/phone_desk.ico",
+		"CAMERA": "/assets/圖象/UI/䈎面圖標/camera.ico",
+		"媒體播放器": "/assets/圖象/UI/䈎面圖標/media_player.ico"
 	},
 	"MBTI": {
 		"INFP-T": "/assets/圖象/狗INFP.png"
