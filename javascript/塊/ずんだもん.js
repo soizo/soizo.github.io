@@ -62,6 +62,11 @@ const audioDics = {
     大好き: "/assets/萌寵/ずんだもん/音頻/大好き！.wav",
 };
 
+const 其餘Dics = {
+    爆炸圖: "/assets/圖象/いらすとや/ずんだ餅を含む爆発.png",
+    爆炸聲: "/assets/音頻/音效/爆発.wav",
+};
+
 var imageElement = document.createElement("img");
 imageElement.setAttribute("data-備註", "ずんだもんimageElement");
 
@@ -202,13 +207,16 @@ function Obj中的隨機項(Obj) {
 }
 
 function 爆爆爆爆爆爆炸炸炸炸炸炸() {
-    new Audio("/assets/音頻/音效/爆発.wav").play();
+    new Audio(其餘Dics["爆炸聲"]).play();
     const newImageElement = imageElement.cloneNode(true);
     imageElement.parentNode.replaceChild(newImageElement, imageElement);
-    newImageElement.src = "/assets/圖象/いらすとや/爆発.png";
+    newImageElement.src = 其餘Dics["爆炸圖"];
     newImageElement.style.cursor = "auto";
     newImageElement.style.transition = "opacity 4s ease-in-out";
     ずんだもん本體.style.left = "-30px";
+    if (Math.floor((Math.random() * 100) % 2)) {
+        newImageElement.style.transform = "scaleX(-1)";
+    }
     setTimeout(function () {
         newImageElement.style.opacity = 0;
     }, 100);
