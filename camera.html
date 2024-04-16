@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CAMERA</title>
+	<script src="/javascript/公共/好多函數！.js"></script>
+	<link rel="icon" s-href="䈎面圖標：CAMERA" type="image/x-icon" />
+	<style>
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background: black;
+		}
+
+		#video {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			transform: scaleX(-1);
+		}
+	</style>
+</head>
+
+<body>
+	<video id="video" autoplay></video>
+	<script>
+		var video = document.getElementById('video');
+
+		if (navigator.mediaDevices.getUserMedia) {
+			navigator.mediaDevices.getUserMedia({ video: true })
+				.then(function (stream) {
+					video.srcObject = stream;
+				})
+				.catch(function (error) {
+					console.error("无法訪問攝像頭", error);
+				});
+		} else {
+			console.log("瀏覽器不支持 getUserMedia");
+		}
+	</script>
+</body>
+
+</html>
