@@ -1,4 +1,5 @@
 const ずんだもん = document.getElementById("ずんだもん");
+ずんだもん.style.pointerEvents = "none";
 ずんだもん.classList.add("unselectable");
 ずんだもん.classList.add("undraggable");
 
@@ -10,6 +11,7 @@ const ずんだもん本體 = document.createElement("div");
 ずんだもん本體.style.left = 0;
 ずんだもん本體.style.bottom = "-20px";
 ずんだもん本體.style.height = "200px";
+ずんだもん本體.style.pointerEvents = "none";
 
 const svgCollisionBox = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -20,6 +22,7 @@ svgCollisionBox.setAttribute("height", "200px");
 svgCollisionBox.style.position = "absolute";
 svgCollisionBox.style.left = "35px";
 svgCollisionBox.style.top = "60px";
+svgCollisionBox.style.pointerEvents = "none";
 const rectElement = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "rect"
@@ -30,6 +33,7 @@ rectElement.setAttribute("x", "0");
 rectElement.setAttribute("y", "0");
 rectElement.setAttribute("fill", "transparent");
 rectElement.style.cursor = "pointer";
+rectElement.style.pointerEvents = "auto";
 
 svgCollisionBox.appendChild(rectElement);
 
