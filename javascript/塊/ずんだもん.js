@@ -10,9 +10,30 @@ const ずんだもん本體 = document.createElement("div");
 ずんだもん本體.style.left = 0;
 ずんだもん本體.style.bottom = "-20px";
 ずんだもん本體.style.height = "200px";
-ずんだもん本體.style.cursor = "pointer";
 
-console.log(ずんだもん);
+const svgCollisionBox = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "svg"
+);
+svgCollisionBox.setAttribute("width", "200px");
+svgCollisionBox.setAttribute("height", "200px");
+svgCollisionBox.style.position = "absolute";
+svgCollisionBox.style.left = "35px";
+svgCollisionBox.style.top = "60px";
+const rectElement = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "rect"
+);
+rectElement.setAttribute("width", "110px");
+rectElement.setAttribute("height", "120px");
+rectElement.setAttribute("x", "0");
+rectElement.setAttribute("y", "0");
+rectElement.setAttribute("fill", "transparent");
+rectElement.style.cursor = "pointer";
+
+svgCollisionBox.appendChild(rectElement);
+
+ずんだもん本體.appendChild(svgCollisionBox);
 
 const imagesDics = {
     摸摸: {
@@ -92,7 +113,7 @@ function 狀態(狀態) {
 function 不摸摸了() {
     狀態("常態_張嘴");
     imageElement.src = imagesDics["常態"]["常態_張嘴"];
-    ずんだもん本體.style.cursor = "pointer";
+    rectElement.style.cursor = "pointer";
     動作邪 = false;
 }
 
@@ -103,34 +124,30 @@ function 不摸摸了() {
 var 動作邪 = false;
 let 長按Timeout = null;
 
-imageElement.addEventListener("mouseover", function () {
-    if (!動作邪) {
+rectElement.addEventListener("mouseenter", function () {
+    if (!動作邪 && rectElement.style.cursor === "pointer") {
         狀態("常態_張嘴");
         imageElement.src = imagesDics["常態"]["常態_張嘴"];
     }
 });
 
-imageElement.addEventListener("mouseout", function () {
+rectElement.addEventListener("mouseout", function () {
     if (!動作邪) {
         狀態("常態");
         imageElement.src = imagesDics["常態"]["常態"];
     }
 });
 
-// imageElement.addEventListener("click", function () {
-//     if (!動作邪) {
-//     }
-// });
+let isMouseDownOnImageElement = false;
 
-imageElement.addEventListener("mousedown", function (event) {
-    if (!動作邪) {
-        imageElement.src = Obj中的隨機項(imagesDics["招呼"]);
-
+rectElement.addEventListener("mousedown", function (event) {
+    if (!動作邪 && event.button === 0) {
         動作邪 = true;
+        isMouseDownOnImageElement = true;
         長按Timeout = setTimeout(function () {
             狀態("摸摸");
             imageElement.src = Obj中的隨機項(imagesDics["摸摸"]);
-            ずんだもん本體.style.cursor = "none";
+            rectElement.style.cursor = "none";
             動作邪 = true;
             let 摸摸Interval = setInterval(function () {
                 if (今狀態 == "摸摸") {
@@ -143,25 +160,33 @@ imageElement.addEventListener("mousedown", function (event) {
     }
 });
 
-imageElement.addEventListener("mouseup", function () {
-    clearTimeout(長按Timeout);
-    if (今狀態 == "摸摸") {
-        不摸摸了();
-    } else {
-        if (Math.floor((Math.random() * 100) % 2)) {
-            隨機資產生產("俊達語", audioDics["招呼"]).play();
+rectElement.addEventListener("mouseup", function () {
+    if (isMouseDownOnImageElement) {
+        clearTimeout(長按Timeout);
+        if (今狀態 == "摸摸") {
+            不摸摸了();
         } else {
-            隨機資產生產("人類語", audioDics["招呼"]).play();
+            if (Math.floor((Math.random() * 100) % 2)) {
+                隨機資產生產("俊達語", audioDics["招呼"]).play();
+            } else {
+                隨機資產生產("人類語", audioDics["招呼"]).play();
+            }
+            imageElement.src = Obj中的隨機項(imagesDics["招呼"]);
+            setTimeout(function () {
+                狀態("常態_張嘴");
+                imageElement.src = imagesDics["常態"]["常態_張嘴"];
+                動作邪 = false;
+            }, 500);
         }
-        setTimeout(function () {
-            狀態("常態_張嘴");
-            imageElement.src = imagesDics["常態"]["常態_張嘴"];
-            動作邪 = false;
-        }, 500);
+        isMouseDownOnImageElement = false;
     }
 });
 
-imageElement.addEventListener("mouseleave", function (event) {
+document.addEventListener("mouseup", function () {
+    isMouseDownOnImageElement = false;
+});
+
+rectElement.addEventListener("mouseleave", function (event) {
     clearTimeout(長按Timeout);
     if (今狀態 == "摸摸") {
         不摸摸了();
@@ -171,7 +196,7 @@ imageElement.addEventListener("mouseleave", function (event) {
 let 連續點擊_clickCount = 0;
 let 連續點擊_startTime = 0;
 
-imageElement.addEventListener("click", function () {
+rectElement.addEventListener("click", function () {
     const now = Date.now();
 
     if (連續點擊_clickCount === 0) {
