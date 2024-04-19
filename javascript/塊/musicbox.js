@@ -10,7 +10,7 @@ function fetchCoverFromJson(trackName, trackArtist) {
     return fetch(歌曲封面素繒路徑)
         .then((response) => response.json())
         .then((covers) => {
-            console.log(trackName + "_" + trackArtist);
+            // console.log(trackName + "_" + trackArtist);
             const encodedTrackNameAndArtist =
                 Array.from(new TextEncoder().encode(trackName))
                     .map((byte) => byte.toString(16).padStart(2, "0"))
@@ -241,7 +241,7 @@ updateMusicBox();
 setInterval(updateMusicBox, 6000);
 
 // 監聽器設置，用於偵測鏈接變化
-const observer = new MutationObserver((mutations) => {
+const observerUpdateMusicBox = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.type === "childList" && mutation.addedNodes.length) {
             updateMusicBox();
@@ -254,4 +254,4 @@ const targetNode = document.querySelector("#musicbox");
 const config = { childList: true };
 
 // 啟動監聽
-observer.observe(targetNode, config);
+observerUpdateMusicBox.observe(targetNode, config);
