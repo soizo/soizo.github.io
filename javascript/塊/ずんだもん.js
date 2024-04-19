@@ -17,8 +17,8 @@ const svgCollisionBox = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "svg"
 );
-svgCollisionBox.setAttribute("width", "200px");
-svgCollisionBox.setAttribute("height", "200px");
+svgCollisionBox.setAttribute("width", "110px");
+svgCollisionBox.setAttribute("height", "120px");
 svgCollisionBox.style.position = "absolute";
 svgCollisionBox.style.left = "35px";
 svgCollisionBox.style.top = "60px";
@@ -127,6 +127,7 @@ function 不摸摸了() {
 
 var 動作邪 = false;
 let 長按Timeout = null;
+const 長按時間 = 500;
 
 rectElement.addEventListener("mouseenter", function () {
     if (!動作邪 && rectElement.style.cursor === "pointer") {
@@ -143,11 +144,13 @@ rectElement.addEventListener("mouseout", function () {
 });
 
 let isMouseDownOnImageElement = false;
+let MouseDownOnImageElementTime = false;
 
 rectElement.addEventListener("mousedown", function (event) {
     if (!動作邪 && event.button === 0) {
         動作邪 = true;
         isMouseDownOnImageElement = true;
+        MouseDownOnImageElementTime = new Date();
         長按Timeout = setTimeout(function () {
             狀態("摸摸");
             imageElement.src = Obj中的隨機項(imagesDics["摸摸"]);
@@ -159,8 +162,8 @@ rectElement.addEventListener("mousedown", function (event) {
                 } else {
                     clearInterval(摸摸Interval);
                 }
-            }, 500);
-        }, 500);
+            }, 長按時間);
+        }, 長按時間);
     }
 });
 
@@ -170,24 +173,33 @@ rectElement.addEventListener("mouseup", function () {
         if (今狀態 == "摸摸") {
             不摸摸了();
         } else {
+            setTimeout(function () {
+                狀態("常態_張嘴");
+                imageElement.src = imagesDics["常態"]["常態_張嘴"];
+                動作邪 = false;
+                MouseDownOnImageElementTime = false;
+                // }, 0);
+            }, 長按時間);
+            isMouseDownOnImageElement = false;
+        }
+    }
+});
+
+rectElement.addEventListener("mouseup", function () {
+    if (MouseDownOnImageElementTime) {
+        if (new Date() - MouseDownOnImageElementTime <= 500) {
             if (Math.floor((Math.random() * 100) % 2)) {
                 隨機資產生產("俊達語", audioDics["招呼"]).play();
             } else {
                 隨機資產生產("人類語", audioDics["招呼"]).play();
             }
             imageElement.src = Obj中的隨機項(imagesDics["招呼"]);
-            setTimeout(function () {
-                狀態("常態_張嘴");
-                imageElement.src = imagesDics["常態"]["常態_張嘴"];
-                動作邪 = false;
-            }, 500);
         }
-        isMouseDownOnImageElement = false;
     }
 });
 
 document.addEventListener("mouseup", function () {
-    isMouseDownOnImageElement = false;
+    // console.log(isMouseDownOnImageElement);
 });
 
 rectElement.addEventListener("mouseleave", function (event) {
@@ -200,6 +212,9 @@ rectElement.addEventListener("mouseleave", function (event) {
 let 連續點擊_clickCount = 0;
 let 連續點擊_startTime = 0;
 
+const 連續點擊最少次數 = 23;
+const 連續點擊持續時間 = 5000;
+
 rectElement.addEventListener("click", function () {
     const now = Date.now();
 
@@ -210,11 +225,14 @@ rectElement.addEventListener("click", function () {
     連續點擊_clickCount++;
 
     // 檢查點擊次數和時間條件
-    if (連續點擊_clickCount >= 14 && now - 連續點擊_startTime <= 4000) {
+    if (
+        連續點擊_clickCount >= 連續點擊最少次數 &&
+        now - 連續點擊_startTime <= 連續點擊持續時間
+    ) {
         爆爆爆爆爆爆炸炸炸炸炸炸();
         連續點擊_clickCount = 0;
         連續點擊_startTime = 0;
-    } else if (now - 連續點擊_startTime > 4000) {
+    } else if (now - 連續點擊_startTime > 連續點擊持續時間) {
         連續點擊_clickCount = 0;
         連續點擊_startTime = 0;
     }
@@ -239,6 +257,8 @@ function 爆爆爆爆爆爆炸炸炸炸炸炸() {
     new Audio(其餘Dics["爆炸聲"]).play();
     const newImageElement = imageElement.cloneNode(true);
     imageElement.parentNode.replaceChild(newImageElement, imageElement);
+    svgCollisionBox.parentNode.removeChild(svgCollisionBox);
+
     newImageElement.src = 其餘Dics["爆炸圖"];
     newImageElement.style.cursor = "auto";
     newImageElement.style.transition = "opacity 4s ease-in-out";

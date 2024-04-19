@@ -17,6 +17,11 @@
 	--滾動條：樣矢右泉此方綠: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23779f6b" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
 	--滾動條：樣矢右泉此方綠深縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%235a7850" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
 
+	--滾動條：樣矢上泉此方綠淺縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cpath fill="%23ABC8A3" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢下泉此方綠淺縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" transform="scale(0.9)" viewBox="-2 -4 24 24"%3E%3Cg transform="rotate(180 10 8)"%3E%3Cpath fill="%23ABC8A3" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢左泉此方綠淺縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(-90 10 10)"%3E%3Cpath fill="%23ABC8A3" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	--滾動條：樣矢右泉此方綠淺縮: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" transform="scale(0.9)" viewBox="-4 -2 24 24"%3E%3Cg transform="rotate(90 8 8)"%3E%3Cpath fill="%23ABC8A3" d="m12.547 1.621l6.095 9.794A3 3 0 0 1 16.095 16H3.905a3 3 0 0 1-2.547-4.585L7.453 1.62a3 3 0 0 1 5.094 0z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+
 
 	/** **/
 
@@ -41,7 +46,7 @@
 	--滾動條：矢右作: var(--滾動條：樣矢右灰縮);
 }
 
-html[滾動條theme="wiki"] {
+.自訂滾動條[滾動條theme="wiki"] {
 	--滾動條：背景色: #1c1f24;
 	--滾動條：三角背景色: #1c1f24;
 	--滾動條：交界背景色: #1c1f24;
@@ -49,7 +54,7 @@ html[滾動條theme="wiki"] {
 
 }
 
-html[滾動條theme="泉此方綠"] {
+.自訂滾動條[滾動條theme="泉此方綠"] {
 	--滾動條：背景色: #dff1db;
 	--滾動條：三角背景色: #dff1db;
 	--滾動條：交界背景色: #dff1db;
@@ -69,6 +74,28 @@ html[滾動條theme="泉此方綠"] {
 	--滾動條：矢右常: var(--滾動條：樣矢右泉此方綠);
 	--滾動條：矢右及: var(--滾動條：樣矢右泉此方綠);
 	--滾動條：矢右作: var(--滾動條：樣矢右泉此方綠深縮);
+}
+
+.自訂滾動條[滾動條theme="泉此方綠反轉"] {
+	--滾動條：背景色: #5a7850;
+	--滾動條：三角背景色: #5a7850;
+	--滾動條：交界背景色: #5a7850;
+	--滾動條：條色: #779f6b;
+	--滾動條：條色及: #91B487;
+	--滾動條：條色作: #ABC8A3;
+
+	--滾動條：矢上常: var(--滾動條：樣矢上泉此方綠);
+	--滾動條：矢上及: var(--滾動條：樣矢上泉此方綠);
+	--滾動條：矢上作: var(--滾動條：樣矢上泉此方綠淺縮);
+	--滾動條：矢下常: var(--滾動條：樣矢下泉此方綠);
+	--滾動條：矢下及: var(--滾動條：樣矢下泉此方綠);
+	--滾動條：矢下作: var(--滾動條：樣矢下泉此方綠淺縮);
+	--滾動條：矢左常: var(--滾動條：樣矢左泉此方綠);
+	--滾動條：矢左及: var(--滾動條：樣矢左泉此方綠);
+	--滾動條：矢左作: var(--滾動條：樣矢左泉此方綠淺縮);
+	--滾動條：矢右常: var(--滾動條：樣矢右泉此方綠);
+	--滾動條：矢右及: var(--滾動條：樣矢右泉此方綠);
+	--滾動條：矢右作: var(--滾動條：樣矢右泉此方綠淺縮);
 }
 
 /**              滾動條              **/

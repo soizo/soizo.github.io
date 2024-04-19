@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     解釋塊作用器();
+    橫向捲動();
     updateDraggableAttributes();
 });
 
@@ -732,4 +733,83 @@ function updateDraggableAttributes() {
     draggableElements.forEach((element) => {
         setDraggable(element, true);
     });
+}
+
+function 橫向捲動() {
+    // 用於判斷元素是否可滾動
+    function isScrollable(element) {
+        return (
+            element == document.documentElement ||
+            element == document.body ||
+            element.scrollHeight > element.clientHeight ||
+            element.scrollWidth > element.clientWidth
+        );
+    }
+
+    var elements = document.querySelectorAll(".橫向捲動");
+
+    elements.forEach(function (target) {
+        target.addEventListener(
+            "wheel",
+            function (e) {
+                var delta = e.deltaY;
+
+                // 如果目標元素不可滾動，直接返回
+                if (!isScrollable(target) || e.ctrlKey || e.altKey) {
+                    return;
+                }
+
+                // 阻止默認行為和停止事件冒泡
+                e.preventDefault();
+                e.stopPropagation(); // 防止滾動事件影響到父元素
+
+                if (
+                    target == document.body ||
+                    target == document.documentElement
+                ) {
+                    window.scrollBy({
+                        [e.shiftKey ? "top" : "left"]: e.shiftKey
+                            ? delta
+                            : -delta,
+                        behavior: "smooth",
+                    });
+                } else {
+                    target.scrollBy({
+                        [e.shiftKey ? "top" : "left"]: e.shiftKey
+                            ? delta
+                            : -delta,
+                        behavior: "smooth",
+                    });
+                }
+            },
+            { passive: false }
+        );
+    });
+}
+
+function numberToChinese(number) {
+    const units = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+    const tens = ["", "十", "廿", "卅", "四", "五", "六", "七", "八", "九"];
+
+    if (number < 1 || number > 100) {
+        return number; // 超出範圍返回原數
+    } else if (number === 100) {
+        return "一百";
+    }
+
+    const ten = Math.floor(number / 10);
+    const unit = number % 10;
+    let result = "";
+
+    if (ten > 1) {
+        result += tens[ten];
+    } else if (ten === 1) {
+        result += tens[ten]; // 十一至十九
+    }
+
+    if (unit > 0) {
+        result += units[unit];
+    }
+
+    return result;
 }

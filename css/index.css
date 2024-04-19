@@ -36,6 +36,7 @@ body {
 	color: white;
 	writing-mode: vertical-rl;
 	margin: 0;
+	margin-left: 180px;
 }
 
 .聊天 {
@@ -97,21 +98,21 @@ body>table {
 }
 
 #个人紹介 a {
-	color: #3854db;
+	color: #5e8ddb;
 }
 
 #个人紹介 a:hover {
 	color: #f9faf4;
-	background-color: #3854db;
+	background-color: #5e8ddb;
 }
 
 #个人紹介 .wiki {
-	color: #51a06e;
+	color: #bfa453;
 }
 
 #个人紹介 .wiki:hover {
 	color: #f9faf4;
-	background-color: #51a06e;
+	background-color: #bfa453;
 }
 
 #个人紹介 .「中國」 {
@@ -246,12 +247,12 @@ div.塊 *::selection {
 
 
 #愛好 .wiki {
-	color: #62909b;
+	color: #efe196;
 }
 
 #愛好 .wiki:hover {
 	color: #000000;
-	background-color: #62909b;
+	background-color: #efe196;
 }
 
 
