@@ -829,6 +829,13 @@ function numberToChinese(num) {
     function _handleZero(str) {
         return str.replace(/〇+/g, "〇").replace(/〇$/, "");
     }
+    function _handleTeens(str) {
+        return str
+            .replace(/^一十$/g, "十")
+            .replace(/^一十(.)$/, function (〇, 一) {
+                return `十${一}`;
+            });
+    }
     function _transform(n) {
         let result = "";
         for (let i = 0; i < n.length; i++) {
@@ -840,6 +847,7 @@ function numberToChinese(num) {
             result += c + u;
         }
         result = _handleZero(result);
+        result = _handleTeens(result);
         return result;
     }
     const bigUnits = ["", "萬", "億", "兆"];
