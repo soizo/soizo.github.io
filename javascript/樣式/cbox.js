@@ -394,11 +394,19 @@ function comment_修改(element) {
                 matchMinutes = matchMinutes[0];
                 if (matchMinutes >= 34 && matchMinutes <= 25) {
                     return `半小時歬`;
-                } else if (matchMinutes < 14.24) {
-                    return matchMinutes + `分鐘歬`;
+                } else if (matchMinutes < 7.12) {
+                    return window.numberToChinese(matchMinutes) + `分鐘歬`;
+                    // return matchMinutes + `分鐘歬`;
                 } else {
-                    刻 = Math.floor(matchMinutes / 14.24);
-                    return window.numberToChinese(刻) + `刻歬`;
+                    const base = 14.24;
+                    let 刻 = Math.floor(matchMinutes / base);
+                    let 餘數 = matchMinutes % base;
+
+                    if (餘數 >= base / 2) {
+                        return window.numberToChinese(刻) + `刻半歬`;
+                    } else {
+                        return window.numberToChinese(刻) + `刻歬`;
+                    }
                 }
             } else if (
                 (matchHours = realDateContent.match(/^\d+(?= hours ago$)/))

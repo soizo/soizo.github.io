@@ -159,7 +159,7 @@ body>table {
 
 div.塊 {
 	border: 2px solid #383838;
-	/* border-radius: 4px; */
+	border-radius: 4px;
 	color: white;
 	padding: 15px 10px;
 	margin: 5px;
@@ -288,4 +288,8 @@ div.塊 *::selection {
 #我的䈎面 .失效鏈接 {
 	text-decoration: line-through;
 	color: grey;
+}
+
+#cbox {
+	margin: 5px 0
 }
