@@ -787,29 +787,141 @@ function 橫向捲動() {
     });
 }
 
-function numberToChinese(number) {
-    const units = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
-    const tens = ["", "十", "廿", "卅", "四", "五", "六", "七", "八", "九"];
+// function numberToChinese(number) {
+//     const units = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+//     const tens = ["", "十", "廿", "卅", "四", "五", "六", "七", "八", "九"];
 
-    if (number < 1 || number > 100) {
-        return number; // 超出範圍返回原數
-    } else if (number === 100) {
-        return "一百";
+//     if (number < 1 || number > 100) {
+//         return number; // 超出範圍返回原數
+//     } else if (number === 100) {
+//         return "一百";
+//     }
+
+//     const ten = Math.floor(number / 10);
+//     const unit = number % 10;
+//     let result = "";
+
+//     if (ten > 1) {
+//         result += tens[ten];
+//     } else if (ten === 1) {
+//         result += tens[ten]; // 十一至十九
+//     }
+
+//     if (unit > 0) {
+//         result += units[unit];
+//     }
+
+//     return result;
+// }
+
+// function toChineseNumber(num) {
+function numberToChinese(num) {
+    //  四位四位的进行分割
+    const parts = num
+        .toString()
+        .replace(/(?=(\d{4})+$)/g, ",")
+        .split(",")
+        .filter(Boolean);
+
+    const map = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+    const units = ["", "十", "百", "千"];
+    // 把连续的零给去掉 合并为1个零  当零在末尾的时候去掉
+    function _handleZero(str) {
+        return str.replace(/〇+/g, "〇").replace(/〇$/, "");
     }
-
-    const ten = Math.floor(number / 10);
-    const unit = number % 10;
+    function _transform(n) {
+        let result = "";
+        for (let i = 0; i < n.length; i++) {
+            const c = map[n[i]];
+            let u = units[n.length - i - 1];
+            if (c === "〇") {
+                u = "";
+            }
+            result += c + u;
+        }
+        result = _handleZero(result);
+        return result;
+    }
+    const bigUnits = ["", "萬", "億", "兆"];
     let result = "";
-
-    if (ten > 1) {
-        result += tens[ten];
-    } else if (ten === 1) {
-        result += tens[ten]; // 十一至十九
+    for (let i = 0; i < parts.length; i++) {
+        const p = parts[i];
+        const c = _transform(p);
+        const u = bigUnits[parts.length - i - 1];
+        if (c === "") {
+            result += "〇";
+            continue;
+        }
+        result += c + u;
     }
-
-    if (unit > 0) {
-        result += units[unit];
-    }
-
+    result = _handleZero(result);
     return result;
+}
+
+function chineseToNumber(chinese) {
+    const map = {
+        〇: 0,
+        一: 1,
+        二: 2,
+        三: 3,
+        四: 4,
+        五: 5,
+        六: 6,
+        七: 7,
+        八: 8,
+        九: 9,
+    };
+    const units = { 十: 10, 百: 100, 千: 1000 };
+    const bigUnits = { 萬: 10000, 億: 100000000, 兆: 1000000000000 };
+
+    function parseSmallSection(chinese) {
+        let temp = 0;
+        let result = 0;
+        chinese.split("").forEach((ch, index) => {
+            if (units[ch] != null) {
+                result += (temp === 0 ? 1 : temp) * units[ch];
+                temp = 0;
+            } else {
+                temp = map[ch];
+            }
+        });
+        return result + temp;
+    }
+
+    let sections = [];
+    let sectionValue = 0;
+    let finalValue = 0;
+    let unitValue = 1;
+    let isBigUnit = false;
+
+    chinese
+        .split("")
+        .reverse()
+        .forEach((ch) => {
+            if (bigUnits[ch] != null) {
+                unitValue = bigUnits[ch];
+                sectionValue *= unitValue;
+                finalValue += sectionValue;
+                sections.push(sectionValue);
+                sectionValue = 0;
+                isBigUnit = true;
+            } else if (units[ch] != null || map[ch] != null) {
+                sectionValue =
+                    parseSmallSection(
+                        chinese.slice(
+                            0,
+                            chinese.length - sections.join("").length
+                        )
+                    ) * (isBigUnit ? 1 : unitValue);
+                isBigUnit = false;
+            }
+        });
+
+    if (sectionValue > 0) {
+        finalValue += sectionValue;
+    } else if (sections.length === 0) {
+        finalValue = parseSmallSection(chinese);
+    }
+
+    return finalValue;
 }

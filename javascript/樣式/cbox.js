@@ -312,7 +312,29 @@ function 改變標籤(node, 目標標籤) {
     );
 }
 
+function comment_like_onclick(elementID) {
+    const comment = document.getElementById("comment_" + elementID);
+
+    const likesContent = comment.querySelector("div.likes>span");
+    if (likesContent.textContent != " ") {
+        console.log(likesContent.textContent);
+        const likesContentNum = likesContent.textContent.match(/^\S+/);
+        const num = window.chineseToNumber(String(likesContentNum));
+        likesContent.textContent = num + " ";
+
+        hcb.like(elementID);
+
+        likesContent.textContent = window.numberToChinese(num + 1) + " ";
+    } else {
+        hcb.like(elementID);
+
+        likesContent.textContent = window.numberToChinese(1) + " ";
+    }
+}
+
 function comment_修改(element) {
+    const elementID = element.id.match(/(?<=comment_)\d+$/);
+
     // console.log(element);
     element.classList.add("unselectable");
     element.classList.add("undraggable");
@@ -325,6 +347,19 @@ function comment_修改(element) {
 
     const like = element.querySelector("p.hcb-comment-tb > button.hcb-like");
     like.textContent = "按讚" + "　";
+    like.setAttribute("onclick", `comment_like_onclick(${elementID})`);
+    const likes = element.querySelectorAll("div.likes *");
+
+    likes.forEach(function (aaa) {
+        aaa.classList.add("unselectable");
+    });
+
+    try {
+        const likesContent = element.querySelector("div.likes>span");
+        const likesContentNum = likesContent.textContent.match(/^\d+/);
+        likesContent.textContent =
+            window.numberToChinese(likesContentNum) + " ";
+    } catch (err) {}
 
     const reply = element.querySelector("p.hcb-comment-tb > button.hcb-reply");
     reply.textContent = "回覆" + "　";
@@ -332,12 +367,18 @@ function comment_修改(element) {
     const flag = element.querySelector("p.hcb-comment-tb > button.hcb-flag");
     flag.textContent = "檢舉" + "　";
 
-    const likes = element.querySelectorAll("div.likes *");
-
-    likes.forEach(function (aaa) {
-        aaa.classList.add("unselectable");
-    });
-    // console.log(element);
+    try {
+        const CommentContent = element.querySelector(
+            ".comment>div>.comment>blockquote > p"
+        );
+        const 內裏內容 = String(CommentContent.innerHTML);
+        CommentContent.innerHTML = 內裏內容.replace(
+            /^@(\S+), /,
+            function (〇, 一) {
+                return `<span class="unselectable" style="text-decoration:underline;">＠${一}</span><span class="unselectable">　</span>`;
+            }
+        );
+    } catch (err) {}
 
     const date = element.querySelector("blockquote > span.date");
     const dateContent = String(date.textContent);
