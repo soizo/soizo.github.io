@@ -711,6 +711,7 @@ function 解釋塊作用器() {
         });
     }
 }
+
 function updateDraggableAttributes() {
     function setDraggable(element, value) {
         if (element.draggable !== value) {
@@ -736,85 +737,117 @@ function updateDraggableAttributes() {
 }
 
 function 橫向捲動() {
-    // 用於判斷元素是否可滾動
-    function isScrollable(element) {
-        return (
-            element == document.documentElement ||
-            element == document.body ||
-            element.scrollHeight > element.clientHeight ||
-            element.scrollWidth > element.clientWidth
-        );
-    }
+    document.addEventListener(
+        "wheel",
+        function (e) {
+            if (!e) {
+                return;
+            }
+            function 是否html或body(element) {
+                return (
+                    element == document.documentElement ||
+                    element == document.body
+                );
+            }
 
-    var elements = document.querySelectorAll(".橫向捲動");
+            function 滾動(target, 橫縱, delta, behavior = "smooth") {
+                if (是否html或body(target)) {
+                    window.scrollBy({
+                        [橫縱 ? "top" : "left"]: 橫縱 ? delta : -delta,
+                        behavior: behavior,
+                    });
+                }
+                {
+                    target.scrollBy({
+                        [橫縱 ? "top" : "left"]: 橫縱 ? delta : -delta,
+                        behavior: behavior,
+                    });
+                }
+            }
 
-    elements.forEach(function (target) {
-        target.addEventListener(
-            "wheel",
-            function (e) {
-                var delta = e.deltaY;
+            function 可滾動邪(element, delta = 0) {
+                const style = window.getComputedStyle(element);
+                const overflowX = style.overflowX;
+                const overflowY = style.overflowY;
 
-                // 如果目標元素不可滾動，直接返回
-                if (!isScrollable(target) || e.ctrlKey || e.altKey) {
+                const horizontal = {
+                    canScroll:
+                        element.scrollWidth > element.clientWidth + delta,
+                    isAtStart: element.scrollLeft <= delta,
+                    isAtEnd:
+                        element.scrollLeft + element.clientWidth >=
+                        element.scrollWidth - delta,
+                    cannotScrollAtAll:
+                        element.scrollWidth <= element.clientWidth + delta,
+                    canReallyScroll:
+                        !(overflowX == "hidden" || overflowX == "visible") &&
+                        element.scrollWidth > element.clientWidth + delta,
+                };
+
+                const vertical = {
+                    canScroll:
+                        element.scrollHeight > element.clientHeight + delta,
+                    isAtStart: element.scrollTop <= delta,
+                    isAtEnd:
+                        element.scrollTop + element.clientHeight >=
+                        element.scrollHeight - delta,
+                    cannotScrollAtAll:
+                        element.scrollHeight <= element.clientHeight + delta,
+                    canReallyScroll:
+                        !(overflowY == "hidden" || overflowY == "visible") &&
+                        element.scrollHeight > element.clientHeight + delta,
+                };
+
+                return {
+                    horizontal: horizontal,
+                    vertical: vertical,
+                };
+            }
+
+            function 判斷執行(element, e) {
+                if (!element) {
                     return;
                 }
-
-                // 阻止默認行為和停止事件冒泡
-                e.preventDefault();
-                e.stopPropagation(); // 防止滾動事件影響到父元素
-
+                const delta = e.deltaY;
+                const shiftKey = e.shiftKey;
                 if (
-                    target == document.body ||
-                    target == document.documentElement
+                    element.hasAttribute("class") &&
+                    element.classList.contains("橫向捲動")
                 ) {
-                    window.scrollBy({
-                        [e.shiftKey ? "top" : "left"]: e.shiftKey
-                            ? delta
-                            : -delta,
-                        behavior: "smooth",
-                    });
+                    if (
+                        是否html或body(element) ||
+                        可滾動邪(element).horizontal.canReallyScroll
+                    ) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        滾動(element, shiftKey, delta, "smooth");
+                    } else {
+                        if (是否html或body(element)) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            滾動(element, !shiftKey, delta, "smooth");
+                        } else {
+                            判斷執行(element.parentNode, e);
+                        }
+                    }
                 } else {
-                    target.scrollBy({
-                        [e.shiftKey ? "top" : "left"]: e.shiftKey
-                            ? delta
-                            : -delta,
-                        behavior: "smooth",
-                    });
+                    console.log(可滾動邪(element).vertical.canReallyScroll);
+                    if (
+                        是否html或body(element) ||
+                        可滾動邪(element).vertical.canReallyScroll
+                    ) {
+                        return;
+                    } else {
+                        判斷執行(element.parentNode, e);
+                    }
                 }
-            },
-            { passive: false }
-        );
-    });
+            }
+            判斷執行(e.target, e);
+        },
+        { passive: false }
+    );
 }
 
-// function numberToChinese(number) {
-//     const units = ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
-//     const tens = ["", "十", "廿", "卅", "四", "五", "六", "七", "八", "九"];
-
-//     if (number < 1 || number > 100) {
-//         return number; // 超出範圍返回原數
-//     } else if (number === 100) {
-//         return "一百";
-//     }
-
-//     const ten = Math.floor(number / 10);
-//     const unit = number % 10;
-//     let result = "";
-
-//     if (ten > 1) {
-//         result += tens[ten];
-//     } else if (ten === 1) {
-//         result += tens[ten]; // 十一至十九
-//     }
-
-//     if (unit > 0) {
-//         result += units[unit];
-//     }
-
-//     return result;
-// }
-
-// function toChineseNumber(num) {
 function numberToChinese(num) {
     //  四位四位的进行分割
     const parts = num
@@ -863,6 +896,7 @@ function numberToChinese(num) {
         result += c + u;
     }
     result = _handleZero(result);
+    result = _handleTeens(result);
     return result;
 }
 
@@ -882,54 +916,40 @@ function chineseToNumber(chinese) {
     const units = { 十: 10, 百: 100, 千: 1000 };
     const bigUnits = { 萬: 10000, 億: 100000000, 兆: 1000000000000 };
 
-    function parseSmallSection(chinese) {
-        let temp = 0;
-        let result = 0;
-        chinese.split("").forEach((ch, index) => {
-            if (units[ch] != null) {
-                result += (temp === 0 ? 1 : temp) * units[ch];
-                temp = 0;
-            } else {
-                temp = map[ch];
+    let total = 0;
+    let currentNumber = 0;
+    let lastUnit = 1;
+    let bigUnit = 1;
+
+    const reset = () => {
+        currentNumber *= lastUnit;
+        if (lastUnit >= 10000) {
+            bigUnit *= lastUnit;
+            lastUnit = 1;
+        }
+        total += currentNumber;
+        currentNumber = 0;
+    };
+
+    for (let i = 0; i < chinese.length; i++) {
+        const char = chinese[i];
+        if (char in map) {
+            currentNumber = map[char];
+        } else if (char in units) {
+            lastUnit = units[char];
+            reset();
+        } else if (char in bigUnits) {
+            if (lastUnit < 10000) {
+                currentNumber *= lastUnit;
             }
-        });
-        return result + temp;
+            currentNumber *= bigUnit;
+            bigUnit = bigUnits[char];
+            total += currentNumber;
+            currentNumber = 0;
+            lastUnit = 1;
+        }
     }
-
-    let sections = [];
-    let sectionValue = 0;
-    let finalValue = 0;
-    let unitValue = 1;
-    let isBigUnit = false;
-
-    chinese
-        .split("")
-        .reverse()
-        .forEach((ch) => {
-            if (bigUnits[ch] != null) {
-                unitValue = bigUnits[ch];
-                sectionValue *= unitValue;
-                finalValue += sectionValue;
-                sections.push(sectionValue);
-                sectionValue = 0;
-                isBigUnit = true;
-            } else if (units[ch] != null || map[ch] != null) {
-                sectionValue =
-                    parseSmallSection(
-                        chinese.slice(
-                            0,
-                            chinese.length - sections.join("").length
-                        )
-                    ) * (isBigUnit ? 1 : unitValue);
-                isBigUnit = false;
-            }
-        });
-
-    if (sectionValue > 0) {
-        finalValue += sectionValue;
-    } else if (sections.length === 0) {
-        finalValue = parseSmallSection(chinese);
-    }
-
-    return finalValue;
+    reset();
+    total += currentNumber * bigUnit;
+    return total;
 }

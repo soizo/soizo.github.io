@@ -97,6 +97,7 @@ function 主函數(node) {
         node1.placeholder = "此処鍵入發送文本";
         node1.classList.add("unselectable");
         node1.classList.add("自訂滾動條");
+        node1.classList.add("橫向捲動");
         node1.setAttribute("滾動條theme", "泉此方綠反轉");
         node1.removeAttribute("rows");
     });
