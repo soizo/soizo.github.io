@@ -52,6 +52,10 @@ if (!window.hcb_user) {
             loadHCBScript();
         };
 
+        s.onload = function () {
+            HCB_comment_box.style.cursor = "auto";
+        };
+
         document.getElementsByTagName("head")[0].appendChild(s);
     }
 
