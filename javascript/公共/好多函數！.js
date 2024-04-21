@@ -831,7 +831,7 @@ function 橫向捲動() {
                         }
                     }
                 } else {
-                    console.log(可滾動邪(element).vertical.canReallyScroll);
+                    // console.log(可滾動邪(element).vertical.canReallyScroll);
                     if (
                         是否html或body(element) ||
                         可滾動邪(element).vertical.canReallyScroll

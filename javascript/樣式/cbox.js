@@ -14,6 +14,7 @@ cboxElmt.setAttribute("滾動條theme", "泉此方綠反轉");
 const HCB_comment_box = document.createElement("div");
 HCB_comment_box.id = "HCB_comment_box";
 HCB_comment_box.textContent = "正在載入留言板！";
+HCB_comment_box.style.cursor = "wait";
 
 cboxElmt.appendChild(HCB_comment_box);
 
@@ -27,7 +28,8 @@ if (!window.hcb_user) {
     function loadHCBScript() {
         if (hcb_retry_count >= hcb_max_retries) {
             console.error("HTML Comment Box 載入失敗超過最大重試次數");
-            HCB_comment_box.textContent = "Cbox載入失敗";
+            HCB_comment_box.textContent = "留言板載入失敗";
+            HCB_comment_box.style.cursor = "not-allowed";
             return;
         }
 
@@ -40,10 +42,12 @@ if (!window.hcb_user) {
             /\+/g,
             "%2B"
         )}&mod=%241%24wq1rdBcg%24ReravW%2FXr20IKckzhEvFl0&opts=16798&num=10&ts=1713391301796`;
-        console.log(s.src);
+        // console.log(s.src);
 
         s.onerror = function () {
             console.error("HTML Comment Box 載入失敗，正在嘗試重新載入...");
+            HCB_comment_box.textContent = "留言板載入失敗，正在嘗試重新載入";
+            HCB_comment_box.style.cursor = "wait";
             hcb_retry_count++;
             loadHCBScript();
         };

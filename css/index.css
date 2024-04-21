@@ -293,3 +293,47 @@ div.塊 *::selection {
 #cbox {
 	margin: 5px 0
 }
+
+
+#mySiteLink {
+	display: flex;
+	justify-content: space-between;
+	margin: 15px auto;
+	border-radius: 4px;
+}
+
+#mySiteLink * {
+	cursor: pointer;
+}
+
+#mySiteLink框 {
+	font-size: 12px;
+	writing-mode: horizontal-tb;
+	resize: none;
+	overflow-y: auto;
+	width: 160px;
+	height: 105px;
+	background-color: #000000;
+	color: #00ff00;
+	border-radius: 4px;
+	outline: none;
+	border: none;
+	padding: 8px;
+	caret-shape: block;
+
+}
+
+#mySiteLink框::selection {
+	color: black;
+	background-color: #00ff00;
+}
+
+#mySiteLink框:focus {
+	outline: none;
+}
+
+#下列>div:nth-child(3)>div:nth-child(3) {
+	width: 284px;
+	background-color: #000000;
+	border-radius: 4px;
+}
