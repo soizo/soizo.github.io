@@ -236,8 +236,18 @@
                 }
             } else {
                 ///是否今月
-                let 顯_時間 = window.轉換道曆(Date(時間), true, "HHQQ");
-                顯_時間 = 顯_時間 ? 顯_時間 : "";
+                let 顯_時間 = 時間
+                    ? window.轉換道曆(
+                          (() => {
+                              const date = new Date();
+                              date.setHours(parseInt(時間.split(":")[0]));
+                              date.setMinutes(parseInt(時間.split(":")[1]));
+                              return date;
+                          })(),
+                          true,
+                          "HHQQ"
+                      )
+                    : "";
                 if (Number(日期.split("/")[1]) == Number(今日.split("/")[1])) {
                     const 幾日歬 =
                         Number(今日.split("/")[2]) - Number(日期.split("/")[2]);
