@@ -362,6 +362,10 @@ function convertToLunar(DATE, trans = true) {
     }
 }
 
+function 填充0(内容, 數) {
+    return String(内容).length < 數 ? "0".repeat(數 - 1) + 内容 : 内容;
+}
+
 function 轉換道曆(input, trans = true, 格式) {
     /////////////時刻
     /// 輸入
@@ -512,9 +516,9 @@ function 轉換道曆(input, trans = true, 格式) {
                     case "M": /// 月
                         switch (match.length) {
                             case 1:
-                                return 顯_月日[0][0];
+                                return "0" + 顯_月日[0];
                             case 2:
-                                return 顯_月日[0];
+                                return 填充0(顯_月日[0], 2);
                             default:
                                 return 顯_月日[0];
                         }
@@ -525,7 +529,7 @@ function 轉換道曆(input, trans = true, 格式) {
                             case 1:
                                 return 顯_大時;
                             case 2:
-                                return 顯_大時 + 顯_初正;
+                                return 填充0(顯_大時 + 顯_初正, 2);
                             default:
                                 return 顯_大時 + 顯_初正;
                         }
@@ -543,7 +547,7 @@ function 轉換道曆(input, trans = true, 格式) {
                             case 2:
                                 return trans
                                     ? 曜日曆法(週) + "曜"
-                                    : (週 < 10 ? "0" : "") + 週;
+                                    : 填充0(週, 2);
                             case 3:
                                 return trans
                                     ? 曜日曆法(週) + "曜日"
@@ -603,6 +607,35 @@ function 轉換道曆(input, trans = true, 格式) {
         );
     }
     return 輸出;
+}
+
+function 反轉換道曆時間(input, trans = true) {
+    // 定義地支與刻對應的西曆時辰
+    let 地_地支 = trans ? "子丑寅卯辰巳午未申酉戌亥" : "ABCDEFGHIJKLA";
+    let 地_刻 = ["初", "一", "二", "三", "四"]; // 包含 "初" 作為第一個刻
+
+    // 提取時辰、初正和刻
+    let 時辰 = input.match(/[子丑寅卯辰巳午未申酉戌亥]/)[0];
+    let 初正 = input.charAt(input.indexOf(時辰) + 1);
+    let 刻 = input.substring(input.indexOf(初正) + 1).match(/初|一|二|三|四/);
+    刻 = 刻 ? 刻[0] : ""; // 如果沒有匹配到具體的刻，則為空字符串
+
+    // 定位時辰和刻在道曆中的索引
+    let 大時序 = 地_地支.indexOf(時辰);
+    let 刻序 = 地_刻.indexOf(刻);
+
+    // 計算對應的西曆小時（以每兩小時為一個時辰，初時對應0點）
+    let 小時 = (大時序 * 2) % 24; // 確保小時在0-23範圍內
+    // 根據初正確定是上半小時還是下半小時
+    小時 += 初正 === "正" ? 1 : 0;
+    let 分鐘 = Math.floor(刻序 * 14.24); // 每刻視為15分鐘
+
+    // 格式化輸出
+    let 格式化小時 = 小時.toString().padStart(2, "0");
+    let 格式化分鐘 = 分鐘.toString().padStart(2, "0");
+
+    // 返回格式化的時間字符串
+    return `${格式化小時}:${格式化分鐘}`;
 }
 
 function addMobileWarning(test) {
