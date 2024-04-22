@@ -288,62 +288,80 @@
     }
     function 処理(文本) {
         // console.log(文本);
-        let 分割後的列表 = 文本
+        const 每分割 = 文本
             .split(/(\r\n)?\/---\/(\r\n)?/gm)
             .filter(function (value) {
                 if (value != "\r\n") return value;
             });
-        let 修改後的列表 = 分割後的列表.map((項) => {
-            // console.log(
-            //     項
-            //         .replace(/^[\r\n]+/, "")
-            //         .replace(/[\r\n]+$/, "")
-            //         .split(/\n|\r\n/)
-            // );
-            let 更改 = 項
-                .replace(/^[\r\n]+/, "")
-                .replace(/[\r\n]+$/, "")
-                .split(/\n|\r\n/);
-            更改 = [更改[0], 更改.slice(1).join("\n")];
-            更改 = 更改
-                .map(function (v, i) {
-                    let vl = v;
-                    if (i == 0) {
-                        return "<div class='日期'>" + 日期替換(vl) + "</div>";
-                    } else {
-                        return "<div class='內容'>" + 內容替換(vl) + "</div>";
-                    }
-                })
-                .join("");
-            return 更改;
+        const 分割單 = 每分割.map((v, i, a) => {
+            return [
+                v.split(/\n|\r\n/)[0],
+                v
+                    .split(/\n|\r\n/)
+                    .slice(1)
+                    .join("\r\n")
+                    .replace(/^[\r\n]+/, "")
+                    .replace(/[\r\n]+$/, ""),
+            ];
         });
-
-        修改後的列表 = 修改後的列表.reverse().map((item, index, arr) => {
-            const regex = /(?<=\<div class\=\'日期\'\>.+).{4}・.{4}(?=.+)/;
-            const match = item.match(regex);
-            let newItem = item;
-
-            if (index === 0) {
-                newItem = "<hr class='轉日'></hr>" + newItem;
-            }
-
-            if (match) {
-                const dateString = match[0];
-                if (
-                    index < arr.length - 1 &&
-                    arr[index + 1].includes(dateString)
-                ) {
-                    newItem += "<hr class='同日'></hr>";
-                } else if (index !== arr.length - 1) {
-                    newItem += "<hr class='轉日'></hr>";
-                }
-            }
-
-            return newItem;
+        const 轉HTML = 分割單.map((v, i, a) => {
+            const regex = /\d{4}\/\d{2}\/\d{2}/g;
+            return (
+                (i != 0 && v[0].match(regex)[0] == a[i - 1][0].match(regex)[0]
+                    ? `<hr class='轉日'>`
+                    : "") +
+                `<div class='日期'>${日期替換(v[0])}</div>` +
+                `<div class='內容'>${內容替換(v[1])}</div>`
+            );
         });
+        // console.log(轉HTML.join(""));
+        return 轉HTML.reverse().join("");
+        // let 修改後的列表 = 分割後的列表.map((項) => {
+        //     let 分離 = 項
+        //         .replace(/^[\r\n]+/, "")
+        //         .replace(/[\r\n]+$/, "")
+        //         .split(/\n|\r\n/);
+        //     分離 = [分離[0], 分離.slice(1).join("\n")];
+        //     轉HTML = 分離
+        //         .map(function (v, i) {
+        //             let vl = v;
+        //             if (i == 0) {
+        //                 return "<div class='日期'>" + 日期替換(vl) + "</div>";
+        //             } else {
+        //                 return "<div class='內容'>" + 內容替換(vl) + "</div>";
+        //             }
+        //         })
+        //         .join("");
+        //     return 轉HTML;
+        // });
 
-        修改後的列表 = 修改後的列表.join("");
-        return 修改後的列表;
+        // console.log(分離);
+        // 修改後的列表 = 修改後的列表.reverse().map((item, index, arr) => {
+        //     const regex = /(?<=\<div class\=\'日期\'\>.+).{4}・.{4}(?=.+)/;
+        //     const match = item.match(regex);
+        //     let newItem = item;
+
+        //     if (index === 0) {
+        //         newItem = "<hr class='轉日'></hr>" + newItem;
+        //     }
+
+        //     if (match) {
+        //         const dateString = match[0];
+        //         if (
+        //             index < arr.length - 1 &&
+        //             arr[index + 1].includes(dateString)
+        //         ) {
+        //             newItem += "<hr class='同日'></hr>";
+        //         } else if (index !== arr.length - 1) {
+        //             newItem += "<hr class='轉日'></hr>";
+        //         }
+        //     }
+
+        //     return newItem;
+        // });
+
+        // 修改後的列表 = 修改後的列表.join("");
+        // return 修改後的列表;
     }
 
     const 原始文件 = await 異步抓取文件("/assets/日誌.txt");
