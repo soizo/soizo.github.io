@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function 替換mySiteLink框(link) {
     const 替換mySiteLink框 = document.getElementById("mySiteLink框");
-    替換mySiteLink框.value = `<a href="https://soizo.github.io/" target="_blank" style="image-rendering: pixelated;"> <img src="${
+    替換mySiteLink框.value = `<a href="https://soizo.github.io/" target="_blank"> <img src="${
         `https://soizo.github.io/assets/圖象/貼紙/网站/` + link
-    }"></a>`;
+    }" style="image-rendering: pixelated;"></a>`;
 }
