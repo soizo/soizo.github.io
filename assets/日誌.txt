@@ -275,7 +275,7 @@ MON	4721/03/14/08:40
 
 /---/
 MON	4721/03/14/09:07
-早上好中國，我今正在下載一個Osaka Simulator
+早上好中國，我今正在下載一個<a href="https://archive.org/details/osakasimulator" target="_blank">Osaka Simulator</a>
 
 /---/
 TUE	4721/03/16/21:13
