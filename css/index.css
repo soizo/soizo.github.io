@@ -304,6 +304,7 @@ div.塊 *::selection {
 
 #mySiteLink * {
 	cursor: pointer;
+	image-rendering: pixelated;
 }
 
 #mySiteLink框 {
