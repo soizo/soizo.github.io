@@ -129,6 +129,9 @@ function 刷新网䈎() {
     }
 
     function 內容替換(文本) {
+        if (!文本 || 文本 == "") {
+            return "";
+        }
         let 輸出 = 文本;
         function checkClassInHtmlString(htmlString, className) {
             const tempDiv = document.createElement("div");
@@ -178,6 +181,9 @@ function 刷新网䈎() {
     }
 
     function 日期替換(文本) {
+        if (!文本 || 文本 == "") {
+            return "";
+        }
         const 曜 = replaceTextWithDictionary(
             文本.match(/SUN|MON|TUE|WED|THU|FRI|SAT/g)[0],
             七曜
@@ -301,16 +307,21 @@ function 刷新网䈎() {
     }
 
     function 処理(文本) {
-        // console.log(文本);
+        if (!文本 || 文本 == "") {
+            return "";
+        }
         const 每分割 = 文本
             .split(/(\r\n)?\/---\/(\r\n)?/gm)
             .filter(function (value) {
                 if (value != "\r\n") return value;
             });
         const 分割單 = 每分割.map((v, i, a) => {
+            const vWithNoEnters = v
+                .replace(/^[\r\n]+/, "")
+                .replace(/[\r\n]+$/, "");
             return [
-                v.split(/\n|\r\n/)[0],
-                v
+                vWithNoEnters.split(/\n|\r\n/)[0],
+                vWithNoEnters
                     .split(/\n|\r\n/)
                     .slice(1)
                     .join("\r\n")
@@ -320,12 +331,6 @@ function 刷新网䈎() {
         });
         const 轉HTML = 分割單.reverse().map((v, i, a) => {
             const regex = /\d{4}\/\d{2}\/\d{2}/g;
-            // console.log(
-            //     i,
-            //     a[i + 1][0].match(regex)[0],
-            //     i < a.length - 1 &&
-            //         v[0].match(regex)[0] == a[i + 1][0].match(regex)[0]
-            // );
             return (
                 `<div class='日期'>${日期替換(v[0])}</div>` +
                 `<div class='內容'>${內容替換(v[1])}</div>` +
