@@ -149,6 +149,7 @@ function 刷新网䈎() {
         輸出 = 輸出.replace(/([\r\n]+$)/g, "");
         輸出 = 全角替換(輸出);
         輸出 = replaceRubyFormat(輸出);
+        輸出 = issue替換(輸出);
         function 豎排符號一下(inputString) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(inputString, "text/html");
@@ -304,6 +305,16 @@ function 刷新网䈎() {
         // 文本 = replaceTextWithDictionary(文本, 中華日期漢字);
         // 文本 = replaceTextWithDictionary(文本, 七曜);
         // return 文本;
+    }
+
+    function issue替換(input) {
+        console.log(input);
+        const regex = / ##(\d+)## /g;
+        return input.replace(regex, (match, num) => {
+            return `<a href="https://github.com/soizo/soizo.github.io/issues/${num}" target="_blank">井${window.numberToChinese(
+                num
+            )}</a>`;
+        });
     }
 
     function 処理(文本) {
