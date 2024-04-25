@@ -782,7 +782,6 @@ function 橫向捲動() {
                     element == document.body
                 );
             }
-
             function 捲動(target, 橫縱, delta, behavior = "smooth") {
                 if (是否html或body(target)) {
                     window.scrollBy({
@@ -797,12 +796,10 @@ function 橫向捲動() {
                     });
                 }
             }
-
             function 可捲動邪(element, delta = 0) {
                 const style = window.getComputedStyle(element);
                 const overflowX = style.overflowX;
                 const overflowY = style.overflowY;
-
                 const horizontal = {
                     canScroll:
                         element.scrollWidth > element.clientWidth + delta,
@@ -816,7 +813,6 @@ function 橫向捲動() {
                         !(overflowX == "hidden" || overflowX == "visible") &&
                         element.scrollWidth > element.clientWidth + delta,
                 };
-
                 const vertical = {
                     canScroll:
                         element.scrollHeight > element.clientHeight + delta,
@@ -830,13 +826,11 @@ function 橫向捲動() {
                         !(overflowY == "hidden" || overflowY == "visible") &&
                         element.scrollHeight > element.clientHeight + delta,
                 };
-
                 return {
                     horizontal: horizontal,
                     vertical: vertical,
                 };
             }
-
             function 判斷執行(element, e) {
                 console.log(e);
                 if (!element) {
@@ -854,12 +848,12 @@ function 橫向捲動() {
                     ) {
                         e.preventDefault();
                         e.stopPropagation();
-                        捲動(element, shiftKey, delta, "smooth");
+                        捲動(element, shiftKey, delta, "auto");
                     } else {
                         if (是否html或body(element)) {
                             e.preventDefault();
                             e.stopPropagation();
-                            捲動(element, !shiftKey, delta, "smooth");
+                            捲動(element, !shiftKey, delta, "auto");
                         } else {
                             判斷執行(element.parentNode, e);
                         }
