@@ -783,7 +783,7 @@ function 橫向捲動() {
                 );
             }
 
-            function 滾動(target, 橫縱, delta, behavior = "smooth") {
+            function 捲動(target, 橫縱, delta, behavior = "smooth") {
                 if (是否html或body(target)) {
                     window.scrollBy({
                         [橫縱 ? "top" : "left"]: 橫縱 ? delta : -delta,
@@ -798,7 +798,7 @@ function 橫向捲動() {
                 }
             }
 
-            function 可滾動邪(element, delta = 0) {
+            function 可捲動邪(element, delta = 0) {
                 const style = window.getComputedStyle(element);
                 const overflowX = style.overflowX;
                 const overflowY = style.overflowY;
@@ -838,6 +838,7 @@ function 橫向捲動() {
             }
 
             function 判斷執行(element, e) {
+                console.log(e);
                 if (!element) {
                     return;
                 }
@@ -849,25 +850,25 @@ function 橫向捲動() {
                 ) {
                     if (
                         是否html或body(element) ||
-                        可滾動邪(element).horizontal.canReallyScroll
+                        可捲動邪(element).horizontal.canReallyScroll
                     ) {
                         e.preventDefault();
                         e.stopPropagation();
-                        滾動(element, shiftKey, delta, "smooth");
+                        捲動(element, shiftKey, delta, "smooth");
                     } else {
                         if (是否html或body(element)) {
                             e.preventDefault();
                             e.stopPropagation();
-                            滾動(element, !shiftKey, delta, "smooth");
+                            捲動(element, !shiftKey, delta, "smooth");
                         } else {
                             判斷執行(element.parentNode, e);
                         }
                     }
                 } else {
-                    // console.log(可滾動邪(element).vertical.canReallyScroll);
+                    // console.log(可捲動邪(element).vertical.canReallyScroll);
                     if (
                         是否html或body(element) ||
-                        可滾動邪(element).vertical.canReallyScroll
+                        可捲動邪(element).vertical.canReallyScroll
                     ) {
                         return;
                     } else {
