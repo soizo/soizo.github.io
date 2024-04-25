@@ -179,6 +179,16 @@ div.塊 *::selection {
 	}
 }
 
+div.塊>a {
+	color: #5e8ddb;
+	text-decoration: none;
+}
+
+div.塊>a:hover {
+	color: black;
+	background-color: #5e8ddb;
+}
+
 /**                                                                     **/
 /**                                 遮擋下                                 **/
 /**                                                                     **/
@@ -331,10 +341,4 @@ div.塊 *::selection {
 
 #mySiteLink框:focus {
 	outline: none;
-}
-
-#下列>div:nth-child(3)>div:nth-child(3) {
-	width: 284px;
-	background-color: #000000;
-	border-radius: 4px;
 }
