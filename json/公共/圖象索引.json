@@ -11,7 +11,8 @@
 		"我的圖冊": "/assets/圖象/UI/䈎面圖標/dictionary_pictures.ico",
 		"聯繫我": "/assets/圖象/UI/䈎面圖標/phone_desk.ico",
 		"CAMERA": "/assets/圖象/UI/䈎面圖標/camera.ico",
-		"媒體播放器": "/assets/圖象/UI/䈎面圖標/media_player.ico"
+		"媒體播放器": "/assets/圖象/UI/䈎面圖標/media_player.ico",
+		"畫廊": "/assets/圖象/UI/䈎面圖標/kodak_imaging.ico"
 	},
 	"MBTI": {
 		"INFP-T": "/assets/圖象/狗INFP.png"
@@ -23,6 +24,7 @@
 		"GITHUB": "/assets/絵文字/GITHUB.png",
 		"抖音": "/assets/圖象/UI/廠商圖標/抖音.png",
 		"嗶哩嗶哩": "/assets/圖象/UI/廠商圖標/嗶哩嗶哩.png",
-		"小紅書": "/assets/圖象/UI/廠商圖標/小紅書.png"
+		"小紅書": "/assets/圖象/UI/廠商圖標/小紅書.png",
+		"Acfun": "/assets/圖象/UI/廠商圖標/Acfun.png"
 	}
 }
