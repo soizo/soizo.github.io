@@ -7,6 +7,7 @@
 body *,
 body {
 	font-family: "閹割unifont";
+	overflow-y: hidden;
 }
 
 body {
@@ -15,6 +16,11 @@ body {
 	writing-mode: vertical-rl;
 	-webkit-writing-mode: vertical-rl;
 	margin: 50px;
+	overflow-y: hidden;
+}
+
+body>div:first-child {
+	overflow: hidden;
 }
 
 .絵文字圖象 {
@@ -142,6 +148,6 @@ a.按鈕 {
 }
 
 img {
-	max-height: 100%;
+	max-height: 70%;
 	max-width: 500px;
 }
