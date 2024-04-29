@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>畫廊</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="height=device-height, initial-scale=1.0" />
+
+	<script src="/javascript/公共/好多函數！.js"></script>
+	<script src="/javascript/公共/豎排符號.js"></script>
+	<script src="/javascript/公共/絵文字.js"></script>
+	<script src="/javascript/畫廊/畫廊.js"></script>
+	<script src="/javascript/畫廊/畫廊配置.js"></script>
+	<script src="/javascript/畫廊/onclicks.js"></script>
+
+	<link rel="icon" s-href="䈎面圖標：畫廊" type="image/x-icon" />
+	<link href="/css/畫廊/畫廊.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/畫廊/畫廊展示項目.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/功能.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="全部UI" 配色主題="默認">
+		<input type="checkbox" id="sidebarToggle">
+		<label for="sidebarToggle" id="sidebarToggleLabel"></label>
+		<div id="sidebar" class="unselectable">
+			<ul>
+				<li>匣污系</li>
+				<ul>
+					<li><a href="#1赤景靑面怒視目">赤景靑面怒視目</a></li>
+				</ul>
+			</ul>
+		</div>
+		<div id="content" class="unselectable undraggable">
+			<button class="上" onclick="上翻䈎()">
+				<svg xmlns="http://www.w3.orsg/2000/svg" version="1.1" width="100" height="17" opacity="50%">
+					<rect x="32.5" y="0" rx="3.5" ry="3.5" width="35" height="7" />
+					<rect x="25" y="10" rx="3.5" ry="3.5" width="50" height="7" />
+				</svg>
+			</button>
+			<button class="下" onclick="下翻䈎()">
+				<svg xmlns="http://www.w3.orsg/2000/svg" version="1.1" width="100" height="17" opacity="50%">
+					<rect x="32.5" y="10" rx="3.5" ry="3.5" width="35" height="7" />
+					<rect x="25" y="0" rx="3.5" ry="3.5" width="50" height="7" />
+				</svg>
+			</button>
+			<div id="展示">
+				<div class="展示項目" 識別符="赤景靑面怒視目">
+					<img src="/assets/圖象/赤景靑面怒視目.jpg" alt="">
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="法顯東石謔諧然">
+					<img src="/assets/圖象/法顯東石謔諧然.jpg" alt="">
+					<div class="BG"></div>
+					<canvas></canvas>
+					<script>
+						var canvas = document.querySelector(`#展示>.展示項目[識別符="法顯東石謔諧然"]>canvas`);
+						var ctx = canvas.getContext("2d");
+						function draw() {
+							ctx.clearRect(-90, -90, 4000, 4000);
+							const colors = {
+								"#00ff00": 14,
+								"#6cdc5d": 1,
+								"#000": 1,
+								"#fff": 56,
+								"#6cdc5d50": 1,
+								"#004900": 1
+							};
+
+							for (let i = 0; i < Math.random() * 90 + 900; i++) {
+								ctx.fillStyle = window.getRandomElementWithWeight(colors);
+								ctx.fillRect(Math.random() * 800 - 200, Math.random() * 800 - 200, Math.random() * 90, Math.random() * 990);
+							}
+						}
+						draw();
+						setInterval("draw()", 70);
+					</script>
+				</div>
+				<div class="展示項目" 識別符="asd">
+					asdfa
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

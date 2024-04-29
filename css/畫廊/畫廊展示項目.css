@@ -1,0 +1,94 @@
+#全部UI[配色主題="default"],
+#全部UI[配色主題="默認"],
+:root {
+	--colorSidebar: #ffffff50;
+	--colorSidebarItems: #fff;
+	--colorSidebarToggle: #fff;
+	--colorSidebarButtons: #fff;
+}
+
+#全部UI[配色主題="赤景靑面怒視目"] {
+	--colorSidebar: #52060050;
+	--colorSidebarItems: #520600;
+	--colorSidebarToggle: #520600;
+	--colorSidebarButtons: #520600;
+}
+
+#全部UI[配色主題="赤景靑面怒視目"] * {
+	/* display: none; */
+}
+
+#展示>.展示項目[識別符="赤景靑面怒視目"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="赤景靑面怒視目"]>img {
+	max-width: 50%;
+	max-height: 50%;
+}
+
+#展示>.展示項目[識別符="赤景靑面怒視目"]>div.BG {
+	background: red;
+	z-index: -99999;
+}
+
+
+
+#全部UI[配色主題="法顯東石謔諧然"] {
+	--colorSidebar: #ffffff;
+	--colorSidebarItems: #00ff00;
+	--colorSidebarToggle: #00ff00;
+	--colorSidebarButtons: #6cdc5d;
+}
+
+#全部UI[配色主題="法顯東石謔諧然"] * {
+	/* display: none; */
+}
+
+#展示>.展示項目[識別符="法顯東石謔諧然"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="法顯東石謔諧然"]>img {
+	width: auto;
+	height: 40%;
+	image-rendering: pixelated;
+	animation: float 1s ease-in-out infinite;
+}
+
+@keyframes float {
+
+	0%,
+	100% {
+		transform: translateY(50);
+	}
+
+	50% {
+		transform: translateY(-50px);
+	}
+}
+
+#展示>.展示項目[識別符="法顯東石謔諧然"]>div.BG {
+	background: #ffffff;
+	z-index: -99999;
+}
+
+#展示>.展示項目[識別符="法顯東石謔諧然"]>canvas {
+	/* display: none; */
+	position: fixed;
+	z-index: -99998;
+	width: 100vw;
+	height: 100%;
+	image-rendering: pixelated;
+	overflow: visible;
+}

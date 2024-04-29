@@ -981,3 +981,19 @@ function chineseToNumber(chinese) {
     total += currentNumber * bigUnit;
     return total;
 }
+
+function getRandomElementWithWeight(weightedElements) {
+    const elements = Object.keys(weightedElements);
+    const weights = Object.values(weightedElements);
+
+    const totalWeight = weights.reduce((acc, weight) => acc + weight, 0);
+
+    let random = Math.random() * totalWeight;
+
+    for (let i = 0; i < elements.length; i++) {
+        random -= weights[i];
+        if (random < 0) {
+            return elements[i];
+        }
+    }
+}
