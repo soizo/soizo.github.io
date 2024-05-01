@@ -13,6 +13,27 @@ body {
 	background-color: black;
 }
 
+#開屏 {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9999999;
+	background-color: #ffffff;
+	animation: fadeOut 0.3s ease-in-out forwards;
+	pointer-events: none;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		/* display: none; */
+	}
+}
+
 #全部UI {
 	width: 90%;
 	height: 90%;
@@ -46,6 +67,7 @@ body {
 	list-style: none;
 	text-decoration: none;
 	white-space: nowrap;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #sidebar *:not(ul) {
@@ -61,6 +83,7 @@ body {
 #sidebar li a {
 	color: var(--colorSidebarItems);
 	font-size: 20px;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #sidebar li {
@@ -69,6 +92,7 @@ body {
 
 #sidebar li a:hover {
 	text-decoration: underline;
+	padding-left: 5px;
 }
 
 #sidebarToggle {

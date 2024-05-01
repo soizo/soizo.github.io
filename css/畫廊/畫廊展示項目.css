@@ -8,14 +8,12 @@
 }
 
 #全部UI[配色主題="赤景靑面怒視目"] {
-	--colorSidebar: #52060050;
-	--colorSidebarItems: #520600;
+	--colorSidebar: #00ff00;
+	--colorSidebarItems: #520200;
 	--colorSidebarToggle: #520600;
 	--colorSidebarButtons: #520600;
-}
-
-#全部UI[配色主題="赤景靑面怒視目"] * {
-	/* display: none; */
+	--colorSidebarScrollbar: #ff0000;
+	--colorSidebarScrollbarBG: #00ff00;
 }
 
 #展示>.展示項目[識別符="赤景靑面怒視目"] {
@@ -40,14 +38,12 @@
 
 
 #全部UI[配色主題="法顯東石謔諧然"] {
-	--colorSidebar: #ffffff;
-	--colorSidebarItems: #00ff00;
+	--colorSidebar: transparent;
+	--colorSidebarItems: #00d200;
 	--colorSidebarToggle: #00ff00;
 	--colorSidebarButtons: #6cdc5d;
-}
-
-#全部UI[配色主題="法顯東石謔諧然"] * {
-	/* display: none; */
+	--colorSidebarScrollbar: #00ff00;
+	--colorSidebarScrollbarBG: transparent;
 }
 
 #展示>.展示項目[識別符="法顯東石謔諧然"] {
@@ -61,22 +57,23 @@
 
 #展示>.展示項目[識別符="法顯東石謔諧然"]>img {
 	width: auto;
-	height: 40%;
+	min-height: 40%;
 	image-rendering: pixelated;
-	animation: float 1s ease-in-out infinite;
+	animation: 上下 5s ease-in-out infinite;
 }
 
-@keyframes float {
+@keyframes 上下 {
 
 	0%,
 	100% {
-		transform: translateY(50);
+		transform: translateY(20px) scaleX(0.995);
 	}
 
 	50% {
-		transform: translateY(-50px);
+		transform: translateY(-90px);
 	}
 }
+
 
 #展示>.展示項目[識別符="法顯東石謔諧然"]>div.BG {
 	background: #ffffff;
@@ -84,11 +81,318 @@
 }
 
 #展示>.展示項目[識別符="法顯東石謔諧然"]>canvas {
-	/* display: none; */
 	position: fixed;
 	z-index: -99998;
-	width: 100vw;
+	width: 100%;
 	height: 100%;
 	image-rendering: pixelated;
 	overflow: visible;
+	filter: blur(30px);
+}
+
+
+#全部UI[配色主題="驚悚鏡像白目黑白口美羊羊"] {
+	--colorSidebar: transparent;
+	--colorSidebarItems: #ffffff;
+	--colorSidebarToggle: #cda1aa;
+	--colorSidebarButtons: #cda1aa;
+	--colorSidebarScrollbar: #cda1aa;
+	--colorSidebarScrollbarBG: transparent;
+	--colorDescription: white;
+	--colorDescriptionBG: black;
+}
+
+#全部UI[配色主題="驚悚鏡像白目黑白口美羊羊"]>#sidebar ul>li>a:hover {
+	--colorSidebarItems: #cda1aa;
+}
+
+#展示>.展示項目[識別符="驚悚鏡像白目黑白口美羊羊"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="驚悚鏡像白目黑白口美羊羊"]>img {
+	max-width: 50%;
+	max-height: 50%;
+}
+
+#展示>.展示項目[識別符="驚悚鏡像白目黑白口美羊羊"]>div.BG {
+	background: rgb(0, 0, 0);
+	z-index: -99999;
+}
+
+
+#全部UI[配色主題="貓和老鼠錯亂房間"] {
+	--colorSidebar: #9a360b;
+	--colorSidebarItems: #dca934;
+	--colorSidebarToggle: #9a360b;
+	--colorSidebarButtons: #9a360b;
+	--colorSidebarScrollbar: #dca934;
+	--colorSidebarScrollbarBG: #9a360b;
+	--colorDescription: white;
+	--colorDescriptionBG: black;
+}
+
+#全部UI[配色主題="貓和老鼠錯亂房間"]>#sidebar ul>li>a:hover {
+	--colorSidebarItems: #9dc172;
+}
+
+#展示>.展示項目[識別符="貓和老鼠錯亂房間"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="貓和老鼠錯亂房間"]>img {
+	width: 70%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="貓和老鼠錯亂房間"]>div.BG {
+	background: #0d0d0d;
+	z-index: -99999;
+}
+
+
+#全部UI[配色主題="𫜵恩，停𫜵倅發病"] {
+	--colorSidebar: transparent;
+	--colorSidebarItems: #000000;
+	--colorSidebarToggle: #000000;
+	--colorSidebarButtons: #000000;
+	--colorSidebarScrollbar: #000000;
+	--colorSidebarScrollbarBG: transparent;
+	--colorDescription: white;
+	--colorDescriptionBG: #000000;
+}
+
+#全部UI[配色主題="𫜵恩，停𫜵倅發病"]>#sidebar ul>li>a:hover {
+	--colorSidebarItems: #c5b099;
+}
+
+#展示>.展示項目[識別符="𫜵恩，停𫜵倅發病"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="𫜵恩，停𫜵倅發病"]>img {
+	width: 70%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="𫜵恩，停𫜵倅發病"]>div.BG {
+	background: #eaeaec;
+	z-index: -99999;
+	background: url("/assets/圖象/畫廊/其它/𫜵恩，停𫜵倅發病.png");
+	background-size: cover;
+}
+
+
+#全部UI[配色主題="仌屍"] {
+	--colorSidebar: #ff0000;
+	--colorSidebarItems: #0ef4f2;
+	--colorSidebarToggle: #ff0000;
+	--colorSidebarButtons: #ff0000;
+	--colorSidebarScrollbar: #0ef4f2;
+	--colorSidebarScrollbarBG: #ff0000;
+	--colorDescription: #000000;
+	--colorDescriptionBG: white;
+}
+
+#展示>.展示項目[識別符="仌屍"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="仌屍"]>img {
+	max-width: 70%;
+}
+
+#展示>.展示項目[識別符="仌屍"]>div.BG {
+	background: #0bf5f2;
+	z-index: -99999;
+	/* filter: blur(50px); */
+	/* background: url('/assets/圖象/畫廊/仌屍.JPG'); */
+	background-size: cover;
+}
+
+
+#全部UI[配色主題="栗炭千唯"] {
+	--colorSidebar: transparent;
+	--colorSidebarItems: #d41314;
+	--colorSidebarToggle: #66dae0;
+	--colorSidebarButtons: #66dae0;
+	--colorSidebarScrollbar: #66dae0;
+	--colorSidebarScrollbarBG: transparent;
+	--colorDescription: white;
+	--colorDescriptionBG: #000000;
+}
+
+#全部UI[配色主題="栗炭千唯"]>#sidebar ul>li>a:hover {
+	--colorSidebarItems: #66dae0;
+}
+
+#展示>.展示項目[識別符="栗炭千唯"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="栗炭千唯"]>img {
+	max-width: 70%;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
+#展示>.展示項目[識別符="栗炭千唯"]>img:hover {
+	transform: scaleX(1.5) scaleY(2.0);
+}
+
+#展示>.展示項目[識別符="栗炭千唯"]>div.BG {
+	background: url("/assets/圖象/畫廊/其它/栗炭千唯.png");
+	background-size: contain;
+	z-index: -99999;
+	filter: blur(1px);
+}
+
+
+#全部UI[配色主題="病禍"] {
+	--colorSidebar: transparent;
+	--colorSidebarItems: #000000;
+	--colorSidebarToggle: #000000;
+	--colorSidebarButtons: #000000;
+	--colorSidebarScrollbar: #000000;
+	--colorSidebarScrollbarBG: transparent;
+	--colorDescription: white;
+	--colorDescriptionBG: #000000;
+}
+
+#展示>.展示項目[識別符="病禍"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="病禍"]>img {
+	max-width: 70%;
+	max-height: 70%;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
+#展示>.展示項目[識別符="病禍"]>img:hover {
+	transform: scaleX(1.5) scaleY(2.0);
+}
+
+#展示>.展示項目[識別符="病禍"]>div.BG {
+	background: url("/assets/圖象/畫廊/其它/病禍.png");
+	background-size: cover;
+	z-index: -99999;
+	filter: blur(1px);
+}
+
+
+#全部UI[配色主題="ちいかわ"] {
+	--colorSidebar: transparent;
+	--colorSidebarItems: #000000;
+	--colorSidebarToggle: #000000;
+	--colorSidebarButtons: #000000;
+	--colorSidebarScrollbar: #000000;
+	--colorSidebarScrollbarBG: transparent;
+	--colorDescription: white;
+	--colorDescriptionBG: #000000;
+}
+
+#全部UI[配色主題="ちいかわ"]>#sidebar ul>li>a:hover {
+	--colorSidebarItems: #ffedcf;
+}
+
+#展示>.展示項目[識別符="ちいかわ"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="ちいかわ"]>img {
+	max-width: 70%;
+	max-height: 70%;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
+#展示>.展示項目[識別符="ちいかわ"]>img:hover {
+	transform: scaleX(1.5) scaleY(2.0);
+}
+
+#展示>.展示項目[識別符="ちいかわ"]>div.BG {
+	background: url("/assets/圖象/畫廊/其它/風格化蓮肉背.png");
+	background-size: contain;
+	z-index: -99999;
+	filter: blur(3px);
+}
+
+
+#全部UI[配色主題="春日歩持刀可愛核"] {
+	--colorSidebar: #fdd5e8;
+	--colorSidebarItems: #ff669d;
+	--colorSidebarToggle: #fe659c;
+	--colorSidebarButtons: #fe659c;
+	--colorSidebarScrollbar: #f3a3ca;
+	--colorSidebarScrollbarBG: transparent;
+	--colorDescription: white;
+	--colorDescriptionBG: #000000;
+}
+
+#全部UI[配色主題="春日歩持刀可愛核"]>#sidebar ul>li>a:hover {
+	--colorSidebarItems: #0f1316;
+}
+
+#展示>.展示項目[識別符="春日歩持刀可愛核"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="春日歩持刀可愛核"]>img {
+	max-width: 70%;
+	max-height: 70%;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
+#展示>.展示項目[識別符="春日歩持刀可愛核"]>img:hover {
+	transform: scaleX(1.5) scaleY(2.0);
+}
+
+#展示>.展示項目[識別符="春日歩持刀可愛核"]>div.BG {
+	background: #fad5e6;
+	background-size: contain;
+	z-index: -99999;
+	filter: blur(50px);
 }

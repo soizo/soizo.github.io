@@ -832,7 +832,7 @@ function 橫向捲動() {
                 };
             }
             function 判斷執行(element, e) {
-                console.log(e);
+                // console.log(e);
                 if (!element) {
                     return;
                 }
