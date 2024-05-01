@@ -390,9 +390,11 @@ function comment_修改(element) {
     } catch (err) {}
 
     const date = element.querySelector("blockquote > span.date");
+    date.classList.add("時間");
+    date.style.outline = "none";
     const dateContent = String(date.textContent);
-    // const realDateContent114 = ;
-    if ((realDateContent = dateContent.match(/(?<=^· )[\s\S]+$/))) {
+    let realDateContent = dateContent.match(/(?<=^· )[\s\S]+$/);
+    if (realDateContent) {
         realDateContent = realDateContent[0];
         const newRealDateContent = (function (realDateContent) {
             if (realDateContent == "within the last minute") {
@@ -405,7 +407,6 @@ function comment_修改(element) {
                     return `半小時歬`;
                 } else if (matchMinutes < 7.12) {
                     return window.numberToChinese(matchMinutes) + `分鐘歬`;
-                    // return matchMinutes + `分鐘歬`;
                 } else {
                     const base = 14.24;
                     let 刻 = Math.floor(matchMinutes / base);
@@ -437,6 +438,12 @@ function comment_修改(element) {
             ) {
                 matchDays = matchDays[0];
                 return window.numberToChinese(matchDays) + `日歬`;
+            } else if (new Date(realDateContent)) {
+                return window.轉換道曆(
+                    realDateContent,
+                    undefined,
+                    ":=YYYY年MMDD$扁=:"
+                );
             } else {
                 return realDateContent;
             }
