@@ -489,7 +489,7 @@
 }
 
 #展示>.展示項目[識別符="灋顯東石"]>div.BG {
-	background: url("/assets/圖象/畫廊/其它/灋顯東石.JPG");
+	background: url("/assets/圖象/畫廊/其它/灋顯東石.jpg");
 	background-size: contain;
 	z-index: -99999;
 	filter: blur(15px);
@@ -589,7 +589,7 @@
 }
 
 #展示>.展示項目[識別符="天国栗炭千唯"]>div.BG {
-	background: url("/assets/圖象/畫廊/其它/天国栗炭千唯.JPG");
+	background: url("/assets/圖象/畫廊/其它/天国栗炭千唯.jpg");
 	background-size: contain;
 	z-index: -99999;
 	filter: blur(15px);
@@ -704,7 +704,7 @@
 }
 
 #展示>.展示項目[識別符="天に召される"]>div.BG {
-	background: url("/assets/圖象/畫廊/天に召される.JPG");
+	background: url("/assets/圖象/畫廊/天に召される.jpg");
 	background-size: cover;
 	z-index: -99999;
 	filter: blur(70px);
