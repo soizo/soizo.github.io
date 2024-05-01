@@ -161,7 +161,7 @@
 }
 
 
-#全部UI[配色主題="𫜵恩，停𫜵倅發病"] {
+#全部UI[配色主題="滥恩，停滥倅發病"] {
 	--colorSidebar: transparent;
 	--colorSidebarItems: #000000;
 	--colorSidebarToggle: #000000;
@@ -172,11 +172,11 @@
 	--colorDescriptionBG: #000000;
 }
 
-#全部UI[配色主題="𫜵恩，停𫜵倅發病"]>#sidebar ul>li>a:hover {
+#全部UI[配色主題="滥恩，停滥倅發病"]>#sidebar ul>li>a:hover {
 	--colorSidebarItems: #c5b099;
 }
 
-#展示>.展示項目[識別符="𫜵恩，停𫜵倅發病"] {
+#展示>.展示項目[識別符="滥恩，停滥倅發病"] {
 	flex-grow: 1;
 	display: flex;
 	justify-content: center;
@@ -185,15 +185,15 @@
 	height: 100%;
 }
 
-#展示>.展示項目[識別符="𫜵恩，停𫜵倅發病"]>img {
+#展示>.展示項目[識別符="滥恩，停滥倅發病"]>img {
 	width: 70%;
 	height: 100%;
 }
 
-#展示>.展示項目[識別符="𫜵恩，停𫜵倅發病"]>div.BG {
+#展示>.展示項目[識別符="滥恩，停滥倅發病"]>div.BG {
 	background: #eaeaec;
 	z-index: -99999;
-	background: url("/assets/圖象/畫廊/其它/𫜵恩，停𫜵倅發病.png");
+	background: url("/assets/圖象/畫廊/其它/滥恩，停滥倅發病.png");
 	background-size: cover;
 }
 
