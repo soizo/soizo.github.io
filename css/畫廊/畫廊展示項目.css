@@ -263,7 +263,7 @@
 }
 
 
-#全部UI[配色主題="栗炭千唯"] {
+#全部UI[配色主題="栗炭千唯悪靈"] {
 	--colorSidebar: transparent;
 	--colorSidebarItems: #d41314;
 	--colorSidebarToggle: #66dae0;
@@ -274,11 +274,11 @@
 	--colorDescriptionBG: #000000;
 }
 
-#全部UI[配色主題="栗炭千唯"]>#sidebar ul>li>a:hover {
+#全部UI[配色主題="栗炭千唯悪靈"]>#sidebar ul>li>a:hover {
 	--colorSidebarItems: #66dae0;
 }
 
-#展示>.展示項目[識別符="栗炭千唯"] {
+#展示>.展示項目[識別符="栗炭千唯悪靈"] {
 	flex-grow: 1;
 	display: flex;
 	justify-content: center;
@@ -287,14 +287,14 @@
 	height: 100%;
 }
 
-#展示>.展示項目[識別符="栗炭千唯"]>img {
+#展示>.展示項目[識別符="栗炭千唯悪靈"]>img {
 	height: 50%;
 	image-rendering: pixelated;
 	pointer-events: none;
 }
 
-#展示>.展示項目[識別符="栗炭千唯"]>div.BG {
-	background: url("/assets/圖象/畫廊/其它/栗炭千唯.png");
+#展示>.展示項目[識別符="栗炭千唯悪靈"]>div.BG {
+	background: url("/assets/圖象/畫廊/其它/栗炭千唯悪靈.png");
 	background-size: contain;
 	z-index: -99999;
 	filter: blur(1px);
