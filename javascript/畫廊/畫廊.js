@@ -1,5 +1,8 @@
 var displays = {};
 
+var 展示區 = null;
+var 展示項目 = null;
+
 document.addEventListener("DOMContentLoaded", () => {
     const sidebarToggleLabel = document.getElementById("sidebarToggleLabel");
     const sidebarToggle = document.getElementById("sidebarToggle");
@@ -10,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const 識別符 = element.getAttribute("識別符");
         displays[識別符] = element.style.display;
     });
+
+    展示區 = document.querySelector("#展示");
+    展示項目 = Array.from(document.querySelectorAll("#展示>div.展示項目"));
 
     hash變動(location.hash);
 
@@ -44,6 +50,12 @@ window.addEventListener("hashchange", () => {
     hash變動(location.hash);
 });
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 function hash變動(hash) {
     const 全部UI = document.getElementById("全部UI");
     const hashContent = decodeURIComponent(hash.slice(1));
@@ -54,16 +66,18 @@ function hash變動(hash) {
     } else {
         document.title = `畫廊`;
     }
-    document.querySelectorAll("#展示>div.展示項目").forEach((element) => {
-        const 識別符 = element.getAttribute("識別符");
-        if (識別符 && 識別符 == hashContent) {
-            element.style.display = displays.hasOwnProperty(識別符)
-                ? displays[識別符]
-                : "flex";
-        } else {
-            element.style.display = "none";
-        }
-    });
+    if (展示項目 && 展示區) {
+        removeAllChildNodes(展示區);
+        展示項目.forEach((element) => {
+            const 識別符 = element.getAttribute("識別符");
+            if (識別符 && 識別符 === hashContent) {
+                element.style.display = displays.hasOwnProperty(識別符)
+                    ? displays[識別符]
+                    : "flex";
+                展示區.appendChild(element);
+            }
+        });
+    }
 
     document.getElementById("開屏").style.opacity = 1;
 

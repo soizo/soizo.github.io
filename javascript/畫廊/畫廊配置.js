@@ -33,7 +33,7 @@ function objectToHTML(obj) {
     let html = "<ul>";
     for (let key in obj) {
         if (typeof obj[key] === "object" && obj[key] !== null) {
-            html += `<li>${key}</li><ul>`;
+            html += `<li class="夾">${key}</li><ul>`;
             for (let innerKey in obj[key]) {
                 if (
                     typeof obj[key][innerKey] === "object" &&

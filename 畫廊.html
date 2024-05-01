@@ -42,6 +42,10 @@
 				</svg>
 			</button>
 			<div id="展示">
+				<div class="展示項目" 識別符="薹綠水藍多視目">
+					<img src="/assets/圖象/畫廊/薹綠水藍多視目.jpg" alt="">
+					<div class="BG"></div>
+				</div>
 				<div class="展示項目" 識別符="赤景靑面怒視目">
 					<img src="/assets/圖象/畫廊/赤景靑面怒視目.jpg" alt="">
 					<div class="BG"></div>
@@ -70,6 +74,10 @@
 					<img src="/assets/圖象/畫廊/病禍.JPG" alt="">
 					<div class="BG"></div>
 				</div>
+				<div class="展示項目" 識別符="赤目">
+					<img src="/assets/圖象/畫廊/赤目.png" alt="">
+					<div class="BG"></div>
+				</div>
 				<div class="展示項目" 識別符="ちいかわ">
 					<img src="/assets/圖象/畫廊/ちいかわ.JPG" alt="">
 					<div class="BG"></div>
@@ -77,16 +85,89 @@
 				<div class="展示項目" 識別符="春日歩持刀可愛核">
 					<img src="/assets/圖象/畫廊/春日歩持刀可愛核.JPG" alt="">
 					<div class="BG"></div>
+					<canvas class="star"></canvas>
+					<script src="/javascript/畫廊/內用/春日歩持刀可愛核/star.js"></script>
+					<script style="display: none;">
+						const cfg = {
+							"star": {
+								"min_size": 60,
+								"max_size": 90,
+								"rot": 0,
+								"rot_step": 1,
+								"min_step": 2,
+								"max_step": 5,
+								"num": 70,
+								"hue": 20
+							},
+							"canvas": {
+								"width": window.innerWidth,
+								"height": window.innerHeight,
+								"interval": -30,
+								"globalAlpha": 0.9,
+								"direction": "down",
+								"x": window.innerWidth,
+								"y": 0 - window.innerHeight,
+							}
+						}
+
+						const loadStar = (star, cfg) => {
+							setImg(star)
+							initCanvas(cfg)
+							initPocket('star')
+							runAnimation()
+						}
+
+						const el_star_img = document.createElement('img')
+						el_star_img.src = '/assets/圖象/畫廊/其它/star.png'
+
+						loadStar(el_star_img, cfg)
+					</script>
+				</div>
+				<div class="展示項目" 識別符="灋顯東石">
+					<img src="/assets/圖象/畫廊/灋顯東石.JPG" alt="">
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="合息">
+					<img src="/assets/圖象/畫廊/合息.JPG" alt="">
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="水啚丹它甲骨文">
+					<img src="/assets/圖象/畫廊/水啚丹它甲骨文.JPG" alt="">
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="天国栗炭千唯">
+					<img src="/assets/圖象/畫廊/天国栗炭千唯.JPG" alt="">
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="天に召される">
+					<img src="/assets/圖象/畫廊/天に召される.JPG" alt="">
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="夢">
+					<img src="/assets/圖象/畫廊/夢.JPG" alt="">
+					<script>
+						let images夢 = ["/assets/圖象/畫廊/夢.JPG", "/assets/圖象/畫廊/夢_1.PNG", "/assets/圖象/畫廊/夢_2.PNG", "/assets/圖象/畫廊/夢_3.PNG"]
+						window.startImageCarousel('#展示>.展示項目[識別符="夢"]>img', images夢, 850);
+					</script>
+					<div class="BG"></div>
+				</div>
+				<div class="展示項目" 識別符="赤目IMG">
+					<img src="/assets/圖象/畫廊/赤目IMG_9516.jpg" alt="">
+					<script>
+						let images赤目IMG = ["/assets/圖象/畫廊/赤目IMG_9516.jpg", "/assets/圖象/畫廊/赤目IMG_9517.jpg"]
+						window.startImageCarousel('#展示>.展示項目[識別符="赤目IMG"]>img', images赤目IMG, 2000);
+					</script>
+					<div class="BG"></div>
 				</div>
 				<div class="展示項目" 識別符="法顯東石謔諧然">
 					<img src="/assets/圖象/畫廊/法顯東石謔諧然.jpg" alt="">
 					<div class="BG"></div>
 					<canvas></canvas>
 					<script>
-						var canvas = document.querySelector(`#展示>.展示項目[識別符="法顯東石謔諧然"]>canvas`);
-						var ctx = canvas.getContext("2d");
+						var canvas法顯東石謔諧然 = document.querySelector(`#展示>.展示項目[識別符="法顯東石謔諧然"]>canvas`);
+						var ctx法顯東石謔諧然 = canvas法顯東石謔諧然.getContext("2d");
 						function draw() {
-							ctx.clearRect(-90, -90, 4000, 4000);
+							ctx法顯東石謔諧然.clearRect(-90, -90, 4000, 4000);
 							const colors = {
 								"#00ff00": 14,
 								"#6cdc5d": 1,
@@ -97,8 +178,8 @@
 							};
 
 							for (let i = 0; i < Math.random() * 90 + 900; i++) {
-								ctx.fillStyle = window.getRandomElementWithWeight(colors);
-								ctx.fillRect(Math.random() * 800 - 200, Math.random() * 800 - 200, Math.random() * 90, Math.random() * 990);
+								ctx法顯東石謔諧然.fillStyle = window.getRandomElementWithWeight(colors);
+								ctx法顯東石謔諧然.fillRect(Math.random() * 800 - 200, Math.random() * 800 - 200, Math.random() * 90, Math.random() * 990);
 							}
 						}
 						draw();

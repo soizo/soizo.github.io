@@ -997,3 +997,31 @@ function getRandomElementWithWeight(weightedElements) {
         }
     }
 }
+
+function startImageCarousel(selector, images, interval) {
+    let currentImageIndex = 0;
+    const elements = document.querySelectorAll(selector);
+    if (elements.length === 0) {
+        console.error("指定元素不存在");
+        return;
+    }
+
+    function updateImage() {
+        elements.forEach((element) => {
+            if (element.tagName === "IMG") {
+                element.src = images[currentImageIndex];
+            } else {
+                element.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+            }
+        });
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+    }
+
+    updateImage();
+
+    const timer = setInterval(updateImage, interval);
+
+    return () => {
+        clearInterval(timer);
+    };
+}

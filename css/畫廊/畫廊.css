@@ -82,8 +82,12 @@ body {
 #sidebar li,
 #sidebar li a {
 	color: var(--colorSidebarItems);
-	font-size: 20px;
+	font-size: 17px;
 	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#sidebar>ul li.夾 {
+	font-size: 23px;
 }
 
 #sidebar li {
@@ -133,12 +137,13 @@ body {
 
 #content,
 #content * {
-	overflow: hidden;
+	overflow: visible;
 }
 
 #展示 {
 	width: 100%;
 	height: 100%;
+	overflow: visible;
 }
 
 #content>button {
@@ -177,4 +182,8 @@ body {
 	top: 0;
 	left: 0;
 	overflow: hidden;
+}
+
+#展示>.展示項目 {
+	overflow: visible;
 }
