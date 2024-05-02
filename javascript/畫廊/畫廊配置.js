@@ -30,10 +30,11 @@ function extractStringValues(obj) {
 }
 
 function objectToHTML(obj) {
-    let html = "<ul>";
+    let i = 0;
+    let html = `<ul id="sidebar夾">`;
     for (let key in obj) {
         if (typeof obj[key] === "object" && obj[key] !== null) {
-            html += `<li class="夾">${key}</li><ul>`;
+            html += `<label for="sidebar夾Toggle_${i}" class="sidebar夾ToggleLabel">${key}</label><input type="checkbox" id="sidebar夾Toggle_${i}" style="display:none;" class="sidebar夾Toggle"><ul class="sidebar夾裏">`;
             for (let innerKey in obj[key]) {
                 if (
                     typeof obj[key][innerKey] === "object" &&
@@ -43,10 +44,11 @@ function objectToHTML(obj) {
                     html += `<li><a href="#${innerKey}">${displayName}</a></li>`;
                 }
             }
-            html += "</ul>";
+            html += `</ul>`;
         }
+        i++;
     }
-    html += "</ul>";
+    html += `</ul>`;
     return html;
 }
 
@@ -71,3 +73,14 @@ function 下翻䈎() {
         location.hash = values[0];
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("keydown", (e) => {
+        if (e.key == "ArrowUp" || e.key == "ArrowLeft") {
+            上翻䈎();
+        }
+        if (e.key == "ArrowDown" || e.key == "ArrowRight") {
+            下翻䈎();
+        }
+    });
+});

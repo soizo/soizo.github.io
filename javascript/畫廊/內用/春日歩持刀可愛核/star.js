@@ -140,12 +140,12 @@ window.onresize = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
         cancelAnimationFrame(idx1);
-
+        console.log(window.innerWidth);
         config.canvas.width = window.innerWidth;
         config.canvas.height = window.innerHeight;
 
         initCanvas(config);
         initPocket("star");
         runAnimation();
-    }, 100);
+    }, 0);
 };

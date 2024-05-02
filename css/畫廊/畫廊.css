@@ -65,32 +65,56 @@ body {
 
 #sidebar * {
 	list-style: none;
-	text-decoration: none;
 	white-space: nowrap;
 	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-#sidebar *:not(ul) {
+#sidebar *:not(ul, label) {
 	padding-left: 0;
+	text-decoration: none;
 }
 
-#sidebar li,
-#sidebar ul {
+#sidebar ul,
+#sidebar label {
+	padding-left: 10px;
+}
+
+#sidebar ul,
+#sidebar label {
 	padding-left: 10px;
 }
 
 #sidebar li,
+#sidebar label,
 #sidebar li a {
 	color: var(--colorSidebarItems);
 	font-size: 17px;
 	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-#sidebar>ul li.夾 {
+#sidebar li a:hover {
+	color: var(--colorSidebarItemsHover);
+}
+
+#sidebar>ul label {
 	font-size: 23px;
 }
 
-#sidebar li {
+.sidebar夾裏 {
+	padding-left: 10px;
+}
+
+.sidebar夾Toggle:checked+.sidebar夾裏 {
+	border-left: 5px solid var(--colorSidebarItems);
+	margin-left: 10px;
+}
+
+.sidebar夾Toggle:checked+.sidebar夾裏>li {
+	margin-left: -5px;
+}
+
+#sidebar li,
+#sidebar label {
 	font-weight: bold;
 }
 
@@ -182,8 +206,26 @@ body {
 	top: 0;
 	left: 0;
 	overflow: hidden;
+	pointer-events: none;
 }
 
 #展示>.展示項目 {
 	overflow: visible;
+}
+
+.sidebar夾裏 {
+	height: 0;
+	overflow: hidden;
+}
+
+.sidebar夾Toggle:checked+.sidebar夾裏 {
+	height: auto;
+}
+
+.sidebar夾ToggleLabel {
+	cursor: pointer;
+}
+
+.sidebar夾ToggleLabel:hover {
+	text-decoration: underline;
 }
