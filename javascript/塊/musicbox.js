@@ -196,6 +196,15 @@ function setMusicBoxStyles() {
         songName.style.fontSmooth = "never";
         songName.style.webkitFontSmoothing = "none";
         songName.style.width = "150px";
+        songName.direction = "left";
+        songName.addEventListener("mouseover", function () {
+            this.stop();
+        });
+        songName.addEventListener("mouseout", function () {
+            this.start();
+        });
+        songName.setAttribute("onmouseover", "this.stop();");
+        songName.setAttribute("onmouseout", "this.start();");
     }
 
     const artist = musicBox.querySelector(".artist");
