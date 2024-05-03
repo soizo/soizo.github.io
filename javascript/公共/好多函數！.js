@@ -106,30 +106,25 @@ function 橫書文字方向應用器() {
     function processElement(element) {
         let children = Array.from(element.childNodes);
 
-        // 遍历子节点
         children.forEach((child) => {
             if (child.nodeType === Node.TEXT_NODE) {
-                // 如果是文本节点，根据父元素的属性决定是否反转
                 if (element.getAttribute("＜－＞") === "＜") {
                     child.textContent = reverseText(child.textContent);
                 }
             } else if (child.nodeType === Node.ELEMENT_NODE) {
-                // 如果是元素节点，递归处理
                 processElement(child);
             }
         });
 
-        // 如果是从右到左，且当前元素自身包含文本，需要将所有子元素的内容反转
         if (
             element.getAttribute("＜－＞") === "＜" &&
             element.childNodes.length > 1
         ) {
             let combinedText = combineTextContent(element);
-            element.textContent = combinedText; // 替换整个元素内容
+            element.textContent = combinedText;
         }
     }
 
-    // 合并元素的所有文本内容，适用于父级是RTL的情况
     function combineTextContent(element) {
         let texts = Array.from(element.childNodes).map(
             (node) => node.textContent
@@ -137,14 +132,36 @@ function 橫書文字方向應用器() {
         return texts.reverse().join(" ");
     }
 
-    // 定义一个函数用于反转文本
     function reverseText(text) {
-        return text.split("").reverse().join("");
+        const emojiRegex =
+            /(\p{Emoji_Presentation}\p{Emoji_Modifier}?|\p{Emoji}\uFE0F?|\u200d|\u0023\uFE0F?\u20E3|\u002A\uFE0F?\u20E3|[\u0030-\u0039]\uFE0F?\u20E3)/gu;
+        let parts = text.match(emojiRegex) || [];
+        return parts.length
+            ? parts.reverse().join("")
+            : text.split("").reverse().join("");
     }
 
-    // 获取所有含有自定义属性＜－＞的元素，并处理
     var elements = document.querySelectorAll("[＜－＞]");
     elements.forEach(processElement);
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (
+                mutation.type === "childList" ||
+                mutation.type === "characterData"
+            ) {
+                processElement(mutation.target);
+            }
+        });
+    });
+
+    elements.forEach((element) => {
+        observer.observe(element, {
+            childList: true,
+            characterData: true,
+            subtree: true,
+        });
+    });
 }
 
 async function 異步抓取文件(filePath) {
