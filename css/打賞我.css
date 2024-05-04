@@ -1,0 +1,187 @@
+@font-face {
+	font-display: swap;
+	font-family: '閹割unifont';
+	src: url('/fonts/閹割unifont-Medium.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: '只需HanaMinA';
+	src: url('/fonts/只需HanaMinA.ttf') format('TrueType');
+}
+
+:lang(han-char) {
+	text-orientation: upright;
+}
+
+/**                                                                     **/
+/**                                  配置                                 **/
+/**                                                                     **/
+
+
+body *,
+body {
+	overflow-y: hidden;
+	font-family: '閹割unifont';
+}
+
+body {
+	margin: 0;
+	color: white;
+	background-size: cover;
+	writing-mode: horizontal-tb;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: left top;
+	background: #d3e5cf;
+}
+
+#大容器 {
+	display: grid;
+	--大容器邊距: 15px;
+	padding: var(--大容器邊距);
+	grid-gap: var(--大容器邊距);
+	height: calc(100vh - var(--大容器邊距) * 2);
+	grid:
+		'二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   直書語言切換   直書語言切換'
+		'二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   直書介紹   直書介紹'
+		'二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   二維碼   直書介紹   直書介紹'
+		'橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹  直書介紹  直書介紹'
+		'橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹  直書介紹  直書介紹'
+		'橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹  直書介紹  直書介紹'
+		'橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹  直書介紹  直書介紹'
+		'橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹  直書介紹  直書介紹'
+		'橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹 橫書介紹  直書介紹  直書介紹'
+	;
+}
+
+#大容器>* {
+	font-size: 30px;
+	border-radius: 4px;
+	color: hsl(106, 21%, 40%);
+}
+
+#直書介紹 {
+	grid-area: 直書介紹;
+	background-color: rgb(255, 255, 255);
+	writing-mode: vertical-rl;
+	padding: var(--大容器邊距);
+}
+
+#橫書介紹,
+#橫書介紹 *,
+#直書介紹,
+#直書介紹 *:not(span) {
+	margin: 0;
+	overflow: hidden;
+}
+
+#橫書介紹>h1 {
+	padding-bottom: 10px;
+}
+
+#直書介紹>h1 {
+	padding-left: 10px;
+}
+
+#直書介紹 span.小 {
+	height: 0.7em;
+	overflow: visible;
+	display: inline-flex;
+	transform: translate(0.15em, -0.3em);
+}
+
+
+#橫書介紹::selection,
+#橫書介紹 *::selection,
+#直書介紹::selection,
+#直書介紹 *::selection {
+	color: #ffffff;
+	background-color: hsl(106, 21%, 60%);
+}
+
+#橫書介紹 h1,
+#直書介紹 h1 {
+	font-size: 40px;
+}
+
+#橫書介紹 p,
+#直書介紹 p {
+	white-space: pre-wrap;
+}
+
+#橫書介紹 {
+	grid-area: 橫書介紹;
+	background-color: rgb(255, 255, 255);
+	padding: var(--大容器邊距);
+}
+
+#二維碼 {
+	grid-area: 二維碼;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#二維碼>a {
+	width: auto;
+	height: 80%;
+	margin: 0 5%;
+	display: flex;
+	overflow: hidden;
+	user-select: none;
+	border-radius: 4px;
+	object-fit: contain;
+	align-items: center;
+	justify-content: center;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#二維碼>a>img {
+	max-width: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	user-select: none;
+	border-radius: 4px;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#二維碼>a:hover,
+#二維碼>a>img:hover {
+	border-radius: 13px;
+	transform: scale(1.03);
+}
+
+#二維碼>a:active,
+#二維碼>a>img:active {
+	transform: scale(0.97);
+}
+
+#直書語言切換 {
+	padding: 0;
+	border: none;
+	display: flex;
+	cursor: pointer;
+	font-size: 30px;
+	color: #d3e5cf;
+	user-select: none;
+	text-align: center;
+	align-items: center;
+	grid-area: 直書語言切換;
+	justify-content: center;
+	background-color: hsl(106, 21%, 40%);
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+	height: 2em;
+}
+
+#直書語言切換:hover {
+	font-size: 35px;
+	color: hsl(106, 21%, 20%);
+	background-color: hsl(106, 21%, 60%);
+}
+
+#直書語言切換:active {
+	font-size: 30px;
+	background-color: hsl(106, 21%, 50%);
+}

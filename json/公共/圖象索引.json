@@ -12,7 +12,8 @@
 		"聯繫我": "/assets/圖象/UI/䈎面圖標/phone_desk.ico",
 		"CAMERA": "/assets/圖象/UI/䈎面圖標/camera.ico",
 		"媒體播放器": "/assets/圖象/UI/䈎面圖標/media_player.ico",
-		"畫廊": "/assets/圖象/UI/䈎面圖標/kodak_imaging.ico"
+		"畫廊": "/assets/圖象/UI/䈎面圖標/kodak_imaging.ico",
+		"打賞我": "/assets/圖象/UI/䈎面圖標/doctor_watson.ico"
 	},
 	"MBTI": {
 		"INFP-T": "/assets/圖象/狗INFP.png"

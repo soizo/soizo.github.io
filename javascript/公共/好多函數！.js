@@ -116,13 +116,15 @@ function 橫書文字方向應用器() {
             }
         });
 
-        if (
-            element.getAttribute("＜－＞") === "＜" &&
-            element.childNodes.length > 1
-        ) {
-            let combinedText = combineTextContent(element);
-            element.textContent = combinedText;
-        }
+        try {
+            if (
+                element.getAttribute("＜－＞") === "＜" &&
+                element.childNodes.length > 1
+            ) {
+                let combinedText = combineTextContent(element);
+                element.textContent = combinedText;
+            }
+        } catch (err) {}
     }
 
     function combineTextContent(element) {
