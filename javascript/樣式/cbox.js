@@ -390,7 +390,6 @@ function comment_修改(element) {
     } catch (err) {}
 
     const date = element.querySelector("blockquote > span.date");
-    date.classList.add("時間");
     date.style.outline = "none";
     const dateContent = String(date.textContent);
     let realDateContent = dateContent.match(/(?<=^· )[\s\S]+$/);
@@ -439,6 +438,7 @@ function comment_修改(element) {
                 matchDays = matchDays[0];
                 return window.numberToChinese(matchDays) + `日歬`;
             } else if (new Date(realDateContent)) {
+                date.classList.add("時間");
                 return window.轉換道曆(
                     realDateContent,
                     undefined,
