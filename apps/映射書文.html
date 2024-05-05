@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.9" />
+	<link rel="icon" href="/assets/圖象/UI/䈎面圖標/映射書文.png" type="image/png" />
+	<!-- ThemeColor -->
+	<meta name="theme-color" content="#688b5e">
+	<!-- iOS 所需的 Meta 標籤 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#688b5e">
+	<meta name="apple-mobile-web-app-title" content="映射書文">
+	<link rel="apple-touch-icon" href="/assets/圖象/應用圖標/映射書文.png">
+
+	<title>映射書文</title>
+	<link rel="preload" href="/fonts/閹割unifont-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<link rel="stylesheet" href="/apps/映射書文/css/映射書文.css">
+	<link rel="stylesheet" href="/css/滾動條/方滾動條.css">
+	<script src="/apps/映射書文/javascript/映射書文.js"></script>
+
+</head>
+
+<body>
+	<h1>映射書文</h1>
+	<label for="inputText">輸入文本：</label><br>
+	<textarea id="inputText" rows="10" class="自訂滾動條" 滾動條theme="泉此方綠反轉"></textarea><br>
+	<select id="schemeSelector" onfocus="this.size=6;" onblur="this.size=0;" onchange="this.size=1; this.blur()"
+		class="自訂滾動條" 滾動條theme="泉此方綠反轉">
+		<option value="項：惡">惡</option>
+		<option value="項：數學">數學</option>
+		<option value="項：心經">心經</option>
+		<option value="項：大悲咒">大悲咒</option>
+		<option value="項：大悲咒和心經">大悲咒和心經</option>
+		<option value="項：佛說">佛說</option>
+		<!-- <option value="佛說"></option> -->
+	</select>
+	<label for="seed" name="種子">種子：</label>
+	<input id="seed" type="text" value="">
+	<label for="seed" name="隨機值"></label><br>
+	<button onclick="映射書文應用()">生成</button>
+	<button onclick="映射書文複製輸出()">複製輸出</button>
+	<button onclick="映射書文複製用字()">複製用字</button>
+	<button onclick="映射書文複製當䈎()">複製當䈎鏈接</button>
+	<br>
+	<div readonly id="output" rows="10" class="自訂滾動條" 滾動條theme="泉此方綠反轉"></div>
+	<div id="charSetOutput"></div>
+	<div id="charSetOutputCount"></div>
+
+</body>
+
+</html>
