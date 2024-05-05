@@ -28,7 +28,7 @@ const 字母小寫全角 = "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑ�
 
 const 不要的字符 = 符號大全 + 扁符號 + "\n" + "\r" + "\t" + "\r\t";
 
-let 用戶改變了input了嗎 = false;
+let 用戶改變了seed了嗎 = false;
 
 function 映射書文(seed, meta) {
     const inputText = document.getElementById("inputText").value;
@@ -195,17 +195,19 @@ function 加載查詢參數() {
     const inputText = queryParams.get("inputText");
     const seed = queryParams.get("seed");
     const scheme = queryParams.get("scheme");
-    const inputChanged = queryParams.get("inputChanged");
+    const seedChanged = queryParams.get("seedChanged");
 
     if (inputText) {
         document.getElementById("inputText").value =
             decodeURIComponent(inputText);
-        用戶改變了input了嗎 = inputChanged === "true";
+        用戶改變了seed了嗎 = seedChanged === "true";
     }
     if (seed) {
         const seedInput = document.getElementById("seed");
-        seedInput.value = decodeURIComponent(seed);
-        seedInput.dataset.userSet = "true"; // 標記為用戶已設置
+        const 隨機值 = document.querySelector(`body > label[name="隨機值"]`);
+        (seedChanged == "true" ? seedInput : 隨機值).value =
+            decodeURIComponent(seed);
+        // seedInput.dataset.userSet = "true";
     }
     if (scheme) {
         const schemeSelector = document.getElementById("schemeSelector");
@@ -227,14 +229,14 @@ function 更新地址欄參數() {
     const scheme = encodeURIComponent(
         document.getElementById("schemeSelector").value
     );
-    const inputChanged = 用戶改變了input了嗎 ? "true" : "false";
+    const seedChanged = 用戶改變了seed了嗎 ? "true" : "false";
 
     const queryParams = new URLSearchParams(window.location.search);
+
     queryParams.set("inputText", inputText);
     queryParams.set("seed", seed);
     queryParams.set("scheme", scheme);
-    queryParams.set("inputChanged", inputChanged);
-
+    queryParams.set("seedChanged", seedChanged);
     history.pushState(null, "", "?" + queryParams.toString());
 }
 
@@ -266,8 +268,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById("schemeSelector")
         .addEventListener("change", 更新地址欄參數);
 
-    document.getElementById("inputText").addEventListener("input", () => {
-        用戶改變了input了嗎 = true;
+    document.getElementById("seed").addEventListener("input", () => {
+        用戶改變了seed了嗎 = true;
         更新地址欄參數();
         映射書文應用();
     });
