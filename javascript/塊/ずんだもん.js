@@ -7,28 +7,30 @@ const ずんだもん本體 = document.createElement("div");
 ずんだもん本體.setAttribute("data-備註", "ずんだもん本體");
 
 ずんだもん本體.style.display = "flex";
-ずんだもん本體.style.position = "fixed";
-ずんだもん本體.style.left = 0;
-ずんだもん本體.style.bottom = "-20px";
-ずんだもん本體.style.height = "200px";
+ずんだもん本體.style.position = "absolute"; // 改為相對定位
+ずんだもん本體.style.left = "0"; // 保持原值，這裡0已是相對於父元素
+ずんだもん本體.style.bottom = "0"; // 改為正值表示向上偏移20px
+ずんだもん本體.style.height = "100%";
+ずんだもん本體.style.width = "100%";
 ずんだもん本體.style.pointerEvents = "none";
 
 const svgCollisionBox = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "svg"
 );
-svgCollisionBox.setAttribute("width", "110px");
-svgCollisionBox.setAttribute("height", "120px");
-svgCollisionBox.style.position = "absolute";
-svgCollisionBox.style.left = "35px";
-svgCollisionBox.style.top = "60px";
+svgCollisionBox.setAttribute("width", "61%");
+svgCollisionBox.setAttribute("height", "60%");
+svgCollisionBox.style.position = "absolute"; // 改為相對定位
+svgCollisionBox.style.left = "16%"; // 保持原值，表示向右偏移35px
+svgCollisionBox.style.top = "28%"; // 保持原值，表示向下偏移60px
 svgCollisionBox.style.pointerEvents = "none";
+
 const rectElement = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "rect"
 );
-rectElement.setAttribute("width", "110px");
-rectElement.setAttribute("height", "120px");
+rectElement.setAttribute("width", "100%");
+rectElement.setAttribute("height", "100%");
 rectElement.setAttribute("x", "0");
 rectElement.setAttribute("y", "0");
 rectElement.setAttribute("fill", "transparent");
