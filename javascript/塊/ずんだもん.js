@@ -100,6 +100,9 @@ var imageElement = document.createElement("img");
 imageElement.setAttribute("data-備註", "ずんだもんimageElement");
 
 imageElement.src = imagesDics["常態"]["常態"];
+imageElement.style.position = "absolute";
+imageElement.style.width = "100%";
+imageElement.style.height = "100%";
 
 ずんだもん.appendChild(ずんだもん本體);
 ずんだもん本體.appendChild(imageElement);
