@@ -94,6 +94,8 @@ const 其餘Dics = {
     爆炸聲: "/assets/音頻/音效/爆発.wav",
 };
 
+preloadPaths(extractPrimitiveValues(imagesDics, audioDics, 其餘Dics));
+
 var imageElement = document.createElement("img");
 imageElement.setAttribute("data-備註", "ずんだもんimageElement");
 
@@ -264,9 +266,11 @@ function 爆爆爆爆爆爆炸炸炸炸炸炸() {
     newImageElement.src = 其餘Dics["爆炸圖"];
     newImageElement.style.cursor = "auto";
     newImageElement.style.transition = "opacity 4s ease-in-out";
-    ずんだもん本體.style.left = "-30px";
+    ずんだもん本體.style.bottom = "-10px";
     if (Math.floor((Math.random() * 100) % 2)) {
-        newImageElement.style.transform = "scaleX(-1)";
+        newImageElement.style.transform = "scaleX(-1.2) scaleY(1.2)";
+    } else {
+        newImageElement.style.transform = "scaleX(1.2) scaleY(1.2)";
     }
     setTimeout(function () {
         newImageElement.style.opacity = 0;
@@ -274,4 +278,28 @@ function 爆爆爆爆爆爆炸炸炸炸炸炸() {
     setTimeout(function () {
         ずんだもん.parentNode.removeChild(ずんだもん);
     }, 4000);
+}
+
+function preloadPaths(paths) {
+    paths.forEach((path) => {
+        const img = new Image();
+        img.src = path;
+    });
+}
+
+function extractPrimitiveValues(...objs) {
+    let results = [];
+
+    function extractValues(item) {
+        if (Array.isArray(item)) {
+            item.forEach((element) => extractValues(element));
+        } else if (item !== null && typeof item === "object") {
+            Object.values(item).forEach((value) => extractValues(value));
+        } else {
+            results.push(item);
+        }
+    }
+
+    objs.forEach((obj) => extractValues(obj));
+    return results;
 }
