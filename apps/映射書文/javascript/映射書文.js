@@ -181,10 +181,9 @@ function 映射書文複製輸出() {
 
 function 映射書文複製用字() {
     const charSetOutput = document.querySelector("#charSetOutput");
-    if (!charSetOutput) {
+    if (charSetOutput.innerText == "") {
         映射書文顯示用字();
-    }
-    if (!charSetOutput.innerText == "") {
+        映射書文複製用字();
         return;
     }
     navigator.clipboard.writeText(charSetOutput.innerText);
