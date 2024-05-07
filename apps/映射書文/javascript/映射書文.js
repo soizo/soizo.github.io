@@ -243,6 +243,15 @@ function 映射書文複製當䈎() {
     navigator.clipboard.writeText(window.location.href);
 }
 
+function 映射書文複製種子() {
+    const queryParams = new URLSearchParams(window.location.search);
+    // const inputText = queryParams.get("inputText");
+    const seed = queryParams.get("seed");
+    // const scheme = queryParams.get("scheme");
+    // const seedChanged = queryParams.get("seedChanged");
+    navigator.clipboard.writeText(decodeURI(seed));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const elementOutput = document.querySelector("#inputText");
     elementOutput.addEventListener("input", () => {
