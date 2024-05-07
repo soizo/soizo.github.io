@@ -342,3 +342,28 @@ div.塊>a:hover {
 #mySiteLink框:focus {
 	outline: none;
 }
+
+#AppsWindow {
+	height: 525px;
+	width: 200px;
+	min-width: 100px;
+	max-width: 400px;
+	min-height: 200px;
+	max-height: 750px;
+	resize: both;
+	top: 28px;
+	right: 1340px;
+	z-index: 2000;
+}
+
+#AppsWindow .window-body a {
+	font-size: 20px;
+	margin-left: 10px;
+	overflow: hidden;
+	color: #000000;
+	text-decoration: none;
+}
+
+#AppsWindow .window-body a:hover {
+	text-decoration: underline;
+}

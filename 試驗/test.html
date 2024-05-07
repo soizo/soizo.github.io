@@ -4,32 +4,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SoundCloud API Example</title>
-	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			// 使用 fetch API 请求通过 CORS 代理的 SoundCloud 搜索页面
-			fetch('https://cors-anywhere.herokuapp.com/https://soundcloud.com/search?q=Kikuo%20-%20I%27m%20sorry%2C%20I%27m%20sorry', {
-				headers: {
-					'X-Requested-With': 'XMLHttpRequest'  // Some CORS proxies require this header
-				}
-			})
-				.then(response => response.text())
-				.then(data => {
-					// 处理返回的 HTML 数据
-					console.log(data);  // 这里可以看到返回的 HTML，你需要进一步解析 HTML 来找到封面图链接
-					// 你可以使用 DOMParser 或其他前端库来解析 HTML 并抽取需要的数据
-				})
-				.catch(error => {
-					console.log('Request failed', error);
-				});
-
-		});
-	</script>
+	<link rel="stylesheet" href="/css/公共/直書窗格.css">
+	<script src="/javascript/公共/直書窗格.js"></script>
+	<style>
+		body {
+			writing-mode: vertical-rl;
+		}
+	</style>
 </head>
 
 <body>
-	<h1>SoundCloud API Test</h1>
-	<p>Check the console for output.</p>
+	asdf
+	<div class="S98Style" S98Type="window"
+		style="min-width: 100px;max-width: 400px;min-height: 200px;max-height: 750px;resize: both;top: 50px;right: 50px;">
+		<div class="title-bar">
+			<div class="title-bar-text">ＡＰＰＳ</div>
+			<div class="title-bar-controls">
+				<button aria-label="Minimize"></button>
+				<button aria-label="Maximize"></button>
+				<button aria-label="Close"></button>
+			</div>
+		</div>
+		<div class="window-body">
+			<p></p>
+		</div>
+	</div>
 </body>
 
 </html>
