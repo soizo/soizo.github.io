@@ -218,6 +218,7 @@ function 刷新网䈎() {
         }
 
         const 返回日期 = (function () {
+            console.log(日期, 今日);
             if (日期 == 今日) {
                 if (時間) {
                     const 時間差 = calculateTimeDifferenceInSeconds(
@@ -308,7 +309,7 @@ function 刷新网䈎() {
     }
 
     function issue替換(input) {
-        console.log(input);
+        // console.log(input);
         const regex = / ##(\d+)## /g;
         return input.replace(regex, (match, num) => {
             return `<a href="https://github.com/soizo/soizo.github.io/issues/${num}" target="_blank">井${window.numberToChinese(

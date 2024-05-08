@@ -542,7 +542,7 @@ function 轉換道曆(input, trans = true, 格式) {
                                 return 顯_月日[0];
                         }
                     case "D": /// 日
-                        return 顯_月日[1];
+                        return 填充0(顯_月日[1], match.length);
                     case "H": /// 时
                         switch (match.length) {
                             case 1:
