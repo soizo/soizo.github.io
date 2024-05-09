@@ -12,7 +12,7 @@
 	<script src="/javascript/畫廊/畫廊.js"></script>
 	<script src="/javascript/畫廊/畫廊配置.js"></script>
 	<script src="/javascript/畫廊/onclicks.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/javascript/外來/jquery.min.js"></script>
 
 	<link rel="icon" s-href="䈎面圖標：畫廊" type="image/x-icon" />
 	<link href="/css/畫廊/畫廊.css" rel="stylesheet" type="text/css" media="all" />
@@ -92,7 +92,7 @@
 					<canvas class="star"></canvas>
 					<script src="/javascript/畫廊/內用/春日歩持刀可愛核/star.js"></script>
 					<script style="display: none;">
-						const cfg = {
+						const starCfg = {
 							"star": {
 								"min_size": 60,
 								"max_size": 90,
@@ -114,17 +114,17 @@
 							}
 						}
 
-						const loadStar = (star, cfg) => {
-							setImg(star)
-							initCanvas(cfg)
-							initPocket('star')
-							runAnimation()
+						const loadStar = (star, starCfg) => {
+							starSetImg(star)
+							starInitCanvas(starCfg)
+							starInitPocket('star')
+							starRunAnimation()
 						}
 
 						const el_star_img = document.createElement('img')
 						el_star_img.src = '/assets/圖象/畫廊/其它/star.png'
 
-						loadStar(el_star_img, cfg)
+						loadStar(el_star_img, starCfg)
 					</script>
 				</div>
 				<div class="展示項目" 識別符="灋顯東石">
