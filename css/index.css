@@ -344,16 +344,21 @@ div.塊>a:hover {
 }
 
 #AppsWindow {
-	height: 525px;
-	width: 200px;
-	min-width: 100px;
+	height: calc(100% - 15px);
+	/* height: 525px; */
+	/* width: 200px; */
+	/* min-width: 100px;
 	max-width: 400px;
-	min-height: 200px;
-	max-height: 750px;
-	resize: both;
+	min-height: 200px; */
+	/* max-height: calc(100% - 15px); */
+	/* resize: both; */
 	top: 28px;
 	right: 1340px;
 	z-index: 2000;
+	display: block;
+	position: inherit;
+	margin-top: 5px;
+	margin-right: 30px;
 }
 
 #AppsWindow .window-body a {
