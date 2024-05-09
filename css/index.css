@@ -365,5 +365,5 @@ div.塊>a:hover {
 }
 
 #AppsWindow .window-body a:hover {
-	text-decoration: underline;
+	text-decoration: underline solid 1px;
 }

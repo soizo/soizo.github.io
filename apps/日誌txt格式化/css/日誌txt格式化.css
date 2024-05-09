@@ -1,0 +1,179 @@
+@font-face {
+	font-family: '閹割unifont';
+	src: url('/fonts/閹割unifont-Medium.woff2') format('woff2');
+	font-display: swap;
+}
+
+body {
+	margin: 20px;
+	background: #779f6b;
+	color: #ffffff;
+	font-size: 20px;
+	user-select: none;
+}
+
+body * {
+	font-family: '閹割unifont';
+}
+
+button {
+	cursor: pointer;
+	background-color: transparent;
+	color: #ffffff;
+	border: none;
+	font-size: 20px;
+	border-radius: 4px;
+	margin-right: 10px;
+	padding: 5px 10px;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+button:hover {
+	background-color: #688b5e;
+}
+
+button:active {
+	color: #688b5e;
+	background-color: #ffee93;
+}
+
+body>label {
+	display: block;
+}
+
+#schemeSelector {
+	cursor: pointer;
+	margin-top: 5px;
+	position: absolute;
+	right: 20px;
+	background-color: #779f6b;
+	color: #ffffff;
+	border: none;
+	font-size: 20px;
+	border-radius: 4px;
+	outline: none;
+	margin-right: 10px;
+	overflow-y: visible;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+	outline: none;
+}
+
+#schemeSelector>option {
+	background-color: #688b5e;
+	padding: 5px 10px;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#schemeSelector>option:first-child {
+	border-radius: 4px 4px 0 0;
+}
+
+#schemeSelector>option:last-child {
+	border-radius: 0 0 4px 4px;
+}
+
+#schemeSelector>option:hover {
+	color: #688b5e;
+	background-color: #ffee93;
+}
+
+#schemeSelector>option:focus {
+	display: none;
+}
+
+textarea {
+	width: calc(100% - 20px / 2);
+	color: #dff1db;
+	background-color: #779f6b;
+	border: unset;
+	border: #00000010 solid 2px;
+	border-radius: 4px;
+	font-size: 20px;
+	padding: 10px;
+}
+
+textarea::selection,
+textarea *::selection {
+	color: #688b5e;
+	background-color: #dff1db;
+}
+
+textarea:focus {
+	outline: none;
+	border: #00000030 solid 2px;
+	background-color: #00000020;
+}
+
+textarea::placeholder {
+	color: #dff1db50;
+
+}
+
+textarea:focus::placeholder {
+	color: #dff1db80;
+}
+
+#output {
+	width: calc(100% - 20px);
+	padding: 10px;
+	margin: 20px 0;
+	border-radius: 5px;
+	white-space: pre-wrap;
+	background-color: #688b5e;
+	user-select: text;
+	color: white;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 500px;
+}
+
+#output::selection,
+#output *::selection {
+	color: #688b5e;
+	background-color: #dff1db;
+}
+
+#seed {
+	margin-top: 5px;
+	background-color: #688b5e;
+	color: #ffffff;
+	border: none;
+	font-size: 20px;
+	border-radius: 4px;
+	outline: none;
+	overflow-y: visible;
+	transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+	outline: none;
+	padding: 5px 10px;
+	width: 100px;
+}
+
+#seed::selection {
+	color: #688b5e;
+	background-color: #dff1db;
+}
+
+label[for="seed"] {
+	display: inline-block;
+	padding: 10px;
+}
+
+#charSetOutput {
+	margin-bottom: 10px;
+	user-select: text;
+}
+
+#charSetOutput::selection {
+	color: #688b5e;
+	background-color: #dff1db;
+}
+
+#charSetOutputCount {
+	font-size: 17px;
+	color: #dff1db;
+}
+
+body>label[name="隨機值"] {
+	margin: -125px;
+	pointer-events: none;
+}
