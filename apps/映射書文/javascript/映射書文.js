@@ -197,8 +197,7 @@ function 加載查詢參數() {
     const seedChanged = queryParams.get("seedChanged");
 
     if (inputText) {
-        document.getElementById("inputText").value =
-            decodeURIComponent(inputText);
+        document.getElementById("inputText").value = base64Decode(inputText);
         用戶改變了seed了嗎 = seedChanged === "true";
     }
     if (seed) {
@@ -206,7 +205,6 @@ function 加載查詢參數() {
         const 隨機值 = document.querySelector(`body > label[name="隨機值"]`);
         (seedChanged == "true" ? seedInput : 隨機值).value =
             decodeURIComponent(seed);
-        // seedInput.dataset.userSet = "true";
     }
     if (scheme) {
         const schemeSelector = document.getElementById("schemeSelector");
@@ -217,9 +215,7 @@ function 加載查詢參數() {
 }
 
 function 更新地址欄參數() {
-    const inputText = encodeURIComponent(
-        document.getElementById("inputText").value
-    );
+    const inputText = base64Encode(document.getElementById("inputText").value);
     var seed = document.getElementById("seed").value;
     if (!seed) {
         seed = document.querySelector(`body > label[name="隨機值"]`).innerText;
@@ -282,3 +278,20 @@ document.addEventListener("DOMContentLoaded", () => {
         映射書文應用();
     });
 });
+
+function base64Encode(str) {
+    return btoa(
+        encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (match, p1) =>
+            String.fromCharCode("0x" + p1)
+        )
+    );
+}
+
+function base64Decode(str) {
+    return decodeURIComponent(
+        atob(str)
+            .split("")
+            .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+            .join("")
+    );
+}
