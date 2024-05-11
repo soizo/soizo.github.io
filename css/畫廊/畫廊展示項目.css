@@ -289,6 +289,52 @@
 }
 
 
+#全部UI[配色主題="栗炭千唯悪靈再進"] {
+	--colorSidebar: #ffffff;
+	--colorSidebarItems: #160610;
+	--colorSidebarItemsHover: transparent;
+	--colorSidebarToggle: #700712;
+	--colorSidebarButtons: #0a5a5a;
+	--colorSidebarScrollbar: #a14c4f;
+	--colorSidebarScrollbarBG: #ec0c15;
+	--colorDescription: white;
+	--colorDescriptionBG: #000000;
+}
+
+#展示>.展示項目[識別符="栗炭千唯悪靈再進"] {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+#展示>.展示項目[識別符="栗炭千唯悪靈再進"]>img {
+	height: 50%;
+	image-rendering: pixelated;
+	pointer-events: none;
+}
+
+#展示>.展示項目[識別符="栗炭千唯悪靈再進"]>div.BG {
+	/* background: url("/assets/圖象/畫廊/栗炭千唯悪靈再進.png"); */
+	background-color: #eb0a12;
+	background-size: 123px;
+	z-index: -99999;
+	filter: blur(90px);
+}
+
+/* #展示>.展示項目[識別符="栗炭千唯悪靈再進"]>div.BG::after {
+	z-index: 9999999;
+	position: fixed;
+	height: 900px;
+	width: 900px;
+	background-color: #000000;
+	top: 0;
+	left: 0;
+} */
+
+
 #全部UI[配色主題="病禍"] {
 	--colorSidebar: transparent;
 	--colorSidebarItems: #000000;
