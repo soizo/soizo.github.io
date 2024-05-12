@@ -51,28 +51,28 @@
 		var 栗炭千唯你別笑 = document.getElementById('栗炭千唯你別笑');
 		栗炭千唯你別笑.volume = 0.1;
 		// 嘗試自動播放
-		var 栗炭千唯你別PlayPromise = 栗炭千唯你別笑.play();
+		var 栗炭千唯你別笑PlayPromise = 栗炭千唯你別笑.play();
 
-		if (栗炭千唯你別PlayPromise !== undefined) {
-			栗炭千唯你別PlayPromise.then(_ => {
+		if (栗炭千唯你別笑PlayPromise !== undefined) {
+			栗炭千唯你別笑PlayPromise.then(_ => {
 				// 自動播放開始時執行
 				console.log("Audio is playing automatically.");
 			}).catch(error => {
 				// 自動播放失敗時執行
 				console.log("Auto-play was prevented. Waiting for interaction.");
 				// 監聽鼠標移動或按鍵事件
-				document.addEventListener('keydown', 栗炭千唯你別PlayAudio);
-				document.addEventListener('mousemove', 栗炭千唯你別PlayAudio);
-				document.body.addEventListener('click', 栗炭千唯你別PlayAudio);
+				document.addEventListener('keydown', 栗炭千唯你別笑PlayAudio);
+				document.addEventListener('mousemove', 栗炭千唯你別笑PlayAudio);
+				document.body.addEventListener('click', 栗炭千唯你別笑PlayAudio);
 			});
 		}
 
-		function 栗炭千唯你別PlayAudio() {
+		function 栗炭千唯你別笑PlayAudio() {
 			栗炭千唯你別笑.play();
 			// 移除事件監聽，避免重複播放
-			document.removeEventListener('keydown', 栗炭千唯你別PlayAudio);
-			document.removeEventListener('mousemove', 栗炭千唯你別PlayAudio);
-			document.body.removeEventListener('click', 栗炭千唯你別PlayAudio);
+			// document.removeEventListener('keydown', 栗炭千唯你別笑PlayAudio);
+			// document.removeEventListener('mousemove', 栗炭千唯你別笑PlayAudio);
+			// document.body.removeEventListener('click', 栗炭千唯你別笑PlayAudio);
 		}
 	</script>
 	<div id="圖後">
