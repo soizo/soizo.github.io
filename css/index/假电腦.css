@@ -1,0 +1,178 @@
+#假电腦 {
+	position: relative;
+	display: block;
+	height: 100%;
+}
+
+#假电腦,
+#假电腦 * {
+	user-select: none;
+}
+
+#假电腦 * {
+	cursor: url('/assets/圖象/UI/index/电腦/鼠标指针/default.cur'), default;
+}
+
+/* #假电腦 div[識別符=电腦框] {
+	position: absolute;
+} */
+
+#假电腦>[識別符=电腦框] {
+	height: 100%;
+	image-rendering: pixelated;
+	z-index: 999;
+	position: relative;
+	pointer-events: none;
+}
+
+#假电腦>[識別符=电腦屏幕] {
+	height: 100%;
+	/* width: 100%; */
+	image-rendering: pixelated;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 888;
+	mix-blend-mode: screen;
+	pointer-events: none;
+}
+
+#假电腦>[識別符=桌面] {
+	height: 100%;
+	width: 100%;
+	image-rendering: pixelated;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: -10;
+	pointer-events: none;
+	opacity: 97%;
+}
+
+#假电腦>[識別符=桌面底欄] {
+	height: 73%;
+	width: 6%;
+	/* background-color: silver; */
+	/* box-shadow: inset 1px -1px #dfdfdf, 0 -1px #000, -1px 0 #000, -1px -1px #000; */
+	position: absolute;
+	left: 9%;
+	/* z-index: 999; */
+	z-index: 777;
+	border-left: 1px solid #4e4e4e;
+	top: 10%;
+	background-color: rgb(192, 192, 192);
+	border-left-color: rgb(78, 78, 78);
+	border-left-style: solid;
+	border-bottom-width: 1px;
+	border-right-color: rgb(244, 244, 244);
+	border-right-style: solid;
+	border-right-width: 1px;
+	box-shadow: rgb(255, 255, 255) 0px 1px 0px 0px inset;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+#假电腦>[識別符=桌面底欄]>button {
+	background-color: silver;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	box-shadow: inset 1px 1px #dfdfdf, 1px 0 #000, 0 1px #000, 1px 1px #000;
+	color: #000;
+	padding: 1.3%;
+	margin-top: 2%;
+	z-index: 1;
+	position: absolute;
+	left: -1.5%;
+	top: -0.7%;
+}
+
+#假电腦>[識別符=桌面底欄]>button:active {
+	box-shadow: inset 1px 1px #000, 1px 0 #dfdfdf, 0 1px #dfdfdf, 1px 1px #dfdfdf;
+}
+
+#假电腦>[識別符=桌面底欄]>button:active>img {
+	transform: translate(15%, 1%);
+}
+
+#假电腦>[識別符=桌面底欄]>button>img {
+	image-rendering: pixelated;
+	transform: translateX(5%);
+}
+
+#假电腦>[識別符=桌面圖標] {
+	height: 73%;
+	width: 76%;
+	image-rendering: pixelated;
+	position: absolute;
+	top: 10%;
+	right: 9%;
+	z-index: 0;
+	/* background: red; */
+	display: flex;
+	flex-wrap: wrap;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	padding-top: 5%;
+}
+
+#假电腦 div[識別符="單桌面圖標"] {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 6%;
+	display: block;
+	overflow: visible;
+}
+
+#假电腦 img[識別符="單桌面圖標圖標"] {
+	width: 50px;
+	height: 50px;
+	/* margin-bottom: 5px; */
+	justify-content: center;
+	display: flex;
+	overflow: visible;
+}
+
+#假电腦 div[識別符="單桌面圖標字"] {
+	font-size: 14px;
+	margin-right: 10px;
+	justify-content: center;
+	display: flex;
+	text-shadow: #000 0 1px;
+	overflow: visible;
+}
+
+#假电腦>[識別符="桌面圖標"]>[識別符="單桌面圖標"] a {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: white;
+	text-decoration: none;
+	padding: 7px;
+	overflow: visible;
+	position: relative;
+	align-items: center;
+}
+
+#假电腦>[識別符="桌面圖標"]>[識別符="單桌面圖標"] a,
+#假电腦>[識別符="桌面圖標"]>[識別符="單桌面圖標"] a *,
+#假电腦>[識別符=桌面底欄]>button,
+#假电腦>[識別符=桌面底欄]>button * {
+	cursor: url('/assets/圖象/UI/index/电腦/鼠标指针/pointer.cur'), pointer;
+}
+
+#假电腦>[識別符="桌面圖標"]>[識別符="單桌面圖標"] a>[識別符="單桌面圖標圖標"] {
+	overflow: visible;
+	image-rendering: pixelated;
+	filter: grayscale(100%) contrast(100%) brightness(200%) drop-shadow(1px 1px 0 black) drop-shadow(-1px 1px 0 black) drop-shadow(1px -1px 0 black) drop-shadow(-1px -1px 0 black) drop-shadow(1px 1px 0px #000000);
+
+	justify-content: center;
+	align-items: center;
+}
+
+#假电腦>[識別符="桌面圖標"]>[識別符="單桌面圖標"].向 a {
+	color: white;
+	background-color: #000080;
+	outline: dotted 2px black;
+}
