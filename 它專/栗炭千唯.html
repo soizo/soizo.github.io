@@ -55,24 +55,13 @@
 
 		if (栗炭千唯你別笑PlayPromise !== undefined) {
 			栗炭千唯你別笑PlayPromise.then(_ => {
-				// 自動播放開始時執行
 				console.log("Audio is playing automatically.");
 			}).catch(error => {
-				// 自動播放失敗時執行
 				console.log("Auto-play was prevented. Waiting for interaction.");
-				// 監聽鼠標移動或按鍵事件
 				document.addEventListener('keydown', 栗炭千唯你別笑PlayAudio);
 				document.addEventListener('mousemove', 栗炭千唯你別笑PlayAudio);
 				document.body.addEventListener('click', 栗炭千唯你別笑PlayAudio);
 			});
-		}
-
-		function 栗炭千唯你別笑PlayAudio() {
-			栗炭千唯你別笑.play();
-			// 移除事件監聽，避免重複播放
-			// document.removeEventListener('keydown', 栗炭千唯你別笑PlayAudio);
-			// document.removeEventListener('mousemove', 栗炭千唯你別笑PlayAudio);
-			// document.body.removeEventListener('click', 栗炭千唯你別笑PlayAudio);
 		}
 	</script>
 	<div id="圖後">
@@ -142,7 +131,6 @@
 				癌傷癡困癲
 			</div>
 		</div>
-		<!-- <img src="" alt=""> -->
 		<canvas id="栗炭千唯本鬼面雨"></canvas>
 		<script src="/它專/栗炭千唯/javascript/star.js"></script>
 		<script style="display: none;">
@@ -183,7 +171,7 @@
 		<div id="悪靈">悪靈</div>
 		<div id="提示文本">糺咅楽，诔㐔泶</div>
 		<img id="弟壱玖伍悪靈" src="/它專/栗炭千唯/圖象/弟壱玖伍悪靈.png" alt="">
-		<img id="不明語言赤字" src="/它專/栗炭千唯/圖象/不明語言赤字.png" alt="">
+		<img id="不明語言赤字" src="/它專/栗炭千唯/圖象/不明語言赤字.png" alt="" onclick="永遠停止栗炭千唯你別笑();">
 		<img id="栗炭千唯黑瘦鬼" src="/它專/栗炭千唯/圖象/栗炭千唯黑瘦鬼.png" alt="">
 		<img id="栗炭千唯獨眼無顏女" src="/它專/栗炭千唯/圖象/栗炭千唯獨眼無顏女.png" alt="">
 		<img id="栗炭千唯再進本鬼" src="/它專/栗炭千唯/圖象/栗炭千唯再進本鬼.png" alt="">

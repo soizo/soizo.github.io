@@ -38,11 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const 栗炭千唯黑瘦鬼 = document.getElementById("栗炭千唯黑瘦鬼");
     const 背景文字 = document.getElementById("背景文字");
     const 提示文本 = document.getElementById("提示文本");
+    const 栗炭千唯你別笑 = document.getElementById("栗炭千唯你別笑");
     栗炭千唯黑瘦鬼.addEventListener("click", () => {
         const randomIndex = Math.floor(Math.random() * 語音Objects.length);
         const selectedAudio = 語音Objects[randomIndex];
-        提示文本.innerText = "糺咅楽，诔㐔泶"; // 更新狀態文本
-        提示文本.style.display = "block"; // 顯示狀態元素
+        提示文本.innerText = "糺咅楽，诔㐔泶";
+        提示文本.style.display = "block";
         selectedAudio.play();
     });
     背景文字.addEventListener("click", () => {
@@ -51,10 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
             .writeText(text)
             .then(() => {
                 new Audio(音效["ドアノブをひねる4"]).play();
-                提示文本.innerText = "义夲邔禝裚"; // 更新狀態文本
-                提示文本.style.display = "block"; // 顯示狀態元素
+                提示文本.innerText = "义夲邔禝裚";
+                提示文本.style.display = "block";
                 setTimeout(() => {
-                    提示文本.style.display = "none"; // 5秒後隱藏狀態元素
+                    提示文本.style.display = "none";
                 }, 2000);
             })
             .catch((err) => {
@@ -62,3 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 });
+
+function 永遠停止栗炭千唯你別笑() {
+    var 栗炭千唯你別笑 = document.getElementById("栗炭千唯你別笑");
+    document.removeEventListener("keydown", 栗炭千唯你別笑PlayAudio);
+    document.removeEventListener("mousemove", 栗炭千唯你別笑PlayAudio);
+    document.body.removeEventListener("click", 栗炭千唯你別笑PlayAudio);
+    栗炭千唯你別笑.pause();
+    栗炭千唯你別笑.removeAttribute("autoplay");
+    this.disabled = true;
+    提示文本.innerText = "咅楽邔闋𠂔";
+    提示文本.style.display = "block";
+    setTimeout(() => {
+        提示文本.style.display = "none";
+    }, 2000);
+}
+
+function 栗炭千唯你別笑PlayAudio() {
+    栗炭千唯你別笑.play();
+}
