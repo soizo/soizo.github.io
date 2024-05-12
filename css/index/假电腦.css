@@ -83,22 +83,26 @@
 	margin-top: 2%;
 	z-index: 1;
 	position: absolute;
-	left: -1.5%;
-	top: -0.7%;
+	right: 0;
+	top: 0%;
+	width: 90%;
+	overflow: visible;
 }
 
 #假电腦>[識別符=桌面底欄]>button:active {
 	box-shadow: inset 1px 1px #000, 1px 0 #dfdfdf, 0 1px #dfdfdf, 1px 1px #dfdfdf;
 }
 
+#假电腦>[識別符=桌面底欄]>button>img {
+	width: 100%;
+	image-rendering: pixelated;
+	transform: translateX(5%);
+}
+
 #假电腦>[識別符=桌面底欄]>button:active>img {
 	transform: translate(15%, 1%);
 }
 
-#假电腦>[識別符=桌面底欄]>button>img {
-	image-rendering: pixelated;
-	transform: translateX(5%);
-}
 
 #假电腦>[識別符=桌面圖標] {
 	height: 73%;
