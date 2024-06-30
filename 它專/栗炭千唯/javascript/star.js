@@ -142,7 +142,7 @@ window.onresize = () => {
     clearTimeout(starTimer);
     starTimer = setTimeout(() => {
         cancelAnimationFrame(starIdx1);
-        console.log(window.innerWidth);
+        // console.log(window.innerWidth);
         starConfig.canvas.width = window.innerWidth;
         starConfig.canvas.height = window.innerHeight;
         starInitCanvas(starConfig); // 初始化畫布設置
