@@ -1,0 +1,78 @@
+@font-face {
+	font-family: "Playfair Display SC Black";
+	src: url("../fonts/Playfair_Display_SC/PlayfairDisplaySC-Black.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Playfair Display SC";
+	src: url("../fonts/Playfair_Display_SC/PlayfairDisplaySC-Italic.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "MPLUS1Code";
+	src: url("../fonts/MPLUS1Code-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+	--font-en-disp: "Playfair Display SC Black", serif;
+	--font-disp-2nd: "MPLUS1Code", serif;
+
+	--colour-purewhite: #fff;
+	--colour-pureblack: #000;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	background-color: rgb(255, 255, 255);
+}
+
+#myname {
+	white-space: nowrap;
+	font-size: 18vh;
+	font-family: var(--font-en-disp);
+	color: var(--colour-pureblack);
+	margin-top: -50px;
+}
+
+#myname::selection {
+	background-color: var(--colour-pureblack);
+	color: var(--colour-purewhite);
+	padding-right: 20px;
+}
+
+.myname-container {
+	display: flex;
+	justify-content: flex-end;
+	width: 100vw;
+	box-sizing: border-box;
+	padding-right: 10px;
+	background-color: var(--colour-purewhite);
+}
+
+.links-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 100vw;
+	box-sizing: border-box;
+	margin-top: -20px;
+	padding-right: 20px;
+	font-size: large;
+}
+
+a {
+	text-decoration: underline;
+	color: var(--colour-purewhite);
+	font-family: var(--font-disp-2nd);
+	position: relative;
+	display: inline-block;
+	background-color: var(--colour-pureblack);
+	transform-origin: right;
+	min-width: 10vw;
+}
+
+a:hover {
+	transform: scaleX(2);
+}
