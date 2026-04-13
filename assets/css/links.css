@@ -1,0 +1,41 @@
+a {
+	color: var(--colour-pureblack);
+	text-decoration: none;
+	padding: 0.0em 0em;
+}
+
+a:hover {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+a:active {
+	color: var(--colour-pureblack);
+	background-color: var(--colour-purewhite);
+	text-decoration: underline;
+}
+
+*::selection {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+br{
+	user-select: none;
+}
+
+#main {
+	width: 80%;
+	margin: 5% auto 0;
+	position: relative;
+	max-width: 100%;
+	white-space: nowrap;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#main * {
+	font-size: 200%;
+	width: fit-content;
+}

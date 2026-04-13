@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Font baking - source fonts (too large to track)
+bake/*.ttf
+bake/*.ttc
+bake/*.otf
+.claude/
