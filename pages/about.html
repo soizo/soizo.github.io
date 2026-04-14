@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About</title>
+	<link rel="preload" href="../assets/fonts/baked/playfair-black-subset.woff2" as="font" type="font/woff2"
+		crossorigin>
+	<link rel="preload" href="../assets/fonts/baked/simsun-subset.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/decorations.css">
+	<link rel="stylesheet" href="../assets/css/about.css">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+	<div id="main">
+		<a to="left" href="../index.html">Index</a>
+		<article id="readme"></article>
+	</div>
+	<script>
+		const README_URL = 'https://raw.githubusercontent.com/soizo/Soizo/refs/heads/main/README.md';
+
+		fetch(README_URL)
+			.then(res => {
+				if (!res.ok) throw new Error(res.status);
+				return res.text();
+			})
+			.then(md => {
+				document.getElementById('readme').innerHTML = marked.parse(md);
+			})
+			.catch(() => {
+				document.getElementById('readme').textContent = 'Failed to load README.';
+			});
+	</script>
+</body>
+
+</html>

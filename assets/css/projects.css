@@ -1,0 +1,92 @@
+a {
+	color: var(--colour-pureblack);
+	text-decoration: none;
+	padding: 0.0em 0em;
+}
+
+a:hover {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+a:active {
+	color: var(--colour-pureblack);
+	background-color: var(--colour-purewhite);
+	text-decoration: underline;
+}
+
+*::selection {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+br {
+	user-select: none;
+}
+
+body {
+	overflow-y: scroll;
+}
+
+#main {
+	width: 80%;
+	margin: 5% auto 0;
+	position: relative;
+	max-width: 100%;
+	white-space: nowrap;
+	display: flex;
+	flex-direction: column;
+}
+
+#main>* {
+	font-size: 200%;
+	width: fit-content;
+}
+
+#main>h1,
+#main>h2,
+#main>h3 {
+	font-family: var(--font-en-disp);
+	font-size: 230%;
+}
+
+h1::after,
+h2::after,
+h3::after {
+	content: "";
+	display: block;
+	width: 70vw;
+	min-width: 120%;
+	height: 1px;
+	background-color: currentColor;
+	margin-top: -0.2em;
+}
+
+a[livepage] {
+	position: relative;
+	margin-left: 1.2em;
+}
+
+a[livepage]::before {
+	content: "";
+	position: absolute;
+	left: -1.2em;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1em;
+	height: 1em;
+	background: var(--favicon) no-repeat center / contain;
+}
+
+#main p.note {
+	font-size: 130%;
+	font-family: var(--font-disp-2nd);
+	font-style: italic;
+	text-wrap: auto;
+	margin-block-end: 0.3em;
+	margin-block-start: 0.3em
+}
+
+.blank {
+	height: 3em;
+}

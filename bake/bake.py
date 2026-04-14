@@ -7,6 +7,7 @@ Outputs WOFF2 files to assets/fonts/baked/.
 import os
 import sys
 import subprocess
+import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -14,15 +15,31 @@ from pathlib import Path
 # Configuration
 # ---------------------------------------------------------------------------
 
+README_URL = "https://raw.githubusercontent.com/soizo/Soizo/refs/heads/main/README.md"
+
 FONTS = [
     {
         "source": "simsun.ttc",
+        "source_dir": "bake",
         "output": "simsun-subset.woff2",
         "face_index": 0,
     },
     {
         "source": "PlayfairDisplaySC-Black.ttf",
+        "source_dir": "bake",
         "output": "playfair-black-subset.woff2",
+    },
+    {
+        "source": "WKTrChongBong.ttf",
+        "output": "wktrcb-subset.woff2",
+    },
+    {
+        "source": "Minh Nguyen Regular.ttf",
+        "output": "minhnguyen-subset.woff2",
+    },
+    {
+        "source": "NotoColorEmoji-Regular.ttf",
+        "output": "notocoloremoji-subset.woff2",
     },
 ]
 
@@ -32,7 +49,8 @@ FONTS = [
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
-OUTPUT_DIR = PROJECT_ROOT / "assets" / "fonts" / "baked"
+FONTS_DIR = PROJECT_ROOT / "assets" / "fonts"
+OUTPUT_DIR = FONTS_DIR / "baked"
 
 # ---------------------------------------------------------------------------
 # HTML text extraction
@@ -76,12 +94,27 @@ def extract_text_from_html(path: Path) -> str:
 # Core logic
 # ---------------------------------------------------------------------------
 
+def fetch_readme() -> str:
+    """Fetch the remote README.md used by the about page."""
+    try:
+        with urllib.request.urlopen(README_URL, timeout=10) as resp:
+            return resp.read().decode("utf-8")
+    except Exception as e:
+        print(f"  WARNING: could not fetch README.md ({e}), skipping")
+        return ""
+
+
 def collect_characters(html_files: list[Path]) -> str:
-    """Collect all unique characters from the given HTML files."""
+    """Collect all unique characters from HTML files and the remote README."""
     chars: set[str] = set()
     for f in html_files:
         text = extract_text_from_html(f)
         chars.update(text)
+    # Include characters from the remotely-rendered README.md
+    readme_text = fetch_readme()
+    if readme_text:
+        chars.update(readme_text)
+        print(f"  (including {len(set(readme_text))} unique chars from remote README.md)")
     # Remove whitespace-only characters — they are not useful for subsetting
     chars.discard("")
     return "".join(sorted(chars))
@@ -105,7 +138,8 @@ def fmt_size(nbytes: int) -> str:
 
 def bake_font(font_cfg: dict, characters: str) -> None:
     """Subset a single font using pyftsubset."""
-    source = SCRIPT_DIR / font_cfg["source"]
+    source_dir = SCRIPT_DIR if font_cfg.get("source_dir") == "bake" else FONTS_DIR
+    source = source_dir / font_cfg["source"]
     output = OUTPUT_DIR / font_cfg["output"]
 
     if not source.exists():

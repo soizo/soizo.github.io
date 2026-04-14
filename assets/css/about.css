@@ -1,0 +1,217 @@
+a {
+	color: var(--colour-pureblack);
+	text-decoration: none;
+	padding: 0.0em 0em;
+}
+
+a:hover {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+a:active {
+	color: var(--colour-pureblack);
+	background-color: var(--colour-purewhite);
+	text-decoration: underline;
+}
+
+*::selection {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+br {
+	user-select: none;
+}
+
+#main {
+	width: 80%;
+	margin: 5% auto 0;
+	position: relative;
+	max-width: 800px;
+	font-size: 130%;
+}
+
+#main>a {
+	width: fit-content;
+}
+
+/* --------------------------------------------------------
+   Markdown content rendered inside #readme
+   -------------------------------------------------------- */
+
+#readme {
+	font-family: var(--font-disp-2nd);
+	line-height: 1.7;
+	margin-top: 1.5em;
+}
+
+/* Headings */
+
+#readme h1 {
+	font-family: var(--font-en-disp);
+	font-size: 2.4em;
+	margin: 0.8em 0 0.4em;
+	border-bottom: 2px solid var(--colour-pureblack);
+	padding-bottom: 0.2em;
+	display: none;
+}
+
+#readme h2 {
+	font-family: var(--font-en-disp);
+	font-size: 1.8em;
+	margin: 0.7em 0 0.35em;
+	border-bottom: 1px solid var(--colour-pureblack);
+	padding-bottom: 0.15em;
+}
+
+#readme h3 {
+	font-size: 1.4em;
+	margin: 0.6em 0 0.3em;
+}
+
+#readme h4 {
+	font-size: 1.15em;
+	margin: 0.5em 0 0.25em;
+}
+
+#readme h5,
+#readme h6 {
+	font-size: 1em;
+	margin: 0.5em 0 0.25em;
+}
+
+/* Paragraphs */
+
+#readme p {
+	margin: 0.6em 0;
+}
+
+/* Links inside rendered markdown */
+
+#readme a {
+	color: var(--colour-pureblack);
+	text-decoration: underline;
+}
+
+#readme a:hover {
+	color: var(--colour-purewhite);
+	background-color: var(--colour-pureblack);
+}
+
+/* Lists */
+
+#readme ul,
+#readme ol {
+	padding-left: 1.6em;
+	margin: 0.5em 0;
+}
+
+#readme li {
+	margin: 0.25em 0;
+}
+
+#readme li>ul,
+#readme li>ol {
+	margin: 0.15em 0;
+}
+
+/* Blockquotes */
+
+#readme blockquote {
+	margin: 0.8em 0;
+	padding: 0.4em 1em;
+	border-left: 3px solid var(--colour-pureblack);
+	background: rgba(0, 0, 0, 0.03);
+}
+
+#readme blockquote p {
+	margin: 0.3em 0;
+}
+
+/* Code */
+
+#readme code {
+	font-family: monospace;
+	font-size: 0.9em;
+	background: rgba(0, 0, 0, 0.06);
+	padding: 0.15em 0.35em;
+	border-radius: 2px;
+}
+
+#readme pre {
+	margin: 0.8em 0;
+	padding: 1em;
+	background: var(--colour-pureblack);
+	color: var(--colour-purewhite);
+	overflow-x: auto;
+	border-radius: 2px;
+}
+
+#readme pre code {
+	background: none;
+	padding: 0;
+	color: inherit;
+}
+
+/* Horizontal rules */
+
+#readme hr {
+	border: none;
+	border-top: 1px solid var(--colour-pureblack);
+	margin: 1.5em 0;
+}
+
+/* Tables */
+
+#readme table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0.8em 0;
+}
+
+#readme th,
+#readme td {
+	border: 1px solid var(--colour-pureblack);
+	padding: 0.4em 0.7em;
+	text-align: left;
+}
+
+#readme th {
+	background: var(--colour-pureblack);
+	color: var(--colour-purewhite);
+}
+
+/* Images */
+
+#readme img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Task lists (GitHub-style checkboxes) */
+
+#readme input[type="checkbox"] {
+	margin-right: 0.4em;
+}
+
+/* Strong & emphasis */
+
+#readme strong {
+	font-weight: bold;
+}
+
+#readme em {
+	font-style: italic;
+}
+
+/* Definition lists / details */
+
+#readme details {
+	margin: 0.5em 0;
+}
+
+#readme summary {
+	cursor: pointer;
+	font-weight: bold;
+}

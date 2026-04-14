@@ -50,8 +50,6 @@
 
 [to='left']::before {
 	content: '←';
-	display: inline-block;
-	padding-right: 0.2em;
 }
 
 [to='left']:hover::before {
@@ -60,8 +58,6 @@
 
 [to='right']::before {
 	content: '→';
-	display: inline-block;
-	padding-left: 0.2em;
 }
 
 [to='right']:hover::before {
@@ -70,8 +66,6 @@
 
 [to='up']::before {
 	content: '↑';
-	display: inline-block;
-	padding-right: 0.2em;
 }
 
 [to='up']:hover::before {
@@ -80,10 +74,24 @@
 
 [to='down']::before {
 	content: '↓';
-	display: inline-block;
-	padding-right: 0.2em;
 }
 
 [to='down']:hover::before {
 	content: '⬇︎';
+}
+
+
+#main [to],
+#main>[to],
+[to] {
+	font-size: 40px;
+	line-height: 1;
+	padding: 0;
+	width: fit-content;
+	height: fit-content;
+}
+
+[to]::before {
+	display: inline-block;
+	padding-right: 0.2em;
 }

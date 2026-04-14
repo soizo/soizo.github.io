@@ -8,9 +8,24 @@
 	src: url("../fonts/baked/simsun-subset.woff2") format("woff2");
 }
 
+@font-face {
+	font-family: "WKTrChongBong";
+	src: url("../fonts/baked/wktrcb-subset.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Minh Nguyen";
+	src: url("../fonts/baked/minhnguyen-subset.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Noto Color Emoji";
+	src: url("../fonts/baked/notocoloremoji-subset.woff2") format("woff2");
+}
+
 :root {
 	--font-en-disp: "Playfair Display SC Black", serif;
-	--font-disp-2nd: "SimSun", serif;
+	--font-disp-2nd: "SimSun", "WKTrChongBong", "Minh Nguyen", "Noto Color Emoji", serif;
 	--colour-purewhite: #fff;
 	--colour-pureblack: #000;
 	--colour-purered: #ff0000;

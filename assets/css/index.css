@@ -25,10 +25,12 @@ a:hover {
 
 #myname {
 	white-space: nowrap;
-	font-size: 18vh;
+	font-size: 135px;
 	font-family: var(--font-en-disp);
 	color: var(--colour-pureblack);
 	margin-top: -50px;
+	transform-origin: right;
+	transform: scaleX(clamp(0.7, tan(atan2(100vw, 900px)), 1));
 }
 
 #myname::selection {
