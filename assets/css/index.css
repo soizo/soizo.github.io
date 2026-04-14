@@ -22,7 +22,6 @@ a:hover {
 }
 
 
-
 #myname {
 	white-space: nowrap;
 	font-size: 135px;
@@ -30,8 +29,39 @@ a:hover {
 	color: var(--colour-pureblack);
 	margin-top: -50px;
 	transform-origin: right;
-	transform: scaleX(clamp(0.7, tan(atan2(100vw, 900px)), 1));
+	transform: scaleX(0.8);
 }
+
+@media (min-width: 540px) {
+	#myname {
+		transform: scaleX(0.85);
+	}
+}
+
+@media (min-width: 630px) {
+	#myname {
+		transform: scaleX(0.9);
+	}
+}
+
+@media (min-width: 720px) {
+	#myname {
+		transform: scaleX(0.95);
+	}
+}
+
+@media (min-width: 810px) {
+	#myname {
+		transform: scaleX(0.975);
+	}
+}
+
+@media (min-width: 900px) {
+	#myname {
+		transform: scaleX(1);
+	}
+}
+
 
 #myname::selection {
 	background-color: var(--colour-pureblack);
